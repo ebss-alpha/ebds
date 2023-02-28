@@ -4,3 +4,16 @@
 // 
 
 // Add extra styles here
+
+
+.govspeak {
+    @extend .govuk-body;
+
+    .contact {
+        position: relative;
+        border-left: 1px solid $govuk-border-colour;
+        padding-left: govuk-spacing(3);
+        margin-top: govuk-spacing(6);
+        margin-bottom: govuk-spacing(6);
+    }
+}
