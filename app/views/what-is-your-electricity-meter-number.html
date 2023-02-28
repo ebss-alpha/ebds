@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What is your electricity meter number? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="add-electricity-meter">
+        <div class="govuk-form-group">
+          <div class="govuk-caption-l">{{ data['electricity-supplier'] }} meter {{ data.electricitySuppliers[data.electricitySuppliers.length -1].meterNumbers.length + 1 }} of {{ data.electricitySuppliers[data.electricitySuppliers.length -1].meterNumbers.length + 1 }}</div>
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="meter-number">
+              What is your meter number?
+            </label>
+          </h1>
+          <p class="govuk-hint">
+            Enter a meter number for this supplier. You can add more meter numbers later.
+          </p>
+          <input class="govuk-input govuk-input--width-10" id="meter-number" name="meter-number" type="text">
+        </div>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

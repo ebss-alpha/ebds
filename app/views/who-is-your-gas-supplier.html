@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form action="add-gas-supplier">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <div class="govuk-caption-l">Gas supplier {{ data.gasSuppliers | length + 1 }} of {{ data.gasSuppliers | length
+          + 1 }}</div>
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="gas-supplier">
+            Who is your gas supplier?
+          </label>
+        </h1>
+        <p class="govuk-hint">
+          Find your gas supplier using the input below. If you need to, you can add more gas suppliers later.
+        </p>
+        <select name="gas-supplier" class="govuk-select" id="gas-supplier">
+          <option value="" disabled selected>Select a supplier</option>
+          {% for supplier in data.suppliers %}
+          <option value="{{ supplier.supplierName}}">{{supplier.supplierName}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+    </div>
+  </div>
+</form>
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script>
+  document.querySelectorAll('.govuk-select').forEach(select => {
+    accessibleAutocomplete.enhanceSelectElement({
+      defaultValue: '',
+      autoselect: false,
+      showAllValues: true,
+      selectElement: select,
+      dropdownArrow: () => '<svg style="pointer-events: none; width: 1rem; position: absolute; right: 1rem; top: .66rem;" viewBox="0 0 512 512" ><path d="M256,298.3L256,298.3L256,298.3l174.2-167.2c4.3-4.2,11.4-4.1,15.8,0.2l30.6,29.9c4.4,4.3,4.5,11.3,0.2,15.5L264.1,380.9  c-2.2,2.2-5.2,3.2-8.1,3c-3,0.1-5.9-0.9-8.1-3L35.2,176.7c-4.3-4.2-4.2-11.2,0.2-15.5L66,131.3c4.4-4.3,11.5-4.4,15.8-0.2L256,298.3  z"/></svg>'
+    })
+  })
+</script>
+
+{% endblock %}

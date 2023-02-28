@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+{{ data['gas-supplier'] }} meter numbers
+{% endblock %}
+
+{% block content %}
+<form action="supplier-check">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">{{ data['gas-supplier'] }}</h1>
+      <h2 class="govuk-heading-m">Meter numbers</h2>
+      {% for number in data.gasSuppliers[data.gasSuppliers.length - 1].meterNumbers %}
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Meter {{ loop.index }}
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ number }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+      {% endfor %}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          name: "action",
+          value: "add-gas-meter",
+          classes: "govuk-button--secondary",
+          text: "Add another meter number"
+        }) }}
+      </div>
+      <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-8">
+      <div class="govuk-button-group">
+        {{ govukButton({
+          name: "action",
+          value: "continue-gas",
+          text: "Continue"
+        }) }}
+        {{ govukButton({
+        name: "action",
+        value: "add-gas-supplier",
+        classes: "govuk-button--secondary",
+        text: "Add another supplier"
+        }) }}
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock %}
