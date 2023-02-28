@@ -1,70 +1,91 @@
 module.exports = {
   "suppliers": [
     {
-      "supplierName": "Supplier 1"
+      "supplierName": "BlueFlame Energy"
     },
     {
-      "supplierName": "Supplier 2"
+      "supplierName": "BlueSky Power"
     },
     {
-      "supplierName": "Supplier 3"
+      "supplierName": "BrightSpark Energy"
     },
     {
-      "supplierName": "Supplier 4"
+      "supplierName": "CleanCurrents UK"
     },
     {
-      "supplierName": "Supplier 5"
+      "supplierName": "CleanGenius UK"
     },
     {
-      "supplierName": "Supplier 6"
+      "supplierName": "ClimateWise Energy"
     },
     {
-      "supplierName": "Supplier 7"
+      "supplierName": "EcoEnergi UK"
     },
     {
-      "supplierName": "Supplier 8"
+      "supplierName": "EcoWave Energy"
     },
     {
-      "supplierName": "Supplier 9"
+      "supplierName": "EverGreen Energy"
     },
     {
-      "supplierName": "Supplier 10"
+      "supplierName": "GreenGen UK"
     },
     {
-      "supplierName": "Supplier 11"
+      "supplierName": "GreenGlow Energy"
     },
     {
-      "supplierName": "Supplier 12"
+      "supplierName": "GreenLife Energy"
     },
     {
-      "supplierName": "Supplier 13"
+      "supplierName": "NaturePower UK"
     },
     {
-      "supplierName": "Supplier 14"
+      "supplierName": "OceanBreeze Energy"
     },
     {
-      "supplierName": "Supplier 15"
+      "supplierName": "PowerPlus UK"
     },
     {
-      "supplierName": "Supplier 16"
+      "supplierName": "PureEnergy Solutions"
     },
     {
-      "supplierName": "Supplier 17"
+      "supplierName": "PureWatt Energy"
     },
     {
-      "supplierName": "Supplier 18"
+      "supplierName": "RedSky Energy"
     },
     {
-      "supplierName": "Supplier 19"
+      "supplierName": "RenewGreen UK"
     },
     {
-      "supplierName": "Supplier 20"
+      "supplierName": "Skyline Power"
     },
     {
-      "supplierName": "Supplier 21"
+      "supplierName": "SolarCoast Energy"
     },
     {
-      "supplierName": "Supplier 22"
+      "supplierName": "Solaris Energy"
+    },
+    {
+      "supplierName": "SunScape Energy"
+    },
+    {
+      "supplierName": "SunStream Energy"
+    },
+    {
+      "supplierName": "Sustainable Power Co."
+    },
+    {
+      "supplierName": "TerraWatt Energy"
+    },
+    {
+      "supplierName": "Windward Energy"
+    },
+    {
+      "supplierName": "WindWise Energy"
+    },
+    {
+      "supplierName": "WiseWatt Energy"
     }
   ]
 }

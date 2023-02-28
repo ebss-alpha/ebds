@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% set title %}
+Summary of your supplier{% if data.gasSuppliers.length > 1 or data.electricitySuppliers.length > 1 %}s{% endif %}
+{% endset %}
+
+{% block pageTitle %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+    {% if data.gasSuppliers.length > 0 %}
+    <h2 class="govuk-heading-l">Gas suppliers</h2>
+    {% for supplier in data.gasSuppliers %}
+    <h3 class="govuk-heading-m">{{ supplier.supplier }}</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+      {% for meter in supplier.meterNumbers %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Meter {{ loop.index }}
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ meter }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> number</span>
+          </a>
+        </dd>
+      </div>
+      {% endfor %}
+    </dl>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+{% if data.electricitySuppliers.length > 0 %}
+<div class="govuk-grid-row govuk-!-margin-top-9">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">Electricity suppliers</h2>
+    {% for supplier in data.electricitySuppliers %}
+    <h3 class="govuk-heading-m">{{ supplier.supplier }}</h3>
+    <dl class="govuk-summary-list">
+      {% for meter in supplier.meterNumbers %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Meter {{ loop.index }}
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ meter }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> number</span>
+          </a>
+        </dd>
+      </div>
+      {% endfor %}
+    </dl>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+    <div class="govuk-button-group govuk-!-margin-top-5">
+      {{ govukButton({
+        name: "action",
+        value: "continue-electricity",
+        text: "Continue"
+      }) }}
+    </div>
+  </div>
+</div>
+{% endblock %}
