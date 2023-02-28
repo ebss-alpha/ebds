@@ -1,0 +1,100 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="address-confirmation-check">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+          <div class="govuk-form-group">
+
+            <fieldset class="govuk-fieldset" aria-describedby="is-this-your-address-hint">
+
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+                <h1 class="govuk-fieldset__heading">
+                  Is this your address?
+                </h1>
+
+              </legend>
+
+
+              <div id="is-this-your-address-hint" class="govuk-hint">
+                <p class="govuk-body-l govuk-!-margin-bottom-2">1 Test Street, Test Town, TT1 1AB</p>
+                <p class="govuk-body">If this is not your address, you can enter it manually on the next page</p>
+              </div>
+
+
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+
+
+
+
+
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="is-this-your-address" name="is-this-your-address" type="radio"
+                    value="yes">
+                  <label class="govuk-label govuk-radios__label" for="is-this-your-address">
+                    Yes
+                  </label>
+
+                </div>
+
+
+
+
+
+
+
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="is-this-your-address-2" name="is-this-your-address"
+                    type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="is-this-your-address-2">
+                    No
+                  </label>
+
+                </div>
+
+
+
+
+              </div>
+
+
+            </fieldset>
+
+
+          </div>
+
+
+
+
+
+
+
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
