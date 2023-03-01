@@ -75,30 +75,38 @@ router.get(['/energy-check'], (req, res) => {
   }
 })
 
+router.get(['/who-is-your-gas-supplier'], (req,res) => { res.render('who-is-your-gas-supplier', { gasSuppliers: req.session.gasSuppliers }) })
+router.get(['/what-is-your-gas-meter-number'], (req,res) => { res.render('what-is-your-gas-meter-number', { gasSuppliers: req.session.gasSuppliers }) })
+router.get(['/gas-supplier-summary'], (req,res) => { res.render('gas-supplier-summary', { gasSuppliers: req.session.gasSuppliers }) })
+router.get(['/who-is-your-electricity-supplier'], (req,res) => { res.render('who-is-your-electricity-supplier', { electricitySuppliers: req.session.electricitySuppliers }) })
+router.get(['/what-is-your-electricity-meter-number'], (req,res) => { res.render('what-is-your-electricity-meter-number', { electricitySuppliers: req.session.electricitySuppliers }) })
+router.get(['/electricity-supplier-summary'], (req,res) => { res.render('electricity-supplier-summary', { electricitySuppliers: req.session.electricitySuppliers }) })
+router.get(['/supplier-summary'], (req,res) => { res.render('supplier-summary', { gasSuppliers: req.session.gasSuppliers, electricitySuppliers: req.session.electricitySuppliers }) })
+
 router.get(['/add-gas-supplier'], (req, res) => {
   const supplierName = req.session.data['gas-supplier']
-  if (req.session.data.gasSuppliers === undefined) req.session.data.gasSuppliers = []
-  req.session.data.gasSuppliers.find(entry => entry.supplier === supplierName) ?? req.session.data.gasSuppliers.push({ supplier: supplierName, meterNumbers: [] })
+  if (req.session.gasSuppliers === undefined) req.session.gasSuppliers = []
+  req.session.gasSuppliers.find(entry => entry.supplier === supplierName) ?? req.session.gasSuppliers.push({ supplier: supplierName, meterNumbers: [] })
   res.redirect('/what-is-your-gas-meter-number')
 })
 
 router.get(['/add-electricity-supplier'], (req, res) => {
   const supplierName = req.session.data['electricity-supplier']
-  if (req.session.data.electricitySuppliers === undefined) req.session.data.electricitySuppliers = []
-  req.session.data.electricitySuppliers.find(entry => entry.supplier === supplierName) ?? req.session.data.electricitySuppliers.push({ supplier: supplierName, meterNumbers: [] })
+  if (req.session.electricitySuppliers === undefined) req.session.electricitySuppliers = []
+  req.session.electricitySuppliers.find(entry => entry.supplier === supplierName) ?? req.session.electricitySuppliers.push({ supplier: supplierName, meterNumbers: [] })
   res.redirect('/what-is-your-electricity-meter-number')
 })
 
 router.get(['/add-gas-meter'], (req, res) => {
   const supplierName = req.session.data['gas-supplier']
-  const supplier = req.session.data.gasSuppliers.find(entry => entry.supplier === supplierName)
+  const supplier = req.session.gasSuppliers.find(entry => entry.supplier === supplierName)
   supplier.meterNumbers.push(req.session.data['meter-number'])
   res.redirect('/gas-supplier-summary')
 })
 
 router.get(['/add-electricity-meter'], (req, res) => {
   const supplierName = req.session.data['electricity-supplier']
-  const supplier = req.session.data.electricitySuppliers.find(entry => entry.supplier === supplierName)
+  const supplier = req.session.electricitySuppliers.find(entry => entry.supplier === supplierName)
   supplier.meterNumbers.push(req.session.data['meter-number'])
   res.redirect('/electricity-supplier-summary')
 })

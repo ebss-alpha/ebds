@@ -10,7 +10,7 @@
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">{{ data['gas-supplier'] }}</h1>
       <h2 class="govuk-heading-m">Meter numbers</h2>
-      {% for number in data.gasSuppliers[data.gasSuppliers.length - 1].meterNumbers %}
+      {% for number in gasSuppliers[gasSuppliers.length - 1].meterNumbers %}
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
