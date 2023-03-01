@@ -79,13 +79,23 @@ router.get(['/energy-check'], (req, res) => {
 
 router.get(['/add-gas-supplier'], (req, res) => {
   const supplierName = req.session.data['gas-supplier']
-  req.session.data.gasSuppliers.find(entry => entry.supplier === supplierName) ?? req.session.data.gasSuppliers.push({ supplier: supplierName, meterNumbers: [] })
+  if (!req.session.data.gasSuppliers) {
+    req.session.data.gasSuppliers = []
+  }
+  if (!req.session.data.gasSuppliers.find(entry => entry.supplier === supplierName)) {
+    req.session.data.gasSuppliers.push({ supplier: supplierName, meterNumbers: [] })
+  }
   res.redirect('/what-is-your-gas-meter-number')
 })
 
 router.get(['/add-electricity-supplier'], (req, res) => {
   const supplierName = req.session.data['electricity-supplier']
-  req.session.data.electricitySuppliers.find(entry => entry.supplier === supplierName) ?? req.session.data.electricitySuppliers.push({ supplier: supplierName, meterNumbers: [] })
+  if (!req.session.data.electricitySuppliers) {
+    req.session.data.electricitySuppliers = []
+  }
+  if (!req.session.data.electricitySuppliers.find(entry => entry.supplier === supplierName)) {
+    req.session.data.electricitySuppliers.push({ supplier: supplierName, meterNumbers: [] })
+  }
   res.redirect('/what-is-your-electricity-meter-number')
 })
 
