@@ -8,7 +8,6 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 router.get(['/start'], (req, res) => {
   req.session.data = {
-    providers: providers,
     cookies: req.session.data.cookies
   }
   res.render('start.html')
