@@ -66,8 +66,7 @@ Summary of your supplier{% if data.gasSuppliers.length > 1 or data.electricitySu
 {% endif %}
     <div class="govuk-button-group govuk-!-margin-top-5">
       {{ govukButton({
-        name: "action",
-        value: "continue-electricity",
+        href: "you-need-to-provide-evidence",
         text: "Continue"
       }) }}
     </div>
