@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+What is your relationship to the organisation? – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,7 +12,7 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
+    <form action="who-can-we-contact">
     {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({

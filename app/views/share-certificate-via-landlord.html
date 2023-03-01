@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+You can still apply if... – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,7 +19,12 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
     <p>You can still apply for an energy discount, however you will need to share your certificate with your supplier
       via your landlord/ intermediary to ensure your energy discount is applied. </p>
-
+      {{
+        govukButton({
+          'text': 'Continue',
+          'href': 'who-is-your-intermediary'
+        })
+      }}
 
   </div>
 </div>
