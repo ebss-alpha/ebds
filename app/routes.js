@@ -8,7 +8,6 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 router.get(['/start'], (req, res) => {
   req.session.data = {
-    providers: providers,
     cookies: req.session.data.cookies
   }
   res.render('start.html')
@@ -18,6 +17,50 @@ router.get(['/cookie-choice'], (req, res) => {
   const cookieChoice = req.query.choice === 'accept'
   req.session.data.cookies = cookieChoice
   res.redirect(req.headers.referer)
+})
+
+router.get(['/connection-check'], (req, res) => {
+  switch (req.session.data['connected-to-gas-electricity']) {
+    case 'no':
+      res.redirect('/not-eligible-for-discount')
+      break
+    case 'yes':
+    default:
+      res.redirect('/organisation-name')
+      break
+  }
+})
+
+router.get(['/address-lookup'], (req, res) => {
+  const hasNumber = req.session.data['address-housenumber']
+  if (hasNumber) {
+    res.redirect('/is-this-your-address')
+  } else {
+    res.redirect('/choose-your-address')
+  }
+})
+
+router.get(['/address-confirmation-check'], (req, res) => {
+  switch (req.session.data['is-this-your-address']) {
+    case 'no':
+      res.redirect('/enter-your-address-manually')
+      break
+    case 'yes':
+    default:
+      res.redirect('/what-is-your-relationship-to-the-organisation')
+      break
+  }
+})
+
+router.get(['/access-check'], (req, res) => {
+  switch (req.session.data['access-to-meters']) {
+    case 'no':
+      res.redirect('/share-certificate-via-landlord')
+      break
+    case 'yes':
+    default:
+      res.redirect('/are-you-registering-for-gas-or-electricity')
+  }
 })
 
 router.get(['/energy-check'], (req, res) => {

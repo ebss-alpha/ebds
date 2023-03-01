@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+Are you interested in applying for a discount for an ETII or Heat Network? {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,40 +13,10 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/url/of/next/page" method="post">
-
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
-      {% from "govuk/components/input/macro.njk" import govukInput %}
-
-      {% set emailHtml %}
-      {{ govukInput({
-      id: "etii",
-      name: "etii",
-      type: "ETII",
-      autocomplete: "email",
-      spellcheck: false,
-      classes: "govuk-!-width-one-third",
-      label: {
-      text: "ETII"
-      }
-      }) }}
-      {% endset -%}
-
-      {% set phoneHtml %}
-      {{ govukInput({
-      id: "heat-network",
-      name: "heat-network",
-      type: "HN",
-      autocomplete: "tel",
-      classes: "govuk-!-width-one-third",
-      label: {
-      text: "Heat Network"
-      }
-      }) }}
-      {% endset -%}
+    <form class="form" action="connected-to-electricity-gas-both" method="post">
 
       {{ govukRadios({
-      name: "contact",
+      name: "etii-or-hn",
       fieldset: {
       legend: {
       text: "Are you interested in applying for a discount for an ETII or Heat Network?",
@@ -60,17 +30,11 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
       items: [
       {
       value: "etii",
-      text: "ETII",
-      conditional: {
-      html: emailHtml
-      }
+      text: "ETII"
       },
       {
       value: "heat-network",
-      text: "Heat Network",
-      conditional: {
-      html: phoneHtml
-      }
+      text: "Heat Network"
       }
       ]
       }) }}

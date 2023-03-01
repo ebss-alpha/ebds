@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+Are you connected to a gas or electricity supply or both? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,14 +12,15 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
+    <form action="connection-check">
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
-        name: "connected-to-gas-electricity-both",
+        name: "connected-to-gas-electricity",
+        classes: "govuk-radios--inline",
         fieldset: {
         legend: {
         text: "Are you connected to a gas or electricity supply or both?",
@@ -29,23 +30,12 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
         },
         items: [
         {
-        value: "gas",
-        text: "Gas"
+        value: "yes",
+        text: "Yes"
         },
         {
-        value: "electricity",
-        text: "Electricity"
-        },
-        {
-        value: "none",
-        text: "None"
-        },
-        {
-        divider: "or"
-        },
-        {
-        value: "both",
-        text: "Both"
+        value: "no",
+        text: "No"
         }
         ]
         }) }}

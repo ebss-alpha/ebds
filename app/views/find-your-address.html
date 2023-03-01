@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+Find your address – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,9 +19,6 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
       isPageHeading: true
       }
       }) %}
-      {% if data['situation-specific'] == 'continuous-cruiser' %}
-      {{ ccPreamble | safe }}
-      {% endif %}
       {{ govukInput({
       label: {
       text: "Building number (if you have one)"
