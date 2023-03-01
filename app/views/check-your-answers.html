@@ -1,0 +1,189 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+
+      <h2 class="govuk-heading-m">Organisation details</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['organisation-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> organisation name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Company registration number (if you have one)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data.crn }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> CRN</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation headquarters
+          </dt>
+          <dd class="govuk-summary-list__value">
+            72 Guild Street
+            <br>London
+            <br>SE23 6FH
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> headquarters address</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+      <h2 class="govuk-heading-m">Contact details</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What is your relationship to the organisation?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['relationship-to-org'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> relationship to organisation</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Who can we contact?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['full-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> who we can contact</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Who email address should we use?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['email'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> email address</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Who phone number should we use?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['telephone-number'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> telephone number</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+      
+      {% if data['access-to-meters'] == 'yes' %}
+        {% if data.gasSuppliers.length > 0 %}
+        <h2 class="govuk-heading-m">Gas suppliers</h2>
+        {% for supplier in data.gasSuppliers %}
+        <h3 class="govuk-heading-s">{{ supplier.supplier }}</h3>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+          {% for meter in supplier.meterNumbers %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Meter {{ loop.index }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ meter }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> number</span>
+              </a>
+            </dd>
+          </div>
+          {% endfor %}
+        </dl>
+        {% endfor %}
+        </div>
+        </div>
+        {% endif %}
+        {% if data.electricitySuppliers.length > 0 %}
+            <h2 class="govuk-heading-m">Electricity suppliers</h2>
+            {% for supplier in data.electricitySuppliers %}
+            <h3 class="govuk-heading-s">{{ supplier.supplier }}</h3>
+            <dl class="govuk-summary-list">
+              {% for meter in supplier.meterNumbers %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Meter {{ loop.index }}
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ meter }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> number</span>
+                  </a>
+                </dd>
+              </div>
+              {% endfor %}
+            </dl>
+            {% endfor %}
+        {% endif %}
+      {% endif %}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">Now send your application</h2>
+
+      <p>By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+      {{ 
+        govukButton({
+          'text': 'Accept and send',
+          'href': 'confirmation'
+        })
+      }}
+
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+You need to provide evidence
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+
+
+{% endblock %}
+
+{% block content %}
+{% if not data.error %}
+  {% if data['evidence'] | length > 0 %}
+    {% set heading %}
+      File uploaded
+    {% endset %}
+    {% set message %}
+      <p>
+        Uploaded <strong>{{ data['evidence'] }}</strong>.
+      </p>
+      <p>
+        <a class="govuk-notification-banner__link" href="#evidence">Upload another file.</a>
+      </p>
+    {% endset %}
+  {% endif %}
+{% endif %}
+
+{% if data.removed %}
+  {% set heading %}
+    File removed
+  {% endset %}
+  {% set message %}
+    <p>Removed <strong>{{ data.removed }}</strong></p>
+  {% endset %}
+{% endif %}
+{% if message %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+        aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            {{ heading | safe }}
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          {{ message | safe }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% if data.error %}
+  {{ govukErrorSummary({
+  titleText: "There is a problem",
+  errorList: [
+  {
+  text: "Choose a file to upload",
+  href: "#evidence"
+  }
+  ]
+  }) }}
+{% endif %}
+
+<form action="upload-check">
+  <input type="hidden" name="evidence-provided" value="yes">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">You need to provide evidence</h1>
+      
+      <p>You must upload a evidence that you are eligible...</p>
+      <p class="govuk-body">You can upload the following:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Letter signed by CFO/ CEO (letter should state it meets the 50% threshold, type of organisation and registration type)</li>
+        <li>Letter signed by accountant</li>
+        <li>2, or 4 quarters of financial reports</li>
+        <li>2, or 4 quarters of financial reports</li>
+        <li>Any additional evidence to support your application</li>
+      </ul>
+      <p>You can upload a picture or scan of a paper document, or a digital document from your computer.</p>
+      <p>Your document must be:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>no more than 10 MB</li>
+        <li>in PDF, .jpeg, .png or .doc format</li>
+      </ul>
+    </div>
+  </div>
+  <div class="govuk-grid-row govuk-!-margin-bottom-3">
+    <div class="govuk-grid-column-full">
+      <div class="govuk-section-break govuk-section-break--visible"></div>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <h2 id="upload-file" class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="evidence">
+            Upload a file
+          </label>
+        </h2>
+        <input class="govuk-file-upload" id="evidence" name="evidence" type="file" multiple>
+      </div>
+      <input type="submit" class="govuk-button govuk-button--secondary" name="upload-multiple" value="Upload">
+      {% if data['evidences'] | length > 0 %}
+      <h3 class="govuk-heading-s">Uploaded files</h3>
+      <ul class="govuk-list">
+        {% for file in data['evidences'] %}
+        <li>{{ file }} – <a class="govuk-link govuk-link--no-visited-state"
+            href="/remove-file?filename={{file}}">Remove<span class="govuk-visually-hidden"> {{ file }}</span></a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+  <input class="govuk-button" type="submit" value="Continue" name="continue">
+  </div>
+  </div>
+</form>
+{% endblock %}

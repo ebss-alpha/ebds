@@ -129,3 +129,27 @@ router.get(['/supplier-check'], (req, res) => {
       break
     }
 })
+
+router.get(['/upload-check'], (req, res) => {
+  req.session.data.removed = undefined
+  if (req.query.continue) {
+    res.redirect('/check-your-answers')
+  } else {
+    if (req.query['upload-multiple'] !== undefined && req.query['evidence'].length !== 0) {
+      req.session.data.error = false
+      if (req.session.data['evidences'] === undefined) req.session.data['evidences'] = []
+      req.session.data['evidences'] = req.session.data['evidences'].concat(req.session.data['evidence'])
+      res.redirect('/you-need-to-provide-evidence')
+    } else {
+      req.session.data.error = true
+      res.redirect('/you-need-to-provide-evidence')
+    }
+  }
+})
+
+router.get(['/remove-file'], (req, res) => {
+  const indexToRemove = req.session.data['evidences'].indexOf(req.query.filename)
+  req.session.data['evidences'].splice(indexToRemove, 1)
+  req.session.data.removed = req.query.filename
+  res.redirect('/you-need-to-provide-evidence')
+})
