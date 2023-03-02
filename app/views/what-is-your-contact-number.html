@@ -10,10 +10,18 @@ What phone number should we use to contact this person? â€“ {{ serviceName }} â€
 
 {% block content %}
 
+{% set nextPage %}
+{% if data.path == 'heat-network' %}
+business-name-of-heat-hot-water-supplier-applying
+{% else %}
+access-to-energy-supplier-name-and-meter-numbers
+{% endif  %}
+{% endset %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-form-group">
-      <form action="access-to-energy-supplier-name-and-meter-numbers">
+      <form action="{{nextPage}}">
         <h1 class="govuk-heading-l">
           <label class="govuk-label govuk-label--l" for="telephone-number">
             What phone number should we use to contact this person?
