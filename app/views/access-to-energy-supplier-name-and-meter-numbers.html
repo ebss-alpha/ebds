@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+Do you have access to your energy supplier(s) name and meter numbers? – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,17 +12,13 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
-
-    <form class="form" action="/url/of/next/page" method="post">
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
-
+    <form class="form" action="access-check">
       {{ govukRadios({
       classes: "govuk-radios--inline",
-      name: "changed-name",
+      name: "access-to-meters",
       fieldset: {
       legend: {
-      text: "Do you have access to your energy supplier(s) name and meter numbers? ",
+      text: "Do you have access to your energy supplier(s) name and meter numbers?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
       }
@@ -38,11 +34,8 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
       }
       ]
       }) }}
-
       <button class="govuk-button" data-module="govuk-button">Continue</button>
-
     </form>
-
   </div>
 </div>
 

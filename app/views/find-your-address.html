@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Find your address – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form action="address-lookup">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% call govukFieldset({
+      legend: {
+      text: "Find the address of your organisations's headquarters",
+      classes: "govuk-fieldset__legend--l",
+      isPageHeading: true
+      }
+      }) %}
+      {{ govukInput({
+      label: {
+      text: "Building number (if you have one)"
+      },
+      classes: "govuk-input--width-5",
+      id: "address-housenumber",
+      name: "address-housenumber"
+      }) }}
+      {{ govukInput({
+      label: {
+      text: "Postcode"
+      },
+      classes: "govuk-input--width-10",
+      id: "address-postcode",
+      name: "address-postcode",
+      autocomplete: "postal-code"
+      }) }}
+      {% endcall %}
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+    </div>
+  </div>
+</form>
+{% endblock %}

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+What is the address of your organisation's headquarters – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,13 +12,13 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
+    <form action="what-is-your-relationship-to-the-organisation">
     {% from "govuk/components/input/macro.njk" import govukInput %}
     {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 
     {% call govukFieldset({
     legend: {
-    text: "What is your Organisation's Headquarters postcode?",
+    text: "What is the address of your organisation's headquarters?",
     classes: "govuk-fieldset__legend--l",
     isPageHeading: true
     }

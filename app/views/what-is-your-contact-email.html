@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+What email address should we use to contact this person? – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,10 +13,10 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-form-group">
-
+      <form action="what-is-your-contact-number">
     <h1 class="govuk-heading-l">
       <label class="govuk-label govuk-label--l" for="email">
-        What is email address can we use to contact this person?
+        What email address should we use to contact this person?
       </label>
     </h1>
       <div id="email-hint" class="govuk-hint">

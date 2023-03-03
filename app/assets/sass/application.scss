@@ -5,6 +5,12 @@
 
 // Add extra styles here
 
+.govuk-notification-banner__content {
+  strong {
+    word-wrap: break-word;
+  }
+}
+
 .autocomplete__wrapper {
   position: relative
 }

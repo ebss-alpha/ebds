@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Are you connected to a gas or electricity supply or both? – {{ serviceName }} – GOV.UK Prototype Kit
+Does this meter supply the Combined Heat and Power Plant? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,18 +12,18 @@ Are you connected to a gas or electricity supply or both? – {{ serviceName }} 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="connection-check">
+    <form action="chp-supply-check">
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
-        name: "connected-to-gas-electricity",
+        name: "chp-supply",
         classes: "govuk-radios--inline",
         fieldset: {
         legend: {
-        text: "Are you connected to a gas or electricity supply or both?",
+        text: "Does this meter supply the Combined Heat and Power Plant?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
         }

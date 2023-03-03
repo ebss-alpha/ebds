@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+If your organisation has one, what is your company registration number? – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,14 +12,14 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
+    <form action="/find-your-address">
     <div class="govuk-form-group">
       <h1 class="govuk-label-wrapper">
-        <label class="govuk-label govuk-label--l" for="event-name">
-          If your organisation has a company registration number enter it here
+        <label class="govuk-label govuk-label--l" for="crn">
+          If your organisation has one, what is your company registration number?
         </label>
       </h1>
-      <input class="govuk-input govuk-input--width-10" id="event-name" name="event-name" type="text">
+      <input class="govuk-input govuk-input--width-10" id="crn" name="crn" type="text">
     </div>
 
     <button class="govuk-button" data-module="govuk-button">Continue</button>

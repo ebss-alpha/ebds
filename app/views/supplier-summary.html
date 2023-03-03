@@ -13,64 +13,221 @@ Summary of your supplier{% if data.gasSuppliers.length > 1 or data.electricitySu
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{ title }}</h1>
     {% if data.gasSuppliers.length > 0 %}
-    <h2 class="govuk-heading-l">Gas suppliers</h2>
-    {% for supplier in data.gasSuppliers %}
-    <h3 class="govuk-heading-m">{{ supplier.supplier }}</h3>
-    <dl class="govuk-summary-list govuk-!-margin-bottom-8">
-      {% for meter in supplier.meterNumbers %}
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Meter {{ loop.index }}
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ meter }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-            Change<span class="govuk-visually-hidden"> number</span>
-          </a>
-        </dd>
-      </div>
+      <h2 class="govuk-heading-l">Gas suppliers</h2>
+      {% if data.path == 'heat-network' %}
+        {% for supplier in data.gasSuppliers %}
+          <h3 class="govuk-heading-m">{{ supplier.supplier }}</h2>
+            {% for number in supplier.meterNumbers %}
+            <h4 class="govuk-heading-s">Meter {{ loop.index }}</h4>
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Meter number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ number }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> meter number</span>
+                  </a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Is this a CHP?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data.gasSuppliers[data.gasSuppliers.length - 1].chp[loop.index0] | title}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> answer to "Is this a CHP?"</span>
+                  </a>
+                </dd>
+              </div>
+              {% if data.gasSuppliers[data.gasSuppliers.length - 1].chp[loop.index0] == 'yes' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Does this meter supply the CHP?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data.gasSuppliers[data.gasSuppliers.length - 1].supply[loop.index0] | title}}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> answer to "Does this meter supply the CHP?"</span>
+                    </a>
+                  </dd>
+                </div>
+              {% endif %}
+              {% if data.gasSuppliers[data.gasSuppliers.length - 1].supply[loop.index0] == 'yes' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    What is the installed electrical generation capacity of the CHP?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data.gasSuppliers[data.gasSuppliers.length - 1].egc[loop.index0] }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> answer to "What is the installed electrical generation capacity of
+                        the CHP?"</span>
+                    </a>
+                  </dd>
+                </div>
+              {% endif %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Does this meter supply anything else besides heat generation?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data.gasSuppliers[data.gasSuppliers.length - 1].besides[loop.index0] | title}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> answer to "Does this meter supply anything else besides heat
+                      generation?"</span>
+                  </a>
+                </dd>
+              </div>
+            </dl>
+          {% endfor %}
+        {% endfor %}
+      {% else %}
+      {% for supplier in data.gasSuppliers %}
+        <h3 class="govuk-heading-m">{{ supplier.supplier }}</h3>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+          {% for meter in supplier.meterNumbers %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Meter {{ loop.index }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ meter }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> number</span>
+              </a>
+            </dd>
+          </div>
+        {% endfor %}
+        </dl>
       {% endfor %}
-    </dl>
-    {% endfor %}
-  </div>
-</div>
-{% endif %}
-{% if data.electricitySuppliers.length > 0 %}
-<div class="govuk-grid-row govuk-!-margin-top-9">
-  <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-l">Electricity suppliers</h2>
-    {% for supplier in data.electricitySuppliers %}
-    <h3 class="govuk-heading-m">{{ supplier.supplier }}</h3>
-    <dl class="govuk-summary-list">
-      {% for meter in supplier.meterNumbers %}
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Meter {{ loop.index }}
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ meter }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-            Change<span class="govuk-visually-hidden"> number</span>
-          </a>
-        </dd>
-      </div>
+    {% endif %}
+  {% endif %}
+  {% if data.electricitySuppliers.length > 0 %}
+      <h2 class="govuk-heading-l">Electricity suppliers</h2>
+      {% if data.path == 'heat-network' %}
+        {% for supplier in data.electricitySuppliers %}
+          <h3 class="govuk-heading-m">{{ supplier.supplier }}</h2>
+            {% for number in supplier.meterNumbers %}
+            <h4 class="govuk-heading-s">Meter {{ loop.index }}</h4>
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Meter number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ number }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> meter number</span>
+                  </a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Is this a CHP?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data.electricitySuppliers[data.electricitySuppliers.length - 1].chp[loop.index0] | title}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> answer to "Is this a CHP?"</span>
+                  </a>
+                </dd>
+              </div>
+              {% if data.electricitySuppliers[data.electricitySuppliers.length - 1].chp[loop.index0] == 'yes' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Does this meter supply the CHP?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data.electricitySuppliers[data.electricitySuppliers.length - 1].supply[loop.index0] | title}}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> answer to "Does this meter supply the CHP?"</span>
+                    </a>
+                  </dd>
+                </div>
+              {% endif %}
+              {% if data.electricitySuppliers[data.electricitySuppliers.length - 1].supply[loop.index0] == 'yes' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    What is the installed electrical generation capacity of the CHP?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data.electricitySuppliers[data.electricitySuppliers.length - 1].egc[loop.index0] }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> answer to "What is the installed electrical generation capacity of
+                        the CHP?"</span>
+                    </a>
+                  </dd>
+                </div>
+              {% endif %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Does this meter supply anything else besides heat generation?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data.electricitySuppliers[data.electricitySuppliers.length - 1].besides[loop.index0] | title}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> answer to "Does this meter supply anything else besides heat
+                      generation?"</span>
+                  </a>
+                </dd>
+              </div>
+            </dl>
+          {% endfor %}
+        {% endfor %}
+      {% else %}
+      {% for supplier in data.electricitySuppliers %}
+        <h3 class="govuk-heading-m">{{ supplier.supplier }}</h3>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+          {% for meter in supplier.meterNumbers %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Meter {{ loop.index }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ meter }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> number</span>
+              </a>
+            </dd>
+          </div>
+        {% endfor %}
+        </dl>
       {% endfor %}
-    </dl>
-    {% endfor %}
+    {% endif %}
+  {% endif %}
+  <div class="govuk-button-group govuk-!-margin-top-5">
+    {{ govukButton({
+      href: "you-need-to-provide-evidence",
+      text: "Continue"
+    }) }}
   </div>
-</div>
-{% endif %}
-    <div class="govuk-button-group govuk-!-margin-top-5">
-      {{ govukButton({
-        name: "action",
-        value: "continue-electricity",
-        text: "Continue"
-      }) }}
-    </div>
   </div>
 </div>
 {% endblock %}
