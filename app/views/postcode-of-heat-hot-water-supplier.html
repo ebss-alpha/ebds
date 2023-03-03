@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+What is the postcode of the heat / hot water supplier? – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,13 +12,15 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
+    <form action="organisation-email-address">
+    <div class="govuk-form-group">
     <h1 class="govuk-heading-l">
     <label class="govuk-label govuk-label--l" for="address-postcode">
-      What is the postcode of the Heat / Hot Water Supplier? </h1>
-
+      What is the postcode of the heat / hot water supplier? 
+    </label>
+    </h1>
       <input class="govuk-input govuk-input--width-5" id="width-5" name="width-5" type="text">
-
+    </div>
     <button class="govuk-button" data-module="govuk-button">Continue</button>
 
     </form>
