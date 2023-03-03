@@ -14,10 +14,18 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-    <label class="govuk-label govuk-label--l" for="address-postcode">
-      What is the postcode of the Heat / Hot Water Supplier? </h1>
-
-      <input class="govuk-input govuk-input--width-5" id="width-5" name="width-5" type="text">
+      What is your organisation's email address?
+    </h1>
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="email">
+        Email address
+      </label>
+      <div id="email-hint" class="govuk-hint">
+        We’ll only use this to contact you about your application.
+      </div>
+      <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint"
+        autocomplete="email">
+    </div>
 
     <button class="govuk-button" data-module="govuk-button">Continue</button>
 
