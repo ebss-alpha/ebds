@@ -19,9 +19,43 @@ router.get(['/cookie-choice'], (req, res) => {
   res.redirect(req.headers.referer)
 })
 
-router.get(['/set-path'], (req, res) => {
+router.get(['/path-check'], (req, res) => {
   req.session.data.path = req.session.data['etii-or-hn']
-  res.redirect('/connected-to-electricity-gas-both')
+  switch (req.session.data.path) {
+    case 'heat-network':
+      res.redirect('/is-your-heat-network-powered-by-electricity-or-gas')
+      break
+    case 'etii':
+    default:
+      res.redirect('/are-you-registering-for-gas-or-electricity')
+      break
+  }
+})
+
+router.get(['/registering-for-check'], (req, res) => {
+  switch (req.session.data['gas-or-electricity']) {
+    case 'gas':
+    case 'electricity':
+    case 'both':
+    default:
+      res.redirect('/what-is-your-crn')
+      break
+    case 'other':
+      res.redirect('/not-eligible-for-discount')
+  }
+})
+
+router.get('/hn-power-check', (req, res) => {
+  switch (req.session.data['gas-or-electricity']) {
+    case 'gas':
+    case 'electricity':
+    case 'both':
+    default:
+      res.redirect('/heat-network-serve-domestic-customer')
+      break
+    case 'other':
+      res.redirect('/not-eligible-for-discount')
+  }
 })
 
 router.get(['/connection-check'], (req, res) => {
@@ -76,11 +110,12 @@ router.get(['/address-confirmation-check'], (req, res) => {
 router.get(['/access-check'], (req, res) => {
   switch (req.session.data['access-to-meters']) {
     case 'no':
+    case 'no-meter':
       res.redirect('/share-certificate-via-landlord')
       break
     case 'yes':
     default:
-      res.redirect('/are-you-registering-for-gas-or-electricity')
+      res.redirect('/energy-check')
   }
 })
 
@@ -88,11 +123,14 @@ router.get(['/energy-check'], (req, res) => {
   switch (req.session.data['gas-or-electricity']) {
     case 'gas':
     case 'both':
+    default:
       res.redirect('/who-is-your-gas-supplier')
       break
     case 'electricity':
       res.redirect('/who-is-your-electricity-supplier')
       break
+    case 'other':
+      res.redirect('/not-eligible-for-discount')
   }
 })
 
