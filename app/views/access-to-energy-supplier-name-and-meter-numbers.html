@@ -12,9 +12,8 @@ Do you have access to your energy supplier(s) name and meter numbers? – {{ ser
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="access-check">
+    <form class="form" action="energy-check">
       {{ govukRadios({
-      classes: "govuk-radios--inline",
       name: "access-to-meters",
       fieldset: {
       legend: {
@@ -31,6 +30,13 @@ Do you have access to your energy supplier(s) name and meter numbers? – {{ ser
       {
       value: "no",
       text: "No"
+      },
+      {
+      divider: "or"
+      },
+      {
+        value: "no-meter",
+        text: "I don't have a meter"
       }
       ]
       }) }}

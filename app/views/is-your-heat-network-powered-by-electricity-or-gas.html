@@ -9,7 +9,7 @@ Is your Heat Network powered by gas, electricity or both? {{ serviceName }} – 
 {% endblock %}
 
 {% block content %}
-<form action="energy-check">
+<form action="hn-power-check">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {{ govukRadios({
@@ -33,6 +33,13 @@ Is your Heat Network powered by gas, electricity or both? {{ serviceName }} – 
       {
       value: "both",
       text: "Both gas and electricity"
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "other",
+        text: "Something else"
       }
       ]
       }) }}

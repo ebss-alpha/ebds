@@ -5,7 +5,7 @@ Are you registering for gas, electricity or both? {{ serviceName }} – GOV.UK P
 {% endblock %}
 
 {% block content %}
-<form action="energy-check">
+<form action="registering-for-check">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {{ govukRadios({
@@ -29,6 +29,13 @@ Are you registering for gas, electricity or both? {{ serviceName }} – GOV.UK P
         {
           value: "both",
           text: "Both gas and electricity"
+        },
+        {
+          divider: "or"
+        },
+        {
+          value: "other",
+          text: "Something else"
         }
       ]
       }) }}
