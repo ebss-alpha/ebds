@@ -38,7 +38,7 @@ router.get(['/registering-for-check'], (req, res) => {
     case 'electricity':
     case 'both':
     default:
-      res.redirect('/what-is-your-crn')
+      res.redirect('/what-is-the-name-of-the-organisation')
       break
     case 'other':
       res.redirect('/not-eligible-for-discount')
