@@ -4,6 +4,10 @@
 Are you registering for gas, electricity or both? {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
 {% block content %}
 <form action="registering-for-check">
   <div class="govuk-grid-row">
