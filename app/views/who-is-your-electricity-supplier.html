@@ -23,7 +23,7 @@ Who is your electricity supplier? – {{ serviceName }}
         <select name="electricity-supplier" class="govuk-select" id="electricity-supplier">
           <option value="" disabled selected>Select a supplier</option>
           {% for supplier in data.suppliers %}
-          <option value="{{ supplier.supplierName}}">{{supplier.supplierName}}</option>
+            <option value="{{ supplier.supplierName}}">{{supplier.supplierName}}</option>
           {% endfor %}
         </select>
       </div>
