@@ -88,4 +88,35 @@ module.exports = {
       "supplierName": "WiseWatt Energy"
     }
   ]
+  ,
+  businessTypeOptions: [
+    {
+      "businessType": "Registered e.g. at Companies House"
+    },
+    {
+      "businessType": "Charity"
+    },
+    {
+      "businessType": "Registered historical site"
+    },
+    {
+      "businessType": "Registered botanical and / or zoological garden"
+    },
+    {
+      "businessType": "Public library"
+    },
+    {
+      "businessType": "National archive"
+    },
+    {
+      "businessType": "Sole trader"
+    },
+    {
+      "businessType": "Heat supplier"
+    },
+    {
+      "businessType": "Local authority"
+    }
+
+  ]
 }
