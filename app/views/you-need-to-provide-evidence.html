@@ -75,10 +75,11 @@ You need to provide evidence
       <p class="govuk-body">You can upload the following:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>Letter signed by CFO/ CEO (letter should state it meets the 50% threshold, type of organisation and registration type)</li>
+        {% if data.crn != '12345678' %}
         <li>Letter signed by accountant</li>
         <li>2, or 4 quarters of financial reports</li>
-        <li>2, or 4 quarters of financial reports</li>
         <li>Any additional evidence to support your application</li>
+        {% endif %}
       </ul>
       <p>You can upload a picture or scan of a paper document, or a digital document from your computer.</p>
       <p>Your document must be:</p>
