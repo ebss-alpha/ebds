@@ -13,14 +13,23 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="egc-check">
-        <div class="govuk-form-group">
-          <h1 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--l" for="egc-chp">
-              What is the installed electrical generation capacity of the CHP?
-            </label>
-          </h1>
-          <input class="govuk-input govuk-input--width-10" id="egc-chp" name="egc-chp" type="text">
-        </div>
+        {{ govukInput({
+          id: "egc-chp",
+          name: "egc-chp",
+          label: {
+            text: "What is the installed electrical generation capacity of the CHP?",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: 'Give your answer in kilowatts of electricity'
+          },
+          suffix: {
+            text: "kWe"
+          },
+          classes: "govuk-input--width-5",
+          spellcheck: false
+        }) }}
         <button class="govuk-button" data-module="govuk-button">Continue</button>
       </form>
     </div>
