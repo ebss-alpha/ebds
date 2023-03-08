@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% set title %}
-Summary of your supplier{% if data.gasSuppliers.length > 1 or data.electricitySuppliers.length > 1 %}s{% endif %}
+Summary of your supplier{% if (data.gasSuppliers.length > 1 or data.electricitySuppliers.length > 1) or (data.gasSuppliers.length + data.electricitySuppliers.length > 1) %}s{% endif %}
 {% endset %}
 
 {% block pageTitle %}
