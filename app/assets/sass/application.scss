@@ -188,3 +188,15 @@
         margin-bottom: govuk-spacing(6);
     }
 }
+
+dd.govuk-summary-list__actions {
+  display: flex;
+  width: auto;
+  @include govuk-media-query($from: 'tablet') {
+    justify-content: flex-end;
+  }
+
+  a + a {
+    margin-left: govuk-spacing(3);
+  }
+}
