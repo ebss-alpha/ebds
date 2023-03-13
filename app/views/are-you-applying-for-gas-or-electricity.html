@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Are you registering for gas, electricity or both? {{ serviceName }} – GOV.UK Prototype Kit
+Are you applying for gas, electricity or both? {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -9,14 +9,14 @@ Are you registering for gas, electricity or both? {{ serviceName }} – GOV.UK P
 {% endblock %}
 
 {% block content %}
-<form action="registering-for-check">
+<form action="applying-for-check">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {{ govukRadios({
       name: "gas-or-electricity",
       fieldset: {
       legend: {
-        text: "Are you registering for gas, electricity or both?",
+        text: "Are you applying for a discount on gas, electricity or both?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
         }
@@ -33,13 +33,6 @@ Are you registering for gas, electricity or both? {{ serviceName }} – GOV.UK P
         {
           value: "both",
           text: "Both gas and electricity"
-        },
-        {
-          divider: "or"
-        },
-        {
-          value: "other",
-          text: "Something else"
         }
       ]
       }) }}
