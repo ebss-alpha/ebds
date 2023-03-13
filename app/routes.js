@@ -27,12 +27,12 @@ router.get(['/path-check'], (req, res) => {
       break
     case 'etii':
     default:
-      res.redirect('/are-you-registering-for-gas-or-electricity')
+      res.redirect('/are-you-applying-for-gas-or-electricity')
       break
   }
 })
 
-router.get(['/registering-for-check'], (req, res) => {
+router.get(['/applying-for-check'], (req, res) => {
   switch (req.session.data['gas-or-electricity']) {
     case 'gas':
     case 'electricity':

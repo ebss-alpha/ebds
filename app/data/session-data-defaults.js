@@ -91,7 +91,7 @@ module.exports = {
   ,
   businessTypeOptions: [
     {
-      "businessType": "Registered e.g. at Companies House"
+      "businessType": "Registered"
     },
     {
       "businessType": "Charity"

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Are you interested in applying for a discount for an ETII or Heat Network? {{ serviceName }}
+Are you applying for a discount for an Energy and Trade Intensive Industry (ETII) or Heat Network? {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,7 +19,7 @@ Are you interested in applying for a discount for an ETII or Heat Network? {{ se
       name: "etii-or-hn",
       fieldset: {
       legend: {
-      text: "Are you applying for a discount for an ETII or Heat Network?",
+      text: "Are you applying for a discount for an Energy and Trade Intensive Industry (ETII) or heat network?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
       }
@@ -27,11 +27,11 @@ Are you interested in applying for a discount for an ETII or Heat Network? {{ se
       items: [
       {
       value: "etii",
-      text: "ETII"
+      text: "Energy and Trade Intensive Industry"
       },
       {
       value: "heat-network",
-      text: "Heat Network"
+      text: "Heat network"
       }
       ]
       }) }}
