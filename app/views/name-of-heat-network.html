@@ -15,11 +15,14 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
     <form action="primary-energy-centre-postcode">
       <div class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
-          <label class="govuk-label govuk-label--l" for="event-name">
+          <label class="govuk-label govuk-label--l" for="hn-name">
             What is the name of your Heat Network?
           </label>
         </h1>
-        <input class="govuk-input" id="event-name" name="event-name" type="text">
+        <div id="hn-name-hint" class="govuk-hint">
+          Guidance req'd: property number / building name / scheme name
+        </div>
+        <input class="govuk-input" id="hn-name-hint" name="hn-name-hint" type="text">
       </div>
 
       <button class="govuk-button" data-module="govuk-button">Continue</button>
