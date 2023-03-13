@@ -4,6 +4,10 @@
 {{ data['gas-supplier'] }} meter numbers
 {% endblock %}
 
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
 {% block content %}
 <form action="supplier-check">
   <div class="govuk-grid-row">
