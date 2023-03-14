@@ -31,9 +31,21 @@ Who is your gas supplier? – {{ serviceName }}
           {% endfor %}
         </select>
       </div>
-      {{ govukButton({
-      text: "Continue"
-      }) }}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue",
+          name: 'action',
+          value: 'continue'
+        }) }}
+        {{
+          govukButton({
+            text: 'Skip gas supplier',
+            name: 'action',
+            classes: 'govuk-button--secondary',
+            value: 'skip'
+          })
+        }}
+      </div>
     </div>
   </div>
 </form>
