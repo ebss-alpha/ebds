@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Is this your organisation? – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+    <form action="org-check">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="is-this-your-org-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Is this your organisation?
+                </h1>
+              </legend>
+              <div id="is-this-your-org-hint" class="govuk-hint">
+                <p class="govuk-body-l govuk-!-margin-bottom-2">Test Steel Ltd.</p>
+              </div>
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="is-this-your-org" name="is-this-your-org" type="radio"
+                    value="yes">
+                  <label class="govuk-label govuk-radios__label" for="is-this-your-org">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="is-this-your-org-2" name="is-this-your-org"
+                    type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="is-this-your-org-2">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </div>
+      </div>
+    </form>
+
+{% endblock %}
