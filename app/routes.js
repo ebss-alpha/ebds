@@ -27,21 +27,35 @@ router.get(['/path-check'], (req, res) => {
       break
     case 'etii':
     default:
-      res.redirect('/are-you-applying-for-gas-or-electricity')
+      res.redirect('/what-is-your-crn')
       break
   }
 })
 
+router.get(['/bingo-check'], (req, res) => {
+  const bingo =req.session.data.crn === '12345678'
+  if (bingo) {
+    res.redirect('/is-this-your-org')
+  } else {
+    res.redirect('/complex-eligibility')
+  }
+})
+
+router.get(['/org-check'], (req, res) => {
+  const confirmOrg = req.session.data['is-this-your-org'] === 'yes'
+  if (confirmOrg) {
+    res.redirect('/simple-eligibility')
+  } else {
+    res.redirect('/complex-eligibility')
+  }
+})
+
 router.get(['/applying-for-check'], (req, res) => {
-  switch (req.session.data['gas-or-electricity']) {
-    case 'gas':
-    case 'electricity':
-    case 'both':
-    default:
-      res.redirect('/business-org-type')
-      break
-    case 'other':
-      res.redirect('/not-eligible-for-discount')
+  const confirmOrg = req.session.data['is-this-your-org'] === 'yes'
+  if (confirmOrg) {
+    res.redirect('/who-can-we-contact')
+  } else {
+    res.redirect('/business-org-type')
   }
 })
 
