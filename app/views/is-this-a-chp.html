@@ -17,7 +17,7 @@ Is this a meter connected to a Combined Heat and Power Plant (CHP) that has an i
         <fieldset class="govuk-fieldset">
           {{ govukRadios({
           name: "chp",
-          classes: "govuk-fieldset__legend--l",
+          classes: "govuk-radios--inline",
           fieldset: {
           legend: {
           text: "Is this a meter connected to a Combined Heat and Power Plant (CHP) that has an installed capacity of
@@ -34,10 +34,6 @@ Is this a meter connected to a Combined Heat and Power Plant (CHP) that has an i
           {
           value: "no",
           text: "No"
-          },
-          {
-          value: "neither",
-          text: "It is not connected to a CHP"
           }
           ]
           }) }}
