@@ -144,60 +144,13 @@
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Is this a CHP?
+                Is this a meter connected to a Combined Heat and Power Plant (CHP) that has an installed capacity of
+                more than 5MW and exports electricity to the grid?
               </dt>
               <dd class="govuk-summary-list__value">
                 {{ data.gasSuppliers[data.gasSuppliers.length - 1].chp[loop.index0] | title}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">
-                  Change<span class="govuk-visually-hidden"> answer to "Is this a CHP?"</span>
-                </a>
-              </dd>
-            </div>
-            {% if data.gasSuppliers[data.gasSuppliers.length - 1].chp[loop.index0] == 'yes' %}
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Does this meter supply the CHP?
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data.gasSuppliers[data.gasSuppliers.length - 1].supply[loop.index0] | title}}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">
-                  Change<span class="govuk-visually-hidden"> answer to "Does this meter supply the CHP?"</span>
-                </a>
-              </dd>
-            </div>
-            {% endif %}
-            {% if data.gasSuppliers[data.gasSuppliers.length - 1].supply[loop.index0] == 'yes' %}
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                What is the installed electrical generation capacity of the CHP?
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data.gasSuppliers[data.gasSuppliers.length - 1].egc[loop.index0] }}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">
-                  Change<span class="govuk-visually-hidden"> answer to "What is the installed electrical generation capacity of
-                    the CHP?"</span>
-                </a>
-              </dd>
-            </div>
-            {% endif %}
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Does this meter supply anything else besides heat generation?
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data.gasSuppliers[data.gasSuppliers.length - 1].besides[loop.index0] | title}}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">
-                  Change<span class="govuk-visually-hidden"> answer to "Does this meter supply anything else besides heat
-                    generation?"</span>
-                </a>
               </dd>
             </div>
           </dl>
@@ -249,61 +202,13 @@
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Is this a CHP?
+                  Is this a meter connected to a Combined Heat and Power Plant (CHP) that has an installed capacity of
+                  more than 5MW and exports electricity to the grid?
                 </dt>
                 <dd class="govuk-summary-list__value">
                   {{ data.electricitySuppliers[data.electricitySuppliers.length - 1].chp[loop.index0] | title}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    Change<span class="govuk-visually-hidden"> answer to "Is this a CHP?"</span>
-                  </a>
-                </dd>
-              </div>
-              {% if data.electricitySuppliers[data.electricitySuppliers.length - 1].chp[loop.index0] == 'yes' %}
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Does this meter supply the CHP?
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data.electricitySuppliers[data.electricitySuppliers.length - 1].supply[loop.index0] | title}}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    Change<span class="govuk-visually-hidden"> answer to "Does this meter supply the CHP?"</span>
-                  </a>
-                </dd>
-              </div>
-              {% endif %}
-              {% if data.electricitySuppliers[data.electricitySuppliers.length - 1].supply[loop.index0] == 'yes' %}
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  What is the installed electrical generation capacity of the CHP?
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data.electricitySuppliers[data.electricitySuppliers.length - 1].egc[loop.index0] }}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    Change<span class="govuk-visually-hidden"> answer to "What is the installed electrical generation capacity
-                      of
-                      the CHP?"</span>
-                  </a>
-                </dd>
-              </div>
-              {% endif %}
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Does this meter supply anything else besides heat generation?
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data.electricitySuppliers[data.electricitySuppliers.length - 1].besides[loop.index0] | title}}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    Change<span class="govuk-visually-hidden"> answer to "Does this meter supply anything else besides heat
-                      generation?"</span>
-                  </a>
                 </dd>
               </div>
             </dl>

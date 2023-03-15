@@ -151,14 +151,14 @@ router.get(['/energy-check'], (req, res) => {
 router.get(['/add-gas-supplier'], (req, res) => {
   const supplierName = req.session.data['gas-supplier']
   if (req.session.data.gasSuppliers === undefined) req.session.data.gasSuppliers = []
-  req.session.data.gasSuppliers.find(entry => entry.supplier === supplierName) ?? req.session.data.gasSuppliers.push({ supplier: supplierName, meterNumbers: [], chp: [], supply: [], egc: [], besides: [] })
+  req.session.data.gasSuppliers.find(entry => entry.supplier === supplierName) ?? req.session.data.gasSuppliers.push({ supplier: supplierName, meterNumbers: [], chp: []})
   res.redirect('/what-is-your-gas-meter-number')
 })
 
 router.get(['/add-electricity-supplier'], (req, res) => {
   const supplierName = req.session.data['electricity-supplier']
   if (req.session.data.electricitySuppliers === undefined) req.session.data.electricitySuppliers = []
-  req.session.data.electricitySuppliers.find(entry => entry.supplier === supplierName) ?? req.session.data.electricitySuppliers.push({ supplier: supplierName, meterNumbers: [], chp: [], supply: [], egc: [], besides: [] })
+  req.session.data.electricitySuppliers.find(entry => entry.supplier === supplierName) ?? req.session.data.electricitySuppliers.push({ supplier: supplierName, meterNumbers: [], chp: []})
   res.redirect('/what-is-your-electricity-meter-number')
 })
 
@@ -188,19 +188,14 @@ router.get(['/chp-check'], (req, res) => {
   let latestMeter
   if (req.session.data['gas-added']) {
     latestMeter = req.session.data.electricitySuppliers[req.session.data.electricitySuppliers.length - 1]
+    latestMeter.chp.push(req.session.data.chp)
+    res.redirect('/electricity-supplier-summary')
   } else {
     latestMeter = req.session.data.gasSuppliers[req.session.data.gasSuppliers.length - 1]
+    latestMeter.chp.push(req.session.data.chp)
+    res.redirect('/gas-supplier-summary')
   }
-  latestMeter.chp.push(req.session.data.chp)
-  switch (req.session.data.chp) {
-    case 'no':
-      res.redirect('/anything-besides-heat-generation')
-      break
-      case 'yes':
-        default:
-          res.redirect('/does-this-meter-supply-the-chp')
-        }
-      })
+})
       
 router.get(['/chp-supply-check'], (req, res) => {
   let latestMeter
