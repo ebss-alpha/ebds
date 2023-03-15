@@ -222,19 +222,14 @@ router.get(['/chp-check'], (req, res) => {
   let latestMeter
   if (req.session.data['gas-added']) {
     latestMeter = req.session.data.electricitySuppliers[req.session.data.electricitySuppliers.length - 1]
+    latestMeter.chp.push(req.session.data.chp)
+    res.redirect('/electricity-supplier-summary')
   } else {
     latestMeter = req.session.data.gasSuppliers[req.session.data.gasSuppliers.length - 1]
+    latestMeter.chp.push(req.session.data.chp)
+    res.redirect('/gas-supplier-summary')
   }
-  latestMeter.chp.push(req.session.data.chp)
-  switch (req.session.data.chp) {
-    case 'no':
-      res.redirect('/anything-besides-heat-generation')
-      break
-      case 'yes':
-        default:
-          res.redirect('/does-this-meter-supply-the-chp')
-        }
-      })
+})
       
 router.get(['/chp-supply-check'], (req, res) => {
   let latestMeter
