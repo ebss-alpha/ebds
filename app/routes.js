@@ -327,3 +327,17 @@ router.get(['/remove-file'], (req, res) => {
   req.session.data.removed = req.query.filename
   res.redirect('/you-need-to-provide-evidence')
 })
+
+router.get(['/declaration-check'], (req, res) => {
+  const declared = req.session.data.declaration === 'yes'
+  if (req.session.data.path === 'heat-network') {
+    res.redirect('/confirmation')
+  } else {
+    res.redirect('/ni-protocol')
+  }
+})
+
+router.get(['/ni-check'], (req, res) => {
+  const declared = req.session.data['ni-protocol'] === 'yes'
+  res.redirect('/confirmation')
+})

@@ -13,7 +13,152 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+      {% if data.path == 'heat-network' %}
+      <h2 class="govuk-heading-m">Your application</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Are you applying for an ETII or heat network?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['etii-or-hn'] | replace('heat-network', 'Heat network') | replace('etii', 'ETII') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+      
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Is your heat network powered by gas, electricity or both?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['gas-or-electricity'] | title }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Does your heat network supply at least one domestic customer?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['hn-serve-domestic'] | title }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+      </dl>
 
+      <h2 class="govuk-heading-m">Contact details</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Who can we contact?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['full-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> who we can contact</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Who email address should we use?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['email'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> email address</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Who phone number should we use?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['telephone-number'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> telephone number</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Heat network information</h2>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What is the business name of the heat / hot water supplier applying for the discount?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hn-business-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What is the postcode of the heat / hot water supplier?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hn-postcode'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What is your organisation's email address?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['org-email'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            If your organisation has one, what is your company registration number?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['crn'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What is the name of your heat network?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hn-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What is your primary energy centre's postcode?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['primary-ec-postcode'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+      </dl>
+      {% else %}
       <h2 class="govuk-heading-m">Organisation details</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
@@ -21,13 +166,15 @@
             Organisation name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['organisation-name'] }}
+            {% if data.crn == '12345678' %}Test Steel Ltd.{% else %}{{ data['organisation-name'] }}{% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
+            {% if data.crn != '12345678' %}
             <a href="#">
               Change
               <span class="govuk-visually-hidden"> organisation name</span>
             </a>
+            {% endif %}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -38,10 +185,6 @@
             {{ data.crn }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="#">
-              Change
-              <span class="govuk-visually-hidden"> CRN</span>
-            </a>
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -54,29 +197,17 @@
             <br>SE23 6FH
           </dd>
           <dd class="govuk-summary-list__actions">
+            {% if data.crn != '12345678' %}
             <a href="#">
               Change
               <span class="govuk-visually-hidden"> headquarters address</span>
             </a>
+            {% endif %}
           </dd>
         </div>
       </dl>
       <h2 class="govuk-heading-m">Contact details</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            What is your relationship to the organisation?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['relationship-to-org'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="#">
-              Change
-              <span class="govuk-visually-hidden"> relationship to organisation</span>
-            </a>
-          </dd>
-        </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Who can we contact?
@@ -121,6 +252,67 @@
         </div>
       </dl>
       
+      <h2 class="govuk-heading-m">Your application</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Are you applying for an ETII or heat network?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['etii-or-hn'] | replace('heat-network', 'Heat network') | replace('etii', 'ETII') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+      
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Are you applying for a discount on gas, electricity or both?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['gas-or-electricity'] | title }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> answer to 'are you applying for gas or electricity or both'</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Do you have access to your energy supplier names and meter numbers?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['access-to-meters'] | replace('some', 'I have access to some but not all of my meters')}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> answer to 'do you have access to your supplier names and meter
+                numbers'</span>
+            </a>
+          </dd>
+        </div>
+        {% if data['access-to-meters'] == 'no' or data['access-to-meters'] == 'some' %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Please provide information about why you do not have access to your meter details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['more-detail']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> details about why you don't have access to meters</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+      </dl>
+      {% endif %}
+
         {% if data.gasSuppliers.length > 0 %}
         <h2 class="govuk-heading-l">Gas suppliers</h2>
         {% if data.path == 'heat-network' %}
@@ -245,10 +437,9 @@
       {{ 
         govukButton({
           'text': 'Accept and send',
-          'href': 'confirmation'
+          'href': 'declaration'
         })
       }}
-
 
     </div>
   </div>
