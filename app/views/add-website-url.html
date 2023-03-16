@@ -8,11 +8,19 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
+{% set nextPage %}
+{% if data.path == 'heat-network' %}
+check-your-answers
+{% else %}
+ni-protocol
+{% endif %}
+{% endset %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="check-your-answers">
+    <form action="{{ nextPage }}">
       <div class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
           <label class="govuk-label govuk-label--l" for="org-url">
