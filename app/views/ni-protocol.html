@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Can you confirm that your organisation is adhering to the 'Northern Ireland Protocol' agreement? – {{ serviceName }} – GOV.UK Prototype Kit
+Northern Ireland Protocol and state aid – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,31 +13,67 @@ Can you confirm that your organisation is adhering to the 'Northern Ireland Prot
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="ni-check">
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-          {{ govukRadios({
-          name: "ni-protocol",
-          classes: "govuk-radios--inline",
-          fieldset: {
-          legend: {
-          text: "Can you confirm that your organisation is adhering to the 'Northern Ireland Protocol' agreement?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-          }
-          },
-          items: [
-          {
+      <h1 class="govuk-heading-m">Northern Ireland Protocol and state aid</h1>
+
+      <p>
+        Article 10 of the Northern Ireland Protocol provides that EU State aid rules will continue to apply to the UK in respect
+        of measures which affect trade in goods and electricity between Northern Ireland and the European Union.
+      </p>
+
+      <p>
+        Subsidies granted in Great Britain could be in scope of Article 10 where there is a clear benefit from and a genuine,
+        direct link between the subsidy and companies in Northern Ireland that could have a real and foreseeable effect on trade
+        between Northern Ireland and the European Union.
+      </p>
+      
+      <p>
+        <a class="govuk-link" href="https://www.gov.uk/government/publications/complying-with-the-uks-international-obligations-on-subsidy-control-guidance-for-public-authorities/technical-guidance-on-the-uks-international-subsidy-control-commitments#section-6">The latest guidance on the UK's international subsidy control commitments provides more detail.</a>
+      </p>
+      
+      <p>
+        If Article 10 of the Northern Ireland Protocol is engaged, you will need to put in suitable measure to prevent any cross
+        subsidising into Northern Ireland.
+      </p>
+      
+      
+      <p>
+        To help determine whether Article 10 could apply please answer the following question.
+      </p>
+      
+      {{ govukRadios({
+      classes: "govuk-radios--inline",
+      name: "ni-protocol",
+      fieldset: {
+        legend: {
+          html: '<div>Does your business, including any subsidiaries, parent company or other business in the corporate group based in Northern Ireland:</div>
+          <div class="govuk-!-margin-top-3">a. engage in the manufacture or sale of goods in Northern Ireland?</div>
+          <div class="govuk-!-margin-top-3">b. participate in the NI wholesale electricity market, namely generation, transmission, distribution or supply of
+          wholesale electricity?</div>',
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      items: [
+        {
           value: "yes",
           text: "Yes"
-          },
-          {
+        },
+        {
           value: "no",
           text: "No"
           }
-          ]
-          }) }}
-        </fieldset>
-      </div>
+      ]
+      }) }}
+      
+      
+      
+      
+      
+      <p>Please answer yes if your business, including any subsidiaries, parent company or other business in the corporate group
+      based in NI, have plans to start manufacturing or selling such goods, or operating in the NI wholesale electricity
+      market in the next three years.</p>
+      
+      <p>Saying “yes” to this question will not stop your subsidy. However, we will engage with you separately to i) clarify
+      whether or not Article 10 of the NIP is engaged and ii) identify suitable measures to prevent cross subsidising.</p>
       <button class="govuk-button" data-module="govuk-button">Continue</button>
     </form>
 
