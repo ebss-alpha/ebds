@@ -33,7 +33,7 @@ router.get(['/path-check'], (req, res) => {
 })
 
 router.get(['/bingo-check'], (req, res) => {
-  const bingo =req.session.data.crn === '12345678'
+  const bingo = req.session.data.crn === '12345678'
   if (bingo) {
     res.redirect('/is-this-your-org')
   } else {
@@ -160,7 +160,7 @@ router.get(['/energy-check'], (req, res) => {
 })
 
 router.get(['/add-gas-supplier'], (req, res) => {
-  const skip = req.session.data.action  === 'skip'
+  const skip = req.session.data.action === 'skip'
   if (skip) {
     if (req.session.data['gas-or-electricity'] === 'both') {
       res.redirect('/who-is-your-electricity-supplier')
@@ -230,7 +230,7 @@ router.get(['/chp-check'], (req, res) => {
     res.redirect('/gas-supplier-summary')
   }
 })
-      
+
 router.get(['/chp-supply-check'], (req, res) => {
   let latestMeter
   if (req.session.data['gas-added']) {
@@ -301,13 +301,13 @@ router.get(['/supplier-check'], (req, res) => {
     case 'continue-electricity':
       res.redirect('/supplier-summary')
       break
-    }
+  }
 })
 
 router.get(['/upload-check'], (req, res) => {
   req.session.data.removed = undefined
   if (req.query.continue) {
-    res.redirect('/check-your-answers')
+    res.redirect('/add-website-url')
   } else {
     if (req.query['upload-multiple'] !== undefined && req.query['evidence'].length !== 0) {
       req.session.data.error = false
