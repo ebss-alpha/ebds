@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What email address should we use to contact this person? – {{ serviceName }}
+What is the email address of the named contact person? – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,11 +16,11 @@ What email address should we use to contact this person? – {{ serviceName }}
       <form action="what-is-your-contact-number">
     <h1 class="govuk-heading-l">
       <label class="govuk-label govuk-label--l" for="email">
-        What email address should we use to contact this person?
+        What is the email address of the named contact person?
       </label>
     </h1>
       <div id="email-hint" class="govuk-hint">
-        We’ll only use this to contact you about your application.
+        We will only use this to contact them about this application.
       </div>
       <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint"
         autocomplete="email">
