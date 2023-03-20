@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Find the address of your organisation's headquarters – {{ serviceName }}
+Find the address of your organisation or business’s headquarters – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,11 +14,12 @@ Find the address of your organisation's headquarters – {{ serviceName }}
     <div class="govuk-grid-column-two-thirds">
       {% call govukFieldset({
       legend: {
-      text: "Find the address of your organisation's headquarters",
+      text: "Find the address of your organisation or business’s headquarters",
       classes: "govuk-fieldset__legend--l",
       isPageHeading: true
       }
       }) %}
+      <div class="govuk-hint">This will be the address registered at Companies House.</div>
       {{ govukInput({
       label: {
       text: "Postcode"

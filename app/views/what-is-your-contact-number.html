@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What phone number should we use to contact this person? – {{ serviceName }} – GOV.UK Prototype Kit
+What is the phone number of the named contact person? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -24,11 +24,14 @@ access-to-energy-supplier-name-and-meter-numbers
       <form action="{{nextPage}}">
         <h1 class="govuk-heading-l">
           <label class="govuk-label govuk-label--l" for="telephone-number">
-            What phone number should we use to contact this person?
+            What is the phone number of the named contact person?
           </label>
         </h1>
         <div id="telephone-number-hint" class="govuk-hint">
-          Enter a UK phone number, include an area code for landline numbers. We may use this number to contact your about your application.
+          Enter a UK phone number, include an area code for landline numbers.
+        </div>
+        <div id="telephone-number-hint" class="govuk-hint">
+          We will only use this to contact them about this application.
         </div>
         <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel"
           aria-describedby="telephone-number-hint" autocomplete="tel">

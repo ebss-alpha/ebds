@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Are you applying for a discount for an Energy and Trade Intensive Industry (ETII) or Heat Network? {{ serviceName }}
+Are you applying for a discount as an Energy and Trade Intensive Industry (ETII) or a domestic heat network supplier? – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,20 +18,24 @@ Are you applying for a discount for an Energy and Trade Intensive Industry (ETII
       {{ govukRadios({
       name: "etii-or-hn",
       fieldset: {
-      legend: {
-      text: "Are you applying for a discount for an Energy and Trade Intensive Industry (ETII) or heat network?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-      }
+        legend: {
+          text: "Are you applying for a discount as an Energy and Trade Intensive Industry (ETII) or a domestic heat network supplier?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        text: 'You can apply as an ETII if your organisation is an ETII, on one of the EII exemption schemes, or on a registered list
+        of zoos, public libraries, archives, museums, historical sites or botanical gardens.'
       },
       items: [
       {
       value: "etii",
-      text: "Energy and Trade Intensive Industry"
+      text: "Energy and Trade Intensive Industry (ETII)"
       },
       {
       value: "heat-network",
-      text: "Heat network"
+      text: "Domestic heat network supplier"
       }
       ]
       }) }}

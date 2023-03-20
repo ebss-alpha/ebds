@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-You need to provide evidence
+You need to provide evidence of eligibility
 {% endblock %}
 
 {% block beforeContent %}
@@ -69,10 +69,10 @@ href: "#evidence"
   <input type="hidden" name="evidence-provided" value="yes">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">You need to provide evidence</h1>
+      <h1 class="govuk-heading-l">You need to provide evidence of eligibility</h1>
 
-      <p>You must upload a evidence that you are eligible...</p>
-      <p class="govuk-body">You can upload the following:</p>
+      <p>We need proof that your organisation or business is eligible for this discount.</p>
+      <p class="govuk-body">You must upload the following documents:</p>
       <ul class="govuk-list govuk-list--bullet">
         {% if data.path == 'heat-network' %}
         <li>Documentation that proves contractual relationship between the entity purchasing gas and electricity and
