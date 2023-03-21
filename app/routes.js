@@ -307,7 +307,11 @@ router.get(['/supplier-check'], (req, res) => {
 router.get(['/upload-check'], (req, res) => {
   req.session.data.removed = undefined
   if (req.query.continue) {
-    res.redirect('/add-website-url')
+    if (req.session.data.path === 'heat-network') {
+      res.redirect('/check-your-answers')
+    } else {
+      res.redirect('/add-website-url')
+    }
   } else {
     if (req.query['upload-multiple'] !== undefined && req.query['evidence'].length !== 0) {
       req.session.data.error = false
