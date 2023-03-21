@@ -24,7 +24,29 @@
             {{ data['etii-or-hn'] | replace('heat-network', 'Heat network') | replace('etii', 'ETII') }}
           </dd>
           <dd class="govuk-summary-list__actions">
-      
+          </dd>
+        </div>
+      </dl>
+      <h2 class="govuk-heading-m">Heat network information</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What is the name of your heat network?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hn-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What is your primary energy centre's postcode?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['primary-ec-postcode'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -48,7 +70,59 @@
           </dd>
         </div>
       </dl>
-
+      <h2 class="govuk-heading-m">Heat supplier information</h2>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What is the business name of the heat / hot water supplier applying for the discount?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hn-business-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What is the postcode of the heat / hot water supplier?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hn-postcode'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What is your organisation's email address?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['org-email'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            If your organisation has one, what is your company registration number?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['crn'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            If your organisation has one, what is your company registration number?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['crn'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+      </dl>
       <h2 class="govuk-heading-m">Contact details</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
@@ -83,79 +157,6 @@
         </div>
       </dl>
 
-      <h2 class="govuk-heading-m">Heat network information</h2>
-      <dl class="govuk-summary-list">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            What is the business name of the heat / hot water supplier applying for the discount?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['hn-business-name'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            What is the postcode of the heat / hot water supplier?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['hn-postcode'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            What is your organisation's email address?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['org-email'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            If your organisation has one, what is your website address?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['org-url'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            If your organisation has one, what is your company registration number?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['crn'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            What is the name of your heat network?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['hn-name'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            What is your primary energy centre's postcode?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['primary-ec-postcode'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-          </dd>
-        </div>
-      </dl>
       {% else %}
       <h2 class="govuk-heading-m">Organisation details</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
