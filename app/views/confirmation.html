@@ -1,31 +1,36 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <div class="govuk-panel govuk-panel--confirmation">
-        <h1 class="govuk-panel__title">Application complete</h1>
-        <div class="govuk-panel__body">
-          Your reference number<br><strong>HDJ2123F</strong>
-        </div>
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">Application complete</h1>
+      <div class="govuk-panel__body">
+        Your reference number<br><strong>HDJ2123F</strong>
       </div>
-
-      <p>
-        We have sent you a confirmation email.
-      </p>
-
-      <h2 class="govuk-heading-m">What happens next</h2>
-      <p>How long they should expect to wait, what the processing entails, what they will receive etc..</p>
-      <p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did you think of this service?</a> (takes 30 seconds)</p>
-
-
     </div>
+
+    <p>
+      We have sent you a confirmation email.
+    </p>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p>How long they should expect to wait, what the processing entails, what they will receive etc..</p>
+    <p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did
+        you think of this service?</a> (takes 30 seconds)</p>
+    {% if data.path == 'heat-network' %}
+    <h2 class="govuk-heading-m">Add another heat network</h2>
+    <p>If you operate more than one heat network, you can add another using the link below:</p>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="/is-your-heat-network-powered-by-electricity-or-gas">Add another heat network</a></p>
+    {% endif %}
+
   </div>
+</div>
 
 {% endblock %}
