@@ -133,6 +133,18 @@ router.get(['/access-check'], (req, res) => {
   }
 })
 
+router.get('/no-access-reason-check', (req, res) => {
+  switch (req.session.data['no-access-reason']) {
+    case 'cannot-find':
+      res.redirect('/ineligible-no-access')
+      break
+    case 'intermediary':
+    default:
+      res.redirect('/some-or-none-check')
+      break
+  }
+})
+
 router.get(['/some-or-none-check'], (req, res) => {
   switch (req.session.data['access-to-meters']) {
     case 'no':

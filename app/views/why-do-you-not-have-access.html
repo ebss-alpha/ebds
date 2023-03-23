@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Who is your intermediary – {{ serviceName }} – GOV.UK Prototype Kit
+Tell us why you do not have access to your meters – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,20 +13,30 @@ Who is your intermediary – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="some-or-none-check" method="post">
-
-      <div class="govuk-form-group">
-        <h1 class="govuk-label-wrapper">
-          <label class="govuk-label govuk-label--l" for="more-detail">
-            Please provide some additional details to explain why you do not have access to these details.
-          </label>
-        </h1>
-        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"
-          aria-describedby="more-detail-hint"></textarea>
-      </div>
-
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
-
+    <form class="form" action="no-access-reason-check" method="post">
+      {{ govukRadios({
+        name: "no-access-reason",
+        fieldset: {
+          legend: {
+            text: "Tell us why you do not have access to your meters",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "intermediary",
+            text: "An intermediary handles our energy provision"
+          },
+          {
+            value: "cannot-find",
+            text: "I cannot find our meter numbers"
+          }
+        ]
+      }) }}
+      {{ govukButton({
+        text: 'Continue'
+      }) }}
     </form>
 
   </div>
