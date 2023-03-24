@@ -12,13 +12,13 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+      <h1 class="govuk-heading-xl">Check your answers before sending your registration</h1>
       {% if data.path == 'heat-network' %}
-      <h2 class="govuk-heading-m">Your application</h2>
+      <h2 class="govuk-heading-m">Your registration</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Are you applying for an ETII or heat network?
+            Are you registering for an ETII or heat network?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['etii-or-hn'] | replace('heat-network', 'Heat network') | replace('etii', 'ETII') }}
@@ -74,7 +74,7 @@
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            What is the business name of the heat / hot water supplier applying for the discount?
+            What is the business name of the heat / hot water supplier registering for the discount?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['hn-business-name'] }}
@@ -239,11 +239,11 @@
         </div>
       </dl>
       
-      <h2 class="govuk-heading-m">Your application</h2>
+      <h2 class="govuk-heading-m">Your registration</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Are you applying for an ETII or heat network?
+            Are you registering for an ETII or heat network?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['etii-or-hn'] | replace('heat-network', 'Heat network') | replace('etii', 'ETII') }}
@@ -254,7 +254,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Are you applying for a discount on gas, electricity or both?
+            Are you registering for a discount on gas, electricity or both?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['gas-or-electricity'] | title }}
@@ -396,7 +396,7 @@
               text: "Applicants found to be providing false information to gain support payments to which they are not entitled will face prosecution. Any funding issued will be recovered",
               iconFallBackText: 'Warning'
             }) }}
-            <p>By ticking the box below you confirm that the information provided is correct and that you have a director's approval to make this application.</p>
+            <p>By ticking the box below you confirm that the information provided is correct and that you have a director's approval to make this registration.</p>
             {{ govukCheckboxes({
             name: "declaration",
             items: [
