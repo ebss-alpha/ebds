@@ -50,7 +50,7 @@ router.get(['/org-check'], (req, res) => {
   }
 })
 
-router.get(['/applying-for-check'], (req, res) => {
+router.get(['/registering-for-check'], (req, res) => {
   const confirmOrg = req.session.data['is-this-your-org'] === 'yes'
   if (confirmOrg) {
     res.redirect('/who-can-we-contact')

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-You can apply for the energy bill discount scheme – {{ serviceName }} – GOV.UK Prototype Kit
+You can register for the energy bill discount scheme – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,21 +14,21 @@ You can apply for the energy bill discount scheme – {{ serviceName }} – GOV.
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      You can apply for the energy bill discount scheme</h1>
+      You can register for the energy bill discount scheme</h1>
 
-    <p>In order to apply for this discount, you will need to provide:</p>
+    <p>In order to register for this discount, you will need to provide:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>A letter signed by your CFO / CEO confirming that 50% or more of your sales/services revenue fall into an eligible sector. <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1128033/230104_ETII_List_for_gov.uk.pdf" class="govuk-link">A list of eligible sectors is available on GOV.UK</a></li>
       <li>2 or 4 quarters of financial reports that prove the above</li>
       <li>Letter signed by accountant confirming the above (optional)</li>
-      <li>Any additional evidence to support your application</li>
+      <li>Any additional evidence to support your registration</li>
     </ul>
     <p>Additionally, in order to provide the discount, you will need to give your energy supplier names and any associated meter numbers.</p>
     <p>Any meter numbers that you do not have access to, for example if you pay through an intermediary, will need to applied for by the person responsible for those meters and they should pass the discount onto your business.</p>
     {{ 
       govukButton({
         text: 'Continue',
-        href: 'are-you-applying-for-gas-or-electricity'
+        href: 'are-you-registering-for-gas-or-electricity'
       }
       )
     }}
