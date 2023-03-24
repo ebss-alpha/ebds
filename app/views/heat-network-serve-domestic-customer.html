@@ -13,30 +13,32 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="domestic-check">
-    <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset" aria-describedby="hn-serve-domestic-hint">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h1 class="govuk-fieldset__heading">
-            Does your Heat Network serve at least one domestic customer?
-          </h1>
-        </legend>
-        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="hn-serve-domestic" name="hn-serve-domestic" type="radio" value="yes">
-            <label class="govuk-label govuk-radios__label" for="hn-serve-domestic">
-              Yes
-            </label>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="hn-serve-domestic-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Does your heat network serve at least one domestic customer?
+            </h1>
+          </legend>
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="hn-serve-domestic" name="hn-serve-domestic" type="radio"
+                value="yes">
+              <label class="govuk-label govuk-radios__label" for="hn-serve-domestic">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="hn-serve-domestic-2" name="hn-serve-domestic" type="radio"
+                value="no">
+              <label class="govuk-label govuk-radios__label" for="hn-serve-domestic-2">
+                No
+              </label>
+            </div>
           </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="hn-serve-domestic-2" name="hn-serve-domestic" type="radio" value="no">
-            <label class="govuk-label govuk-radios__label" for="hn-serve-domestic-2">
-              No
-            </label>
-          </div>
-        </div>
-      </fieldset>
-    </div>
-    <button class="govuk-button" data-module="govuk-button">Continue</button>
+        </fieldset>
+      </div>
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
 
     </form>
 
