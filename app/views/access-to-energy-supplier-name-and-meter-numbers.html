@@ -17,26 +17,30 @@ Do you know your organisation or business’s energy suppliers and the numbers o
       name: "access-to-meters",
       fieldset: {
       legend: {
-      text: "Do you know your organisation or business’s energy suppliers and the numbers of your energy meters?",
+      text: "Do you know your organisation or business’ energy suppliers and meter numbers?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
       }
       },
+      <div class="govuk-hint">
+       <p>This should be meters associated with the property where the ETII eligible activity occurs.</p> 
+<p>If you can provide your energy suppliers and meter numbers, your registration will be processed more quickly.</p>
+      </div>
       items: [
       {
       value: "yes",
-      text: "I know all of them"
+      text: "I know all the suppliers and meter numbers"
       },
       {
       value: "no",
-      text: "I don’t know any of them"
+      text: "I do not know any of the suppliers and meter numbers"
       },
       {
       divider: "or"
       },
       {
         value: "some",
-        text: "I know some of them"
+        text: "I know some of the suppliers and meter numbers"
       }
       ]
       }) }}
