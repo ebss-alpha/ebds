@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Are you registering for a discount as an Energy and Trade Intensive Industry (ETII) or a domestic heat network supplier? – {{ serviceName }}
+Are you registering for a discount as an Energy and Trade Intensive Industry (ETII) or a heat supplier? – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,7 +19,7 @@ Are you registering for a discount as an Energy and Trade Intensive Industry (ET
       name: "etii-or-hn",
       fieldset: {
         legend: {
-          text: "Are you registering for a discount as an Energy and Trade Intensive Industry (ETII) or a domestic heat network supplier?",
+          text: "Are you registering for a discount as an Energy and Trade Intensive Industry (ETII) or a heat supplier?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--l"
         }
@@ -35,7 +35,7 @@ Are you registering for a discount as an Energy and Trade Intensive Industry (ET
       },
       {
       value: "heat-network",
-      text: "Domestic heat network supplier"
+      text: "Heat supplier"
       }
       ]
       }) }}
