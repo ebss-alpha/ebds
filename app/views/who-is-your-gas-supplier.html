@@ -18,11 +18,11 @@ Who is your gas supplier? – {{ serviceName }}
           + 1 }}</div>
         <h1 class="govuk-label-wrapper">
           <label class="govuk-label govuk-label--l" for="gas-supplier">
-            Who is your gas supplier?
+            Who is the gas supplier for the heat network?
           </label>
         </h1>
         <p class="govuk-hint">
-          Find your gas supplier using the input below. If you need to, you can add more gas suppliers later.
+          Find your gas supplier in the list. You can add more gas suppliers later if you have more than one.
         </p>
         <select name="gas-supplier" class="govuk-select" id="gas-supplier">
           <option value="" disabled selected>Select a supplier</option>
@@ -33,17 +33,17 @@ Who is your gas supplier? – {{ serviceName }}
       </div>
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Continue",
-          name: 'action',
-          value: 'continue'
+        text: "Continue",
+        name: 'action',
+        value: 'continue'
         }) }}
         {{
-          govukButton({
-            text: 'Skip gas supplier',
-            name: 'action',
-            classes: 'govuk-button--secondary',
-            value: 'skip'
-          })
+        govukButton({
+        text: 'Skip gas supplier',
+        name: 'action',
+        classes: 'govuk-button--secondary',
+        value: 'skip'
+        })
         }}
       </div>
     </div>
