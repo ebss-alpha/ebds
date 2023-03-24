@@ -16,9 +16,12 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
       <div class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
           <label class="govuk-label govuk-label--l" for="hn-business-name">
-            What is the business name of the heat / hot water supplier applying for the discount?
+            What is the registered name of the heat supplier registering for the discount?
           </label>
         </h1>
+        <div id="registered-name-hint" class="govuk-hint">
+          This may be the registered business, organisation or charity name.
+        </div>
         <input class="govuk-input" id="hn-business-name" name="hn-business-name" type="text">
       </div>
       <button class="govuk-button" data-module="govuk-button">Continue</button>
