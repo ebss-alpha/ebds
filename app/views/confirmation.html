@@ -31,15 +31,22 @@ Registration complete– {{ serviceName }}
       notification of the outcome will happen on or after 26 April 2023.</p>
     <p>When it is applied to your bills, the heat network discount will be backdated to 1 April 2023. Your energy
       supplier must pass the discount on to you</p>
-    <p>You must continue to pay your bills as normal</p>
-        <p><a class="govuk-link govuk-link--no-visited-state" href="/is-your-heat-network-powered-by-electricity-or-gas">Add
-            another heat network</a></p>
+    {{
+      govukWarningText({
+        text: 'You must continue to pay your bills as normal'
+      })
+    }}
+    <p><a class="govuk-link govuk-link--no-visited-state" href="/is-your-heat-network-powered-by-electricity-or-gas">Add
+        another heat network</a></p>
     {% else %}
     <p>The EBDS ETII support does not come into force until 26 April 2023. If you register before this date,
       notification of the outcome will happen on or after 26 April 2023.</p>
     <p>When it is applied to your bills, the ETII discount will be backdated to 1 April 2023. Your energy supplier must
       pass the discount on to you</p>
-    <p>You must continue to pay your bills has normal.</p>
+    {{ govukWarningText({
+      text: 'You must continue to pay your bills has normal.'
+    })
+    }}
     {% endif %}
   </div>
 </div>
