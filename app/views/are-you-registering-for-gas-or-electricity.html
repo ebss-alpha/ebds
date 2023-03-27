@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Are you registering for a discount for gas or electricity? – {{ serviceName }}
+What type of energy are you registering to get a discount for? – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,10 +16,13 @@ Are you registering for a discount for gas or electricity? – {{ serviceName }}
       name: "gas-or-electricity",
       fieldset: {
       legend: {
-        text: "Are you registering for a discount for gas or electricity?",
+        text: "What type of energy are you registering to get a discount for?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
         }
+      },
+      hint: {
+        text: 'You can only register for a discount for gas or electricity supplied by a licenced energy supplier.'
       },
       items: [
         {
