@@ -50,8 +50,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Is this a meter connected to a Combined Heat and Power Plant (CHP) that has an installed capacity of
-            more than 5MW and exports electricity to the grid?
+            Is this meter connected to a CHP that has an installed capacity of more than 5 megawatts and exports electricity to the grid?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data.electricitySuppliers[data.electricitySuppliers.length - 1].chp[loop.index0] | title}}
