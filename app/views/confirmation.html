@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+Registration complete– {{ serviceName }}
 {% endblock %}
 
 {% block content %}
@@ -16,20 +16,30 @@ Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
       </div>
     </div>
 
-    <p>
-      We have sent you a confirmation email.
-    </p>
+    <p>Your registration has been recieved. We have sent a conformation email to the email your have provided. It will
+      tell you what happens next and when to expect a response.</p>
+    <p>The email will not contain the details you have provided in your registration. You must save or print the
+      information on this page if you want to keep it for your records.</p>
 
     <h2 class="govuk-heading-m">What happens next</h2>
-    <p>How long they should expect to wait, what the processing entails, what they will receive etc..</p>
-    <p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did
-        you think of this service?</a> (takes 30 seconds)</p>
-    {% if data.path == 'heat-network' %}
-    <h2 class="govuk-heading-m">Add another heat network</h2>
-    <p>If you operate more than one heat network, you can add another using the link below:</p>
-    <p><a class="govuk-link govuk-link--no-visited-state" href="/is-your-heat-network-powered-by-electricity-or-gas">Add another heat network</a></p>
-    {% endif %}
+    <p>If there are any questions about your registration or you need to provide additional evidence, we will contact
+      you by email or by phone</p>
 
+    {% if data.path == 'heat-network' %}
+    <p>The EBDS heat network support does not come into force until the 26 April 2023. If you register before this date,
+      notification of the outcome will happen on or after 26 April 2023.</p>
+    <p>When it is applied to your bills, the heat network discount will be backdated to 1 April 2023. Your energy
+      supplier must pass the discount on to you</p>
+    <p>You must continue to pay your bills as normal</p>
+        <p><a class="govuk-link govuk-link--no-visited-state" href="/is-your-heat-network-powered-by-electricity-or-gas">Add
+            another heat network</a></p>
+    {% else %}
+    <p>The EBDS ETII support does not come into force until the 26 April 2023. If you register before this date,
+      notification of the outcome will happen on or after 26 April 2023.</p>
+    <p>When it is applied to your bills, the ETII discount will be backdated to 1 April 2023. Your energy supplier must
+      pass the discount on to you</p>
+    <p>You must continue to pay your bills has normal.</p>
+    {% endif %}
   </div>
 </div>
 
