@@ -69,23 +69,44 @@ href: "#evidence"
   <input type="hidden" name="evidence-provided" value="yes">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">You need to provide evidence</h1>
+      <h1 class="govuk-heading-l">You need to provide evidence of eligibility</h1>
 
       <p>You must upload a evidence that you are eligible...</p>
       <p class="govuk-body">You can upload the following:</p>
       <ul class="govuk-list govuk-list--bullet">
         {% if data.path == 'heat-network' %}
-        <li>Documentation that proves contractual relationship between the entity purchasing gas and electricity and
-          supplying it to
-          domestic customers (i.e. Domestic Heat Supply Contract, Residential agreement)</li>
-        <li>CFO/CEO Declaration letter (PDF)</li>
+        <!-- Heat networks start -->
+        <p>We need proof that your heat network is eligible for this discount.</p>
+        <h2 class="govuk-heading-m">Signed declaration letter</h2>
+        <p>You must upload a letter signed by a named director or equivalent of your organisation or business that
+          states that:</p>
+        <li>all the information in this registration is accurate to the best of their knowledge</li>
+        <p>Use the PDF template provided here [link needed]</p>
+        <h2 class="govuk-heading-m">Evidence that you are a domestic heat network supplier</h2>
+        <p>You must also upload documents that prove a contractual relationship between the heat supplier and its
+          domestic customers. PDF format is prefered.</p>
+        <p>This might include:</p>
+        <li>Domestic Heat Supply Contract</li>
+        <li>Residential Agreement with provision of heat or hot water</li>
+        <h2 class="govuk-heading-m">Optional evidence</h2>
+        <p>You can provide any other evidence to support your registration</p>
+        <h2 class="govuk-heading-m">Your documents</h2>
+        <p>You can upload a maximum of 10 documents. PDF format is preferred.</p>
+        <p>Your documents must be:</p>
+        <li>no more than 10 MB</li>
+        <li>in PDF, JPEG, PNG or DOC format</li>
+        <!-- Heat networks end-->
         {% else %}
+        <!--Bingo only start-->
         <li>Letter signed by CFO/ CEO (letter should state it meets the 50% threshold, type of organisation and
           registration type)</li>
+        <!--Bingo only end-->
         {% if data.crn != '12345678' %}
+        <!--Non-bingo start-->
         <li>Letter signed by accountant</li>
         <li>2, or 4 quarters of financial reports</li>
         <li>Any additional evidence to support your application</li>
+        <!--Non-bingo end-->
         {% endif %}
         {% endif %}
       </ul>
