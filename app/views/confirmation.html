@@ -1,31 +1,45 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <div class="govuk-panel govuk-panel--confirmation">
-        <h1 class="govuk-panel__title">Application complete</h1>
-        <div class="govuk-panel__body">
-          Your reference number<br><strong>HDJ2123F</strong>
-        </div>
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">Application complete</h1>
+      <div class="govuk-panel__body">
+        Your reference number<br><strong>HDJ2123F</strong>
       </div>
-
-      <p>
-        We have sent you a confirmation email.
-      </p>
-
-      <h2 class="govuk-heading-m">What happens next</h2>
-      <p>How long they should expect to wait, what the processing entails, what they will receive etc..</p>
-      <p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did you think of this service?</a> (takes 30 seconds)</p>
-
-
     </div>
+
+    <p>Your registration has been recieved. We have sent a conformation email to the email your have provided. It will
+      tell you what happens next and when to expect a response.</p>
+    <p>The email will not contain the details you have provided in your registration. You must save or print the
+      information on this page if you want to keep it for your records.</p>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p>If there are any questions about your registration or you need to provide additional evidence, we will contact
+      you by email or by phone</p>
+
+    {% if data.path == 'heat-network' %}
+    <p>The EBDS heat network support does not come into force until the 26 April 2023. If you register before this date,
+      notification of the outcome will happen on or after 26 April 2023.</p>
+    <p>When it is applied to your bills, the heat network discount will be backdated to 1 April 2023. Your energy
+      supplier must pass the discount on to you</p>
+    <p>You must continue to pay your bills as normal</p>
+    {% else %}
+    <p>The EBDS ETII support does not come into force until the 26 April 2023. If you register before this date,
+      notification of the outcome will happen on or after 26 April 2023.</p>
+    <p>When it is applied to your bills, the ETII discount will be backdated to 1 April 2023. Your energy supplier must
+      pass the discount on to you</p>
+    <p>You must continue to pay your bills has normal.</p>
+    {% endif %}
+
   </div>
+</div>
 
 {% endblock %}
