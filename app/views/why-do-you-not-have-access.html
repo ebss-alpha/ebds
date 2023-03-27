@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Who is your intermediary – {{ serviceName }} – GOV.UK Prototype Kit
+Give details of why you do not know your energy suppliers and meter numbers – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,9 +18,12 @@ Who is your intermediary – {{ serviceName }} – GOV.UK Prototype Kit
       <div class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
           <label class="govuk-label govuk-label--l" for="more-detail">
-            Please provide some additional details to explain why you do not have access to these details.
+            Give details of why you do not know your energy suppliers and meter numbers
           </label>
         </h1>
+        <div id="more-detail-hint" class="govuk-hint">
+          If you have an intermediary provider, include their name, address and contact details.
+        </div>
         <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"
           aria-describedby="more-detail-hint"></textarea>
       </div>

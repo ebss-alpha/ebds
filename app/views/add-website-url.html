@@ -8,21 +8,32 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
+{% set nextPage %}
+{% if data.path == 'heat-network' %}
+check-your-answers
+{% else %}
+ni-protocol
+{% endif %}
+{% endset %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="postcode-of-heat-hot-water-supplier">
+    <form action="{{ nextPage }}">
       <div class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
-          <label class="govuk-label govuk-label--l" for="hn-business-name">
-            What is the business name of the heat / hot water supplier applying for the discount?
+          <label class="govuk-label govuk-label--l" for="org-url">
+            If your organisation has one, what is your website address?
           </label>
         </h1>
-        <input class="govuk-input" id="hn-business-name" name="hn-business-name" type="text">
+        <input class="govuk-input" id="org-url" name="org-url" type="text">
       </div>
+
       <button class="govuk-button" data-module="govuk-button">Continue</button>
+
     </form>
+
   </div>
 </div>
 
