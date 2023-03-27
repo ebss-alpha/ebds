@@ -19,6 +19,11 @@ Enter a gas meter number for this supplier – {{ serviceName }} – GOV.UK Prot
             Enter a gas meter number for this supplier
           </h1>
           <div id="gas-meter-hint">
+            {% if data.path == 'heat-network' %}
+            <p class="govuk-hint">
+              This should be the meter number providing the energy centre only.
+            </p>
+            {% endif %}
             <p class="govuk-hint">
               You can add more meter numbers later.
             </p>
