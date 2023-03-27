@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Do you have access to your energy supplier(s) name and meter numbers? – {{ serviceName }}
+Do you know your organisation or business’s energy suppliers and the numbers of your energy meters? – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -17,7 +17,7 @@ Do you have access to your energy supplier(s) name and meter numbers? – {{ ser
       name: "access-to-meters",
       fieldset: {
       legend: {
-      text: "Do you have access to your energy supplier names and meter numbers?",
+      text: "Do you know your organisation or business’s energy suppliers and the numbers of your energy meters?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
       }
@@ -25,18 +25,18 @@ Do you have access to your energy supplier(s) name and meter numbers? – {{ ser
       items: [
       {
       value: "yes",
-      text: "Yes I know all of my meter numbers"
+      text: "I know all of them"
       },
       {
       value: "no",
-      text: "No I do not know any meter numbers"
+      text: "I don’t know any of them"
       },
       {
       divider: "or"
       },
       {
         value: "some",
-        text: "I know some of my meter numbers but not all"
+        text: "I know some of them"
       }
       ]
       }) }}

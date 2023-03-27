@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  What is your gas meter number? – {{ serviceName }} – GOV.UK Prototype Kit
+Enter a gas meter number for this supplier – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,15 +15,21 @@
       <form action="add-gas-meter">
         <div class="govuk-form-group">
           <div class="govuk-caption-l">{{ data['gas-supplier'] }} meter {{ data.gasSuppliers[data.gasSuppliers.length -1].meterNumbers.length + 1 }} of {{ data.gasSuppliers[data.gasSuppliers.length -1].meterNumbers.length + 1 }}</div>
-          <h1 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--l" for="meter-number">
-              What is your meter number?
-            </label>
+          <h1 class="govuk-heading-l">
+            Enter a gas meter number for this supplier
           </h1>
-          <p class="govuk-hint">
-            Enter a meter number for this supplier. You can add more meter numbers later.
-          </p>
-          <input class="govuk-input govuk-input--width-10" id="meter-number" name="meter-number" type="text">
+          <div id="gas-meter-hint">
+            <p class="govuk-hint">
+              You can add more meter numbers later.
+            </p>
+            <p class="govuk-hint">
+              You can find your gas meter number (MPRN or MPAN) on the bill from your energy supplier.
+            </p>
+          </div>
+          <label class="govuk-label" for="meter-number">
+            What is the number of the meter supplied by this supplier?
+          </label>
+          <input class="govuk-input govuk-input--width-10" id="meter-number" aria-describedby="gas-meter-hint" name="meter-number" type="text">
         </div>
         <button class="govuk-button" data-module="govuk-button">Continue</button>
       </form>

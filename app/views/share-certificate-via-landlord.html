@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-You can still apply if... – {{ serviceName }} – GOV.UK Prototype Kit
+You will need to share your certificate with the people who manage your organisation’s energy so they can get the discount – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,11 +14,10 @@ You can still apply if... – {{ serviceName }} – GOV.UK Prototype Kit
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      You can still apply if...
+      You will need to share your certificate with the people who manage your organisation’s energy so they can get the discount
     </h1>
 
-    <p>You can still apply for an energy discount, however you will need to share your certificate with your supplier
-      via your landlord/ intermediary to ensure your energy discount is applied. </p>
+    <p>If you’re not responsible for your meter… </p>
       {{
         govukButton({
           'text': 'Continue',

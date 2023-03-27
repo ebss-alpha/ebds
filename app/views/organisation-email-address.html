@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What is your organisation's email address? – {{ serviceName }}
+What is the heat supplier's email address? – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,11 +16,12 @@ What is your organisation's email address? – {{ serviceName }}
       <form action="what-is-your-crn">
         <h1 class="govuk-heading-l">
           <label class="govuk-label govuk-label--l" for="email">
-            What is your organisation's email address?
+            What is the heat supplier's email address?
         </h1>
         </label>
         <div id="email-hint" class="govuk-hint">
-          We’ll only use this to contact you about your application.
+          This should be a generic organisation email address, different to the named contact email address you provided
+          earlier.
         </div>
         <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint"
           autocomplete="email">
