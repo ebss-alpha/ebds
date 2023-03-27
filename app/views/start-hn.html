@@ -29,14 +29,14 @@ serviceName: serviceName
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">
-      {% if serviceName %} {{ serviceName }} for Energy and Trade Intensive Industries (ETIIs){% endif %}
+      {% if serviceName %} {{ serviceName }} for heat networks {% endif %}
     </h1>
 
     <p class="govuk-body-s">Contents:</p>
 
     <ul class="govuk-list">
       <li class="govuk-body-s">
-        <a class="govuk-link govuk-link--no-visited-state" href="#eligible-etiis">Eligible ETIIs</a>
+        <a class="govuk-link govuk-link--no-visited-state" href="#eligible-heat-networks">Eligible heat networks</a>
       </li>
       <li class="govuk-body-s">
         <a class="govuk-link govuk-link--no-visited-state" href="#what-is-not-eligible">What is not eligible</a>
@@ -50,52 +50,67 @@ serviceName: serviceName
       <li class="govuk-body-s">
         <a class="govuk-link govuk-link--no-visited-state" href="#what-you-need-to-know">What you need to know</a>
       </li>
+      <li class="govuk-body-s">
+        <a class="govuk-link govuk-link--no-visited-state" href="#apply-by-phone">Apply by phone</a>
+      </li>
     </ul>
 
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
     <p>
-      Use this service if you’re a UK business or organisation in the ETII sector that needs to register for the energy bills discount scheme support.
+      Use this service if you are a heat network supplier in the UK who needs to register for the energy bills discount scheme
+      support. Heat network suppliers must register for the scheme, even if their current contract prevents them from getting
+      the discount.
     </p>
     
-    <h2 class="govuk-heading-m" id="eligible-etiis">
-      Eligible ETIIs 
+    <h2 class="govuk-heading-m" id="eligible-heat-networks">
+      Eligible heat networks 
     </h2>
     
     <p>
-      You must have a non-domestic contract with a licensed energy supplier.
-    </p>
-    
-    <p>
-      Your UK business or organisation should also be:
+      A heat network may be eligible for the discount if it: 
     </p>
     
     <ul class="govuk-list govuk-list--bullet">
-      <li>classed as an ETII operating in an eligible sector – see the <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1128033/230104_ETII_List_for_gov.uk.pdf" class="govuk-link">list of eligible sectors</a></li>
-      <li>able to prove that at least 50% of its revenue being generated from UK-based activity is one of the eligible SIC codes</li>
+      <li>is a heat network as defined in the Energy Bills Discount Scheme regulations</li>
+      <li>is supplied by a licenced energy supplier</li>
+      <li>supplies one or more domestic customers</li>
+      <li>uses gas or electricity for producing heat</li>
     </ul>
+    
+    <p>
+      All meter points supplying the energy centre for the heat network are eligible for support.
+    </p>
+    
+    <p>
+      Heat suppliers must also register under the redress scheme, managed by the Energy Ombudsman. Learn more <a href="https://www.ombudsman-services.org/sectors/heat-networks" class="govuk-link">about the redress scheme</a>.
+    </p>
+  
+    <p>
+      You can only register for one heat network at a time.
+    </p>
     
     <h2 class="govuk-heading-m" id="what-is-not-eligible">
-      What is not eligible
+      What is not eligible 
     </h2>
     
-    <p>
-      You will not be eligible for support if:
-    </p>
-    
-    <ul class="govuk-list govuk-list--bullet">
-      <li>your energy is not supplied via a licenced supplier</li>
-    </ul>
-    
-    <p>
-      The discount will not apply to: 
-    </p>
-    
-    <ul class="govuk-list govuk-list--bullet">
-      <li>energy used to generate electricity to export back to the grid, including if it has been stored first</li>
-      <li>energy made available to customers in the Republic of Ireland</li>
-    </ul>
+    {{
+      govukInsetText(
+        {
+          html: 'This scheme is not open to households that are on heat networks. Your supplier must apply and pass-through any discount to you. Find out <a href="https://www.gov.uk/government/publications/pass-through-requirements-for-energy-price-support-provided-to-intermediaries" class="govuk-link">what to do if you think you should have received a discount, but haven’t</a>. Read about all <a href="https://helpforhouseholds.campaign.gov.uk/help-with-your-bills/" class="govuk-link">energy bill and cost of living support</a>.'
+        }
+      )
+    }}
 
+    <p>
+      If you are a heat network supplier, the discount will not apply to:
+    </p>
+    
+    <ul class="govuk-list govuk-list--bullet">
+      <li>gas used to generate electricity to export back to the grid, including if it has been stored first</li>
+      <li>gas or electricity made available to customers in the Republic of Ireland</li>
+    </ul>
+    
     <h2 class="govuk-heading-m" id="before-you-start">
       Before you start 
     </h2>
@@ -104,51 +119,37 @@ serviceName: serviceName
       You will need:  
     </p>
     
+    
     <ul class="govuk-list govuk-list--bullet">
       <li>contact details of the applicant (including email address and phone number)</li>
-      <li>name and address of the business or organisation</li>
-      <li>supplier name and meter numbers for eligible meters</li>
+      <li>name and address of the heat supplier</li>
+      <li>postcode of the primary energy centre</li>
+      <li>supplier name and meter numbers for eligible meters at that heat network</li>
       <li>completed declaration document signed by one of the following:</li>
       <ul class="govuk-list govuk-list--bullet">
-        <li>a named director listed on the Companies House register</li>
-        <li>(if not a company) a named person whose authority in that business or organisation is similar to a director of a company</li>
-        <li>Note: an agent is not permitted to sign the declaration on behalf of a business or organisation</li>
+        <li>a named director of the heat supplier  </li>
+        <li>(if not a company) a named person approved by the Secretary of State for the purpose of making such a declaration </li>
+        <li>(if not a company) the heat supplier themself if a person </li>
       </ul>
     </ul>
     
-    {{
-      govukInsetText({
-        text: 'Providing your supplier name and meter numbers during registration will reduce the time it takes to receive your
-        discount.'
-      })
-    }}    
+      {{ govukInsetText({
+      text: "Providing your supplier name and meter numbers during registration will reduce the time it takes to receive your discount."
+      }) }}
     
-    <p>
-      You’ll need to provide further information if your business or organisation was not registered at Companies House with
-      an eligible SIC code in December 2022. This includes:
-    </p>
-    
-    <ul class="govuk-list govuk-list--bullet">
-      <li>a letter signed by a chartered accountant or auditor confirming that you are in an eligible sector, and that 50% or more</li>
-      <li>of your revenue is in an eligible sector</li>
-      <li>your most recent full set of end-of-year accounts - if you do not have these, upload evidence of company accounts over a minimum of 6 months at a minimum</li>
-      <li>an income statement referring to the same time period as the end-of-year accounts</li>
-      <li>a breakdown schedule which separates activities between eligible and ineligible SIC codes</li>
-      <li>a sample of sales invoices & VAT returns which represent the eligible activities</li>
-    </ul>
     
     <h2 class="govuk-heading-m" id="check-your-eligibility">
-      Check your eligibility and register online
+      Check your eligibility and register online 
     </h2>
     
     {{ govukWarningText({
-      text: 'You will need about XX minutes to complete this form. Your registration must be filled out in one session. You cannot save this form and return to it later.'
+      text: 'You will need about XX minutes to complete this form. Your application must be filled out in one session. You cannot save this form and return to it later.'
     })}}
-    
+
     {{
       govukButton({
         text: 'Start now',
-        href: 'registering-for-etii-or-heat-network',
+        href: 'registering-for-an-etii-or-heat-network',
         isStartButton: true
       })
     }}
@@ -158,8 +159,7 @@ serviceName: serviceName
     </h2>
     
     <p>
-      After you apply, your registration details and related evidence will be assessed to determine if you should receive the
-      discount.
+      After you apply, your registration details and related evidence will be assessed to determine if you should receive the discount.
     </p>
     
     <p>
@@ -167,24 +167,21 @@ serviceName: serviceName
     </p>
     
     <p>
-      If you’re eligible, a certificate will be emailed to you. This will include information on steps you may need to take to
-      get the discount.
+      If you’re eligible, a qualifying heat supplier certificate will be emailed to you. This will include information on
+      steps you may need to take to get the discount. 
     </p>
     
-    {{
-      govukWarningText({
-        html: 'Heat suppliers must pass on the discount to their domestic customers. Read more <a href="https://helpforhouseholds.campaign.gov.uk/help-with-your-bills/" class="govuk-link">about the pass-through requirements.</a>'
-      })
-    }}
+    {{ govukWarningText({
+      html: 'Heat suppliers must pass on the discount to their domestic customers. Read more about the <a href="https://helpforhouseholds.campaign.gov.uk/help-with-your-bills/" class="govuk-link">pass-through requirements</a>.'
+    }) }}
     
     <h2 class="govuk-heading-m" id="apply-by-phone">
-      Apply by phone 
+      Apply by phone
     </h2>
     
     <p>
-      If you cannot apply online, phone the EBDS customer support team. 
+      If you cannot apply online, phone the EBDS customer support team.
     </p>
-    
     <div class="govspeak">
       <div class="contact">
         <p>
