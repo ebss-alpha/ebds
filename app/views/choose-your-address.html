@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Choose your address – {{ serviceName }}
+Choose the address of your organisation or business you are registering – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,7 +16,7 @@ Choose your address – {{ serviceName }}
       <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
-            Choose your address
+            Choose the address of your organisation or business you are registering
           </h1>
         </legend>
         <p class="govuk-hint">We found the several addresses for the post code TT1 1AB.</p>
@@ -44,7 +44,9 @@ Choose your address – {{ serviceName }}
   </div>
   <div class="govuk-grid-row govuk-!-margin-bottom-4 ">
     <div class="govuk-grid-column-two-thirds">
-      <a href="/enter-your-address-manually" class="govuk-link govuk-link--no-visited-state">My address isn't listed</a>
+      <a href="/enter-your-address-manually" class="govuk-link govuk-link--no-visited-state">
+        My organisation or business isn’t listed 
+      </a>
     </div>
   </div>
   <div class="govuk-grid-row">
