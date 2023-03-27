@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-You will need to share your certificate with the people who manage your organisation’s energy so they can get the discount – {{ serviceName }} – GOV.UK Prototype Kit
+If you do not know your energy suppliers and meter numbers – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,10 +14,24 @@ You will need to share your certificate with the people who manage your organisa
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      You will need to share your certificate with the people who manage your organisation’s energy so they can get the discount
+      If you do not know your energy suppliers and meter numbers
     </h1>
 
-    <p>If you’re not responsible for your meter… </p>
+    <p>On the next page, you will be asked why you do not know your energy suppliers and meter numbers.</p>
+
+    <p>If you pay your energy suppliers directly you should go back to give details of all your energy 
+  suppliers and meter numbers.</p>
+
+    <h2 class="govuk-heading-2"If you pay for energy through an intermediary energy provider</h2>
+
+    <p> If your organisation or business pays for energy through an intermediary energy provider and 
+      does not have a direct relationship with a supplier, you will need to share your eligibility 
+      certificate with your energy provider after you have applied.</p>
+    
+    <p>Your energy provider should share the certificate with the licensed energy supplier. 
+      Your provider should then pass the discount on to you.</p>
+
+    <p>You need to give details of your intermediary provider on the next page. </p>
       {{
         govukButton({
           'text': 'Continue',
