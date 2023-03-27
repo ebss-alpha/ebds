@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What is your primary energy centre's postcode? – {{ serviceName }} – GOV.UK Prototype Kit
+What is the postcode of your heat network’s primary energy centre? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,15 +15,15 @@ What is your primary energy centre's postcode? – {{ serviceName }} – GOV.UK 
     <div class="govuk-form-group">
       <form action="energy-check">
         <h1 class="govuk-heading-l">
-          What is your primary energy centre's postcode?
+          What is the postcode of your heat network’s primary energy centre?
         </h1>
+        <p id="ec-postcode-hint" class="govuk-hint" >A primary energy centre is the energy source for your heat network.</p>
 
 
         <label class="govuk-label" for="primary-ec-postcode">
           Postcode
         </label>
-        <input class="govuk-input govuk-input--width-5" id="primary-ec-postcode" name="primary-ec-postcode" type="text"
-          autocomplete="postal-code">
+        <input class="govuk-input govuk-input--width-5" id="primary-ec-postcode" name="primary-ec-postcode" type="text" autocomplete="postal-code" aria-describedby="ec-postcode-hint">
     </div>
 
     <button class="govuk-button" data-module="govuk-button">Continue</button>

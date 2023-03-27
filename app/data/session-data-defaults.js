@@ -91,32 +91,25 @@ module.exports = {
   ,
   businessTypeOptions: [
     {
-      "businessType": "Registered"
-    },
-    {
-      "businessType": "Charity"
-    },
-    {
-      "businessType": "Registered historical site"
-    },
-    {
-      "businessType": "Registered botanical and / or zoological garden"
-    },
-    {
-      "businessType": "Public library"
-    },
-    {
-      "businessType": "National archive"
+      "businessType": "Registered at Companies House"
     },
     {
       "businessType": "Sole trader"
     },
     {
-      "businessType": "Heat supplier"
+      "businessType": "Registered historical site"
     },
     {
-      "businessType": "Local authority"
+      "businessType": "Registered botanical or zoological garden"
+    },
+    {
+      "businessType": "Museum"
+    },
+    {
+      "businessType": "Library"
+    },
+    {
+      "businessType": "Archive"
     }
-
   ]
 }

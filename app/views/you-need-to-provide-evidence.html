@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-You need to provide evidence
+You need to provide evidence of eligibility
 {% endblock %}
 
 {% block beforeContent %}
@@ -65,36 +65,131 @@ href: "#evidence"
 }) }}
 {% endif %}
 
+{% set declarationLetterReqs %}
+  <p>You must upload a letter signed by a named director or equivalent of your organisation or business that states that:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>all the information in this registration is accurate to the best of their knowledge</li>
+    <li>your organisation or business is an ETII operating in one or more eligible sectors, providing relevant SIC codes
+    </li>
+    <li>a minimum of 50% of revenue falls within the eligible sectors</li>
+    <li>a summary of why you think you meet the above criteria and what evidence you have relied upon to make that
+      assessment</li>
+  </ul>
+  <p><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1128033/230104_ETII_List_for_gov.uk.pdf" class="govuk-link">A list of eligible sectors and SIC codes is available on GOV.UK</a></p>
+{% endset %}
+
+{% set multipleDocumentsReqs %}
+<h2 class="govuk-heading-m">
+  Your documents
+</h2>
+<p>You can upload a maximum of 10 documents. PDF format is preferred.</p>
+<p>Your documents must be:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>no more than 10MB</li>
+  <li>in PDF, JPEG, PNG, or DOC format</li>
+</ul>
+{% endset %}
+
 <form action="upload-check">
   <input type="hidden" name="evidence-provided" value="yes">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">You need to provide evidence</h1>
-
-      <p>You must upload a evidence that you are eligible...</p>
-      <p class="govuk-body">You can upload the following:</p>
-      <ul class="govuk-list govuk-list--bullet">
-        {% if data.path == 'heat-network' %}
-        <li>Documentation that proves contractual relationship between the entity purchasing gas and electricity and
-          supplying it to
-          domestic customers (i.e. Domestic Heat Supply Contract, Residential agreement)</li>
-        <li>CFO/CEO Declaration letter (PDF)</li>
+      {% if data.path == 'heat-network' %}
+        <h1 class="govuk-heading-l">
+          You need to provide evidence of eligibility
+        </h1>
+      {% else %}
+        {% if data.crn == '12345678' %}
+        <h1 class="govuk-heading-l">
+          You need to provide evidence that you are eligible
+        </h1>
         {% else %}
-        <li>Letter signed by CFO/ CEO (letter should state it meets the 50% threshold, type of organisation and
-          registration type)</li>
-        {% if data.crn != '12345678' %}
-        <li>Letter signed by accountant</li>
-        <li>2, or 4 quarters of financial reports</li>
-        <li>Any additional evidence to support your application</li>
+        <h1 class="govuk-heading-l">
+          You need to provide evidence of eligibility
+        </h1>
         {% endif %}
-        {% endif %}
-      </ul>
-      <p>You can upload a picture or scan of a paper document, or a digital document from your computer.</p>
-      <p>Your document must be:</p>
+      {% endif %}
+      {% if data.path == 'heat-network' %}
+      <p>We need proof that your heat network is eligible for this discount.</p>
+      <h2 class="govuk-heading-m">
+        Signed declaration letter
+      </h2>
+      <p>You must upload a letter signed by a named director or equivalent of your organisation or business that states that:
+      </p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>no more than 10 MB</li>
-        <li>in PDF, .jpeg, .png or .doc format</li>
+        <li>all the information in this registration is accurate to the best of their knowledge</li>
       </ul>
+      <p><a class="govuk-link" href="#">Use the PDF template provided here</a></p>
+      <h2 class="govuk-heading-m">
+        Evidence that you are a domestic heat network supplier
+      </h2>
+      <p>You must upload documents that prove a contractual relationship between the heat supplier and its domestic customers.
+        PDF format is preferred.</p>
+      <p>This might include:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Domestic Heat Supply Contract</li>
+        <li>Residential Agreement of heat or hot water</li>
+      </ul>
+      <h2 class="govuk-heading-m">
+        Optional evidence
+      </h2>
+      <p>You can provide any other evidence to support your registration.</p>
+      <h2 class="govuk-heading-m">
+        Your documents
+      </h2>
+      <p>You can upload a maximum of 10 documents. PDF format is preferred.</p>
+      <p>Your documents must be:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>no more than 10MB</li>
+        <li>in PDF, JPEG, PNG, or DOC format</li>
+      </ul>
+      {% else %}
+        <p>Wed need proof that your organisation or business is eligible for this discount.</p>
+        {% if data.crn == '12345678' %}
+        <h2 class="govuk-heading-m">
+          Upload a signed declaration letter
+        </h2>
+        {{ declarationLetterReqs | safe }}
+        <h3 class="govuk-heading-s">
+          Your document
+        </h3>
+        <p>Your document must be:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>no more than 10 MB</li>
+          <li>in PDF format</li>
+        </ul>
+        {% else %}
+        <h2 class="govuk-heading-m">
+          Signed declaration letter
+        </h2>
+        {{ declarationLetterReqs | safe }}
+        <h2 class="govuk-heading-m">
+          Financial evidence
+        </h2>
+        <p>You must upload:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>your most recent full set of end-of-year accounts – if you do not have these, upload evidence of company accounts over a minimum of 6 months at a minimum</li>
+          <li>an income statement referring to the same time period as the end-of-year accounts</li>
+          <li>a breakdown schedule which separates activities between eligible and ineligible SIC codes</li>
+          <li>a sample of sales invoices and VAT returns</li>
+        </ul>
+        <p>We encourage you to also upload a letter signed by a chartered accountant confirming that you are in an eligible sector, and that 50% or more of your sales, services or revenue are in an eligible sector.</p>
+        <h2 class="govuk-heading-m">
+          Optional evidence
+        </h2>
+        <p>
+          You could also provide any additional evidence that you want to support your registration. This could be:
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>license or trade body membership details for regulated industries</li>
+          <li>sales contracts</li>
+          <li>remittance advice</li>
+          <li>VAT returns</li>
+          <li>floor plans that show 50% or more of your activities are in an eligible sector (Local Authorities only)</li>
+        </ul>
+        {{ multipleDocumentsReqs | safe }}
+        {% endif %}
+      {% endif %}
     </div>
   </div>
   <div class="govuk-grid-row govuk-!-margin-bottom-3">

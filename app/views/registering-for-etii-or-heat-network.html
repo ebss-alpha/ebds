@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Are you registering for a discount as an Energy and Trade Intensive Industry (ETII) or a heat supplier? – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="path-check">
+
+      {{ govukRadios({
+      name: "etii-or-hn",
+      fieldset: {
+        legend: {
+          text: "Are you registering for a discount as an Energy and Trade Intensive Industry (ETII) or a heat supplier?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        text: 'You can register as an ETII if your organisation is an ETII, on one of the EII exemption schemes, or on a registered list
+        of zoos, public libraries, archives, museums, historical sites or botanical gardens.'
+      },
+      items: [
+      {
+      value: "etii",
+      text: "Energy and Trade Intensive Industry (ETII)"
+      },
+      {
+      value: "heat-network",
+      text: "Heat supplier"
+      }
+      ]
+      }) }}
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

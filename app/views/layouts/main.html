@@ -4,3 +4,20 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 #}
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block footer %}
+{{ govukFooter({
+  meta: {
+    items: [
+      {
+        href: '/manage-prototype/clear-data',
+        text: 'Clear prototype data'
+      },
+      {
+        href: '/privacy',
+        text: 'Privacy notice'
+      }
+    ]
+  }
+}) }}
+{% endblock %}

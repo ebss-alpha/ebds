@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Question page template – {{ businessTypes }} – GOV.UK Prototype Kit
+Select the category that best applies to your organisation or business – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,11 +16,11 @@ Question page template – {{ businessTypes }} – GOV.UK Prototype Kit
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              What type of organisation are you?
+              Select the category that best applies to your organisation or business
             </h1>
           </legend>
-          <div id="contact-hint" class="govuk-hint">
-            Select one option.
+          <div class="govuk-hint">
+            Limited companies must select that you are registered at Companies House. This will help us to identify your organisation or business.
           </div>
           <div class="govuk-radios" data-module="govuk-radios">
             {% for option in data.businessTypeOptions %}
