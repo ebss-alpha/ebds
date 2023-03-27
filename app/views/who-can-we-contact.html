@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Who can we contact about this registration? – {{ serviceName }}
+Who can we contact in relation to this registration? – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,24 +13,26 @@ Who can we contact about this registration? – {{ serviceName }}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="what-is-your-contact-email">
-    <div class="govuk-form-group">
-      <h1>
-        <label class="govuk-label govuk-label--l" for="full-name">
-          Who can we contact about this registration?
-        </label>
-      </h1>
-      <p class="govuk-hint">Enter the full name of the person we can contact about this registration.</p>
-      <p class="govuk-hint">We might need to contact them about the financial and energy supplier information submitted as part of this registration.</p>
-      <input class="govuk-input" id="full-name" name="full-name" type="text" spellcheck="false" autocomplete="name">
-    </div>
-    {{ 
+      <div class="govuk-form-group">
+        <h1>
+          <label class="govuk-label govuk-label--l" for="full-name">
+            Who can we contact in relation to this registration?
+          </label>
+        </h1>
+        <div id="contact-hint">
+          <p class="govuk-hint">Enter the full name of the person we can contact about this registration</p>
+          <p class="govuk-hint">We might need to contact them about the information submitted as part of this registration</p>
+        </div>
+        <input class="govuk-input" id="full-name" name="full-name" type="text" spellcheck="false" autocomplete="name" aria-describedby="contact-hint">
+      </div>
+      {{
       govukButton(
-        {
-        text: 'Continue'
-        }
+      {
+      text: 'Continue'
+      }
       )
-    }}
-  </form>
+      }}
+    </form>
   </div>
 </div>
 {% endblock %}
