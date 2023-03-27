@@ -12,19 +12,41 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+      <h1 class="govuk-heading-xl">Check your answers before sending your registration</h1>
       {% if data.path == 'heat-network' %}
-      <h2 class="govuk-heading-m">Your application</h2>
+      <h2 class="govuk-heading-m">Your registration</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Are you applying for an ETII or heat network?
+            Are you registering for an ETII or heat network?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['etii-or-hn'] | replace('heat-network', 'Heat network') | replace('etii', 'ETII') }}
           </dd>
           <dd class="govuk-summary-list__actions">
-      
+          </dd>
+        </div>
+      </dl>
+      <h2 class="govuk-heading-m">Heat network information</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What is the name of your heat network?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hn-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What is your primary energy centre's postcode?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['primary-ec-postcode'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -48,46 +70,11 @@
           </dd>
         </div>
       </dl>
-
-      <h2 class="govuk-heading-m">Contact details</h2>
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Who can we contact?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['full-name'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Who email address should we use?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['email'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Who phone number should we use?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['telephone-number'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-          </dd>
-        </div>
-      </dl>
-
-      <h2 class="govuk-heading-m">Heat network information</h2>
+      <h2 class="govuk-heading-m">Heat supplier information</h2>
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            What is the business name of the heat / hot water supplier applying for the discount?
+            What is the business name of the heat / hot water supplier registering for the discount?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['hn-business-name'] }}
@@ -127,25 +114,49 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            What is the name of your heat network?
+            If your organisation has one, what is your company registration number?
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['hn-name'] }}
+            {{ data['crn'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+      </dl>
+      <h2 class="govuk-heading-m">Contact details</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Who can we contact?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['full-name'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            What is your primary energy centre's postcode?
+            Who email address should we use?
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['primary-ec-postcode'] }}
+            {{ data['email'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Who phone number should we use?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['telephone-number'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
         </div>
       </dl>
+
       {% else %}
       <h2 class="govuk-heading-m">Organisation details</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -216,13 +227,23 @@
           <dd class="govuk-summary-list__actions">
           </dd>
         </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            If your organisation has one, what is your website address?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['org-url'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
       </dl>
       
-      <h2 class="govuk-heading-m">Your application</h2>
+      <h2 class="govuk-heading-m">Your registration</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Are you applying for an ETII or heat network?
+            Are you registering for an ETII or heat network?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['etii-or-hn'] | replace('heat-network', 'Heat network') | replace('etii', 'ETII') }}
@@ -233,7 +254,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Are you applying for a discount on gas, electricity or both?
+            Are you registering for a discount on gas, electricity or both?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['gas-or-electricity'] | title }}
@@ -370,58 +391,21 @@
             {% endfor %}
             {% endif %}
             {% endif %}
-      
-            {% if data.path == 'heat-network' %}
-        {{ govukCheckboxes({
-        name: "organisation",
-        classes: "govuk-checkboxes--small",
-        fieldset: {
-          legend: {
-            text: "Confirm before submitting",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
-        items: [
-          {
-          value: "accurate",
-          text: "The information I have provided is true and  accurate"
-          },
-          {
-          value: "director",
-          text: "I have a director's approval to make this application and have uploaded a letter confirming our eligibility for
-          this scheme"
-          }
-        ]
-        }) }}
-        {% else %}
-        {{ govukCheckboxes({
-        name: "organisation",
-        classes: "govuk-checkboxes--small",
-        fieldset: {
-        legend: {
-        text: "Confirm before submitting",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--m"
-        }
-        },
-        items: [
-        {
-        value: "accurate",
-        text: "The information I have provided is true and accurate"
-        },
-        {
-        value: "director",
-        text: "I have a director's approval to make this application and have uploaded a letter confirming our eligibility for
-        this scheme"
-        },
-        {
-        value: "ni",
-        text: "Our organisation is adhering to the 'Northern Ireland Protocol' agreement"
-        }
-        ]
-        }) }}
-        {% endif %}
+            <h2 class="govuk-heading-m">Declaration</h2>
+            {{ govukWarningText({
+              text: "Applicants found to be providing false information to gain support payments to which they are not entitled will face prosecution. Any funding issued will be recovered",
+              iconFallBackText: 'Warning'
+            }) }}
+            <p>By ticking the box below you confirm that the information provided is correct and that you have a director's approval to make this registration.</p>
+            {{ govukCheckboxes({
+            name: "declaration",
+            items: [
+            {
+            value: "confirm",
+            text: "Accept the terms and conditions and continue"
+            }
+            ]
+            }) }}
       {{ 
         govukButton({
           'text': 'Accept and send',
