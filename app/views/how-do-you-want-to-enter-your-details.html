@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How do you want to enter your supplier and meter numbers? – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="bulk-upload-check">
+
+      {{ govukRadios({
+      name: "manual-or-upload",
+      fieldset: {
+        legend: {
+          text: "How do you want to enter your supplier and meter numbers?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        text: 'If you have more than 10 meter numbers per supplier, you can upload your energy supplier and meter numbers using the
+        template provided. [would link back to start page where the template is]'
+      },
+      items: [
+      {
+      value: "manual",
+      text: "I want to enter my details manually"
+      },
+      {
+      value: "upload",
+      text: "I want to upload my details"
+      }
+      ]
+      }) }}
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

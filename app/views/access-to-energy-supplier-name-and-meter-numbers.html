@@ -15,6 +15,7 @@ Do you know your organisation or business’s energy suppliers and the numbers o
     <form class="form" action="access-check">
       {{ govukRadios({
       name: "access-to-meters",
+      classes: 'govuk-radios--inline',
       fieldset: {
       legend: {
         text: "Do you know your organisation or business’ energy suppliers and meter numbers?",
@@ -28,18 +29,11 @@ Do you know your organisation or business’s energy suppliers and the numbers o
       items: [
       {
       value: "yes",
-      text: "I know all the suppliers and meter numbers"
+      text: "Yes"
       },
       {
       value: "no",
-      text: "I do not know any of the suppliers and meter numbers"
-      },
-      {
-      divider: "or"
-      },
-      {
-        value: "some",
-        text: "I know some of the suppliers and meter numbers"
+      text: "No"
       }
       ]
       }) }}
