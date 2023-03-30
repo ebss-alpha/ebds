@@ -75,6 +75,7 @@ href: "#evidence"
     <li>a summary of why you think you meet the above criteria and what evidence you have relied upon to make that
       assessment</li>
   </ul>
+  <p>This should be in PDF format</p>
   <p><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1128033/230104_ETII_List_for_gov.uk.pdf" class="govuk-link">A list of eligible sectors and SIC codes is available on GOV.UK</a></p>
 {% endset %}
 
@@ -82,12 +83,23 @@ href: "#evidence"
 <h2 class="govuk-heading-m">
   Your documents
 </h2>
-<p>You can upload a maximum of 10 documents. PDF format is preferred.</p>
 <p>Your documents must be:</p>
 <ul class="govuk-list govuk-list--bullet">
   <li>no more than 10MB</li>
-  <li>in PDF, JPEG, PNG, or DOC format</li>
+  <li>in .pdf, .jpeg, .png, .doc, .docx, .xls, .xlsx or .csv format</li>
 </ul>
+{% endset %}
+
+{% set meterNumberTemplateReqs %}
+<h2 class="govuk-heading-m">
+  Upload your energy suppliers and meter numbers
+</h2>
+<p>
+  You should upload your energy suppliers and meter numbers if you are providing them using the template (opens in new window).
+</p>
+<p>
+  This must be in .xls, .xlsx or .csv format.
+</p>
 {% endset %}
 
 <form action="upload-check">
@@ -123,8 +135,7 @@ href: "#evidence"
       <h2 class="govuk-heading-m">
         Evidence that you are a domestic heat network supplier
       </h2>
-      <p>You must upload documents that prove a contractual relationship between the heat supplier and its domestic customers.
-        PDF format is preferred.</p>
+      <p>You must upload documents that prove a contractual relationship between the heat supplier and its domestic customers.</p>
       <p>This might include:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>Domestic Heat Supply Contract</li>
@@ -134,14 +145,15 @@ href: "#evidence"
         Optional evidence
       </h2>
       <p>You can provide any other evidence to support your registration.</p>
+      {{ meterNumberTemplateReqs | safe }}
       <h2 class="govuk-heading-m">
         Your documents
       </h2>
-      <p>You can upload a maximum of 10 documents. PDF format is preferred.</p>
+    
       <p>Your documents must be:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>no more than 10MB</li>
-        <li>in PDF, JPEG, PNG, or DOC format</li>
+        <li>in .pdf, .jpeg, .png, .doc, .docx, .xls, .xlsx or .csv format</li>
       </ul>
       {% else %}
         <p>Wed need proof that your organisation or business is eligible for this discount.</p>
@@ -150,13 +162,13 @@ href: "#evidence"
           Upload a signed declaration letter
         </h2>
         {{ declarationLetterReqs | safe }}
-        <h3 class="govuk-heading-s">
-          Your document
-        </h3>
-        <p>Your document must be:</p>
+        {{meterNumberTemplateReqs | safe}}
+        <h2 class="govuk-heading-m">
+          Your documents
+        </h2>
+        <p>Your documents must be:</p>
         <ul class="govuk-list govuk-list--bullet">
           <li>no more than 10 MB</li>
-          <li>in PDF format</li>
         </ul>
         {% else %}
         <h2 class="govuk-heading-m">
@@ -189,9 +201,10 @@ href: "#evidence"
           <li>VAT returns</li>
           <li>floor plans that show 50% or more of your activities are in an eligible sector (Local Authorities only)</li>
         </ul>
+        {{meterNumberTemplateReqs | safe}}
         {{ multipleDocumentsReqs | safe }}
         {% endif %}
-      {% endif %}
+        {% endif %}
     </div>
   </div>
   <div class="govuk-grid-row govuk-!-margin-bottom-3">
