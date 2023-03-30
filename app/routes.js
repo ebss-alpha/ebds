@@ -129,7 +129,19 @@ router.get(['/access-check'], (req, res) => {
       break
     case 'yes':
     default:
+      res.redirect('/how-do-you-want-to-enter-your-details')
+  }
+})
+
+router.get(['/bulk-upload-check'], (req, res) => {
+  switch (req.session.data['manual-or-upload']) {
+    case 'upload':
+      res.redirect('/you-need-to-provide-evidence')
+      break
+    case 'manual':
+    default:
       res.redirect('/energy-check')
+      break
   }
 })
 
@@ -140,7 +152,7 @@ router.get(['/some-or-none-check'], (req, res) => {
       break
     case 'some':
     default:
-      res.redirect('/energy-check')
+      res.redirect('/how-do-you-want-to-enter-your-details')
   }
 })
 
@@ -149,9 +161,9 @@ router.get(['/energy-check'], (req, res) => {
     case 'gas':
     case 'both':
     default:
+      case 'electricity':
       res.redirect('/who-is-your-gas-supplier')
       break
-    case 'electricity':
       res.redirect('/who-is-your-electricity-supplier')
       break
     case 'other':
