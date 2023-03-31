@@ -230,6 +230,26 @@ router.get(['/add-electricity-meter'], (req, res) => {
   }
 })
 
+router.get(['/add-sic-code'], (req, res) => {
+  const sicCode = req.session.data['sic-code']
+  if (req.session.data.sicCodes === undefined) req.session.data.sicCodes = []
+  const regex = /^(\d+\.\d+)\s(.*)$/;
+  const result = sicCode.match(regex);
+  const codeAndDescription = { SIC: result[1], description: result[2] };
+  req.session.data.sicCodes.push(codeAndDescription)
+  res.redirect('/do-you-have-another-sic-code')
+})
+
+router.get(['/another-sic-code-check'], (req, res) => {
+  const another = req.session.data['another-sic-code'] === 'yes'
+  if (another) {
+    res.redirect('/what-is-your-sic-code')
+  } else {
+    res.redirect('/review-your-eligible-sic-codes')
+  }
+})
+
+
 router.get(['/chp-check'], (req, res) => {
   let latestMeter
   if (req.session.data['gas-added']) {
