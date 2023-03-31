@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% set contextualQuestionText %}
+{% if data.sicCodes | length == 0 %}
+What is your organisation's primary SIC code?
+{% else %}
+Enter another eligible SIC code for your organisation
+{% endif %}
+{% endset %}
+
+{% block pageTitle %}
+{{ contextualQuestionText }} – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form action="add-sic-code">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <div class="govuk-caption-l">SIC code {{ data.sicCodes | length + 1 }} of {{ data.sicCodes | length + 1 }}</div>
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="sic-code">
+            {{ contextualQuestionText }}
+          </label>
+        </h1>
+        <p class="govuk-hint">
+          Find your organisation's SIC code below. You can add more SIC codes later.
+        </p>
+        <p class="govuk-hint">
+          If you do not know your SIC codes, you can <a href="https://find-and-update.company-information.service.gov.uk/" class="govuv-link">find your codes on Companies House</a>.
+        </p>
+        <select name="sic-code" class="govuk-select" id="sic-code">
+          <option value="" disabled selected>Select a SIC code</option>
+          {% for sector in data.eligibleSICCodes %}
+          <option value="{{ sector.SIC }} – {{ sector.description }}">{{ sector.SIC }} – {{ sector.description }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="govuk-button-group">
+        {{ govukButton({
+        text: "Continue",
+        name: 'action',
+        value: 'continue'
+        }) }}
+        <!--
+          {{
+            govukButton({
+              text: 'Skip gas supplier',
+              name: 'action',
+              classes: 'govuk-button--secondary',
+              value: 'skip'
+            })
+          }}
+        -->
+      </div>
+    </div>
+  </div>
+</form>
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script>
+  document.querySelectorAll('.govuk-select').forEach(select => {
+    accessibleAutocomplete.enhanceSelectElement({
+      defaultValue: '',
+      autoselect: false,
+      showAllValues: true,
+      selectElement: select,
+      dropdownArrow: () => '<svg style="pointer-events: none; width: 1rem; position: absolute; right: 1rem; top: .66rem;" viewBox="0 0 512 512" ><path d="M256,298.3L256,298.3L256,298.3l174.2-167.2c4.3-4.2,11.4-4.1,15.8,0.2l30.6,29.9c4.4,4.3,4.5,11.3,0.2,15.5L264.1,380.9  c-2.2,2.2-5.2,3.2-8.1,3c-3,0.1-5.9-0.9-8.1-3L35.2,176.7c-4.3-4.2-4.2-11.2,0.2-15.5L66,131.3c4.4-4.3,11.5-4.4,15.8-0.2L256,298.3  z"/></svg>'
+    })
+  })
+</script>
+
+{% endblock %}
