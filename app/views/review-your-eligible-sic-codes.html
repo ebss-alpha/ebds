@@ -30,32 +30,47 @@ complex-eligibility
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">Eligible SIC codes</caption>
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">SIC code</th>
-            <th scope="col" class="govuk-table__header">Description</th>
-            <th scope="col" class="govuk-table__header">Actions</th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          {% for sector in data.sicCodes %}
-          <tr class="govuk-table__row">
-            <th class="govuk-table__cell">{{ sector.SIC }}</th>
-            <td class="govuk-table__cell">{{ sector.description | replace('– ', '')}}</td>
-            <td class="govuk-table__cell"><a class="govuk-link" href="#"><span class="govuk-!-padding-right-3">Change <span class="govuk-visually-hidden">{{ sector.SIC }}</span></span> <span>Remove <span class="govuk-visually-hidden">{{ sector.SIC }}</span></span></td>
-          </tr>
-          {% endfor %}
-        </tbody>
+      <caption class="govuk-table__caption govuk-table__caption--m">Eligible SIC codes</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">SIC code</th>
+          <th scope="col" class="govuk-table__header">Description</th>
+          <th scope="col" class="govuk-table__header">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for sector in data.sicCodes %}
+        <tr class="govuk-table__row">
+          <th class="govuk-table__cell">{{ sector.SIC }}</th>
+          <td class="govuk-table__cell">{{ sector.description | replace('– ', '')}}</td>
+          <td class="govuk-table__cell"><a class="govuk-link" href="#"><span class="govuk-!-padding-right-3">Change
+                <span class="govuk-visually-hidden">{{ sector.SIC }}</span></span> <span>Remove <span
+                  class="govuk-visually-hidden">{{ sector.SIC }}</span></span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
     </table>
-    {{ 
-      govukButton({
-        text: 'Continue',
-        href: nextPage
-      }
-      )
-    }}
   </div>
 </div>
+{% if data.sicCodes | length < 4 %} <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-4">
+    <a href="/what-is-your-sic-code" class="govuk-link govuk-link--no-visited-state govuk-!-margin-bottom-3">Add another
+      SIC code</a>
+  </div>
+  </div>
+  {% endif %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-button-group">
+        {{
+        govukButton({
+        text: 'Continue',
+        href: nextPage
+        }
+        )
+        }}
+      </div>
+    </div>
+  </div>
 
-{% endblock %}
+  {% endblock %}
