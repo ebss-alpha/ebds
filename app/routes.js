@@ -221,7 +221,7 @@ router.get(['/add-gas-meter'], (req, res) => {
   const supplier = req.session.data.gasSuppliers.find(entry => entry.supplier === supplierName)
   supplier.meterNumbers.push(req.session.data['meter-number'])
   if (req.session.data.path === 'heat-network') {
-    res.redirect('/is-this-a-chp')
+    res.redirect('/anything-besides-heat-generation')
   } else {
     res.redirect('/gas-supplier-summary')
   }
@@ -232,7 +232,7 @@ router.get(['/add-electricity-meter'], (req, res) => {
   const supplier = req.session.data.electricitySuppliers.find(entry => entry.supplier === supplierName)
   supplier.meterNumbers.push(req.session.data['meter-number'])
   if (req.session.data.path === 'heat-network') {
-    res.redirect('/is-this-a-chp')
+    res.redirect('/anything-besides-heat-generation')
   } else {
     res.redirect('/electricity-supplier-summary')
   }
@@ -303,16 +303,18 @@ router.get(['/egc-check'], (req, res) => {
 
 router.get(['/besides-check'], (req, res) => {
   let latestMeter
-  if (req.session.data['gas-added']) {
-    latestMeter = req.session.data.electricitySuppliers[req.session.data.electricitySuppliers.length - 1]
-  } else {
-    latestMeter = req.session.data.gasSuppliers[req.session.data.gasSuppliers.length - 1]
-  }
-  latestMeter.besides.push(req.session.data['besides'])
-  if (req.session.data['gas-added']) {
-    res.redirect('/electricity-supplier-summary')
-  } else {
-    res.redirect('/gas-supplier-summary')
+  switch (req.session.data['currently-entering']) {
+    case 'electricity':
+      latestMeter = req.session.data.electricitySuppliers[req.session.data.electricitySuppliers.length - 1]
+      latestMeter.besides.push(req.session.data['besides'])
+      res.redirect('/electricity-supplier-summary')
+      break
+    case 'gas':
+    default:
+      latestMeter = req.session.data.gasSuppliers[req.session.data.gasSuppliers.length - 1]
+      latestMeter.besides.push(req.session.data['besides'])
+      res.redirect('/gas-supplier-summary')
+      break
   }
 })
 

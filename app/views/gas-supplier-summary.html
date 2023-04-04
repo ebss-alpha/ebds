@@ -68,10 +68,10 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Is this meter connected to a CHP that has an installed capacity of more than 5 megawatts and exports electricity to the grid?
+            Does this meter supply anything else besides heat generation?
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data.gasSuppliers[data.gasSuppliers.length - 1].chp[loop.index0] | title}}
+            {{ data.gasSuppliers[data.gasSuppliers.length - 1].besides[loop.index0] | title}}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
