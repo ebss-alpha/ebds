@@ -245,7 +245,11 @@ router.get(['/add-sic-code'], (req, res) => {
   const result = sicCode.match(regex);
   const codeAndDescription = { SIC: result[1], description: result[2] };
   req.session.data.sicCodes.push(codeAndDescription)
-  res.redirect('/do-you-have-another-sic-code')
+  if (req.session.data.sicCodes.length === 4) {
+    res.redirect('/review-your-eligible-sic-codes')
+  } else {
+    res.redirect('/do-you-have-another-sic-code')
+  }
 })
 
 router.get(['/another-sic-code-check'], (req, res) => {
