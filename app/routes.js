@@ -181,7 +181,7 @@ router.get(['/add-gas-supplier'], (req, res) => {
     const supplierName = req.session.data['gas-supplier']
     if (req.session.data.gasSuppliers === undefined) req.session.data.gasSuppliers = []
     req.session.data.gasSuppliers.find(entry => entry.supplier === supplierName) ?? req.session.data.gasSuppliers.push({ supplier: supplierName, meterNumbers: [], chp: [], supply: [], egc: [], besides: [] })
-    res.redirect('/what-is-your-gas-meter-number')
+    res.redirect('/what-is-the-company-name-as-it-appears-on-your-gas-bill')
   }
 })
 
@@ -198,8 +198,22 @@ router.get(['/add-electricity-supplier'], (req, res) => {
     const supplierName = req.session.data['electricity-supplier']
     if (req.session.data.electricitySuppliers === undefined) req.session.data.electricitySuppliers = []
     req.session.data.electricitySuppliers.find(entry => entry.supplier === supplierName) ?? req.session.data.electricitySuppliers.push({ supplier: supplierName, meterNumbers: [], chp: [], supply: [], egc: [], besides: [] })
-    res.redirect('/what-is-your-electricity-meter-number')
+    res.redirect('/what-is-the-company-name-as-it-appears-on-your-electricity-bill')
   }
+})
+
+router.get(['/add-gas-bill-name'], (req, res) => {
+  const supplierName = req.session.data['gas-supplier']
+  const supplier = req.session.data.gasSuppliers.find(entry => entry.supplier === supplierName)
+  supplier.companyName = req.session.data['company-name']
+  res.redirect('/what-is-your-gas-meter-number')
+})
+
+router.get(['/add-electricity-bill-name'], (req, res) => {
+  const supplierName = req.session.data['electricity-supplier']
+  const supplier = req.session.data.electricitySuppliers.find(entry => entry.supplier === supplierName)
+  supplier.companyName = req.session.data['company-name']
+  res.redirect('/what-is-your-electricity-meter-number')
 })
 
 router.get(['/add-gas-meter'], (req, res) => {
