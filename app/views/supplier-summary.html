@@ -21,6 +21,24 @@ Summary of your supplier{% if (data.gasSuppliers.length > 1 or data.electricityS
       {% if data.path == 'heat-network' %}
         {% for supplier in data.gasSuppliers %}
           <h3 class="govuk-heading-m">{{ supplier.supplier }}</h2>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Company name is appears on the bill
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data.gasSuppliers[data.gasSuppliers | length - 1].companyName }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        Change name
+                      </a>
+                  </div>
+                </dl>
+              </div>
+            </div>
             {% for number in supplier.meterNumbers %}
             <h4 class="govuk-heading-s">Meter {{ loop.index }}</h4>
             <dl class="govuk-summary-list">
@@ -56,6 +74,24 @@ Summary of your supplier{% if (data.gasSuppliers.length > 1 or data.electricityS
       {% else %}
       {% for supplier in data.gasSuppliers %}
         <h3 class="govuk-heading-m">{{ supplier.supplier }}</h3>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Company name is appears on the bill
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data.gasSuppliers[data.gasSuppliers | length - 1].companyName }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change name
+                  </a>
+              </div>
+            </dl>
+          </div>
+        </div>
         <dl class="govuk-summary-list govuk-!-margin-bottom-8">
           {% for meter in supplier.meterNumbers %}
           <div class="govuk-summary-list__row">
@@ -81,6 +117,24 @@ Summary of your supplier{% if (data.gasSuppliers.length > 1 or data.electricityS
       {% if data.path == 'heat-network' %}
         {% for supplier in data.electricitySuppliers %}
           <h3 class="govuk-heading-m">{{ supplier.supplier }}</h2>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Company name is appears on the bill
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data.electricitySuppliers[data.electricitySuppliers | length - 1].companyName }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        Change name
+                      </a>
+                  </div>
+                </dl>
+              </div>
+            </div>
             {% for number in supplier.meterNumbers %}
             <h4 class="govuk-heading-s">Meter {{ loop.index }}</h4>
             <dl class="govuk-summary-list">
@@ -115,6 +169,24 @@ Summary of your supplier{% if (data.gasSuppliers.length > 1 or data.electricityS
       {% else %}
       {% for supplier in data.electricitySuppliers %}
         <h3 class="govuk-heading-m">{{ supplier.supplier }}</h3>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Company name is appears on the bill
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data.electricitySuppliers[data.electricitySuppliers | length - 1].companyName }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change name
+                  </a>
+              </div>
+            </dl>
+          </div>
+        </div>
         <dl class="govuk-summary-list govuk-!-margin-bottom-8">
           {% for meter in supplier.meterNumbers %}
           <div class="govuk-summary-list__row">

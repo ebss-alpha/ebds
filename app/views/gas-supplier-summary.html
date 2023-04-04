@@ -27,6 +27,24 @@
   </div>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Company name is appears on the bill
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data.gasSuppliers[data.gasSuppliers | length - 1].companyName }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change name
+            </a>
+        </div>
+      </dl>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
       <h2 class="govuk-heading-m">Meter details</h2>
       {% if data.path == 'heat-network' %}
       {% for number in data.gasSuppliers[data.gasSuppliers.length - 1].meterNumbers %}
