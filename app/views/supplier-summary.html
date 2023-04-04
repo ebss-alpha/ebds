@@ -57,11 +57,10 @@ Summary of your supplier{% if (data.gasSuppliers.length > 1 or data.electricityS
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Is this a meter connected to a Combined Heat and Power Plant (CHP) that has an installed capacity of
-                  more than 5MW and exports electricity to the grid?
+                  Does this meter supply anything else besides heat generation?
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data.gasSuppliers[data.gasSuppliers.length - 1].chp[loop.index0] | title}}
+                  {{ data.gasSuppliers[data.gasSuppliers.length - 1].besides[loop.index0] | title}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="#">
@@ -153,10 +152,10 @@ Summary of your supplier{% if (data.gasSuppliers.length > 1 or data.electricityS
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Is this meter connected to a CHP that has an installed capacity of more than 5 megawatts and exports electricity to the grid?
+                  Does this meter supply anything else besides heat generation?
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data.electricitySuppliers[data.electricitySuppliers.length - 1].chp[loop.index0] | title}}
+                  {{ data.electricitySuppliers[data.electricitySuppliers.length - 1].besides[loop.index0] | title}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="#">

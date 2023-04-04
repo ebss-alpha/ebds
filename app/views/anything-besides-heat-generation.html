@@ -14,6 +14,11 @@ Does this meter supply anything else besides heat generation? – {{ serviceName
   <div class="govuk-grid-column-two-thirds">
     <form action="besides-check">
       <div class="govuk-form-group">
+        {% if data['currently-entering'] == 'gas' %}
+        <div class="govuk-caption-l">{{ data['gas-supplier'] }} meter {{ data.gasSuppliers[data.gasSuppliers.length - 1].meterNumbers.length }} of {{ data.gasSuppliers[data.gasSuppliers.length - 1].meterNumbers.length }}</div>
+        {% else %}
+        <div class="govuk-caption-l">{{ data['electricity-supplier'] }} meter {{ data.electricitySuppliers[data.electricitySuppliers.length - 1].meterNumbers.length }} of {{ data.electricitySuppliers[data.electricitySuppliers.length - 1].meterNumbers.length }}</div>
+        {% endif %}
         <fieldset class="govuk-fieldset">
 
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
