@@ -37,25 +37,7 @@ router.get(['/bingo-check'], (req, res) => {
   if (bingo) {
     res.redirect('/is-this-your-org')
   } else {
-    res.redirect('/complex-eligibility')
-  }
-})
-
-router.get(['/org-check'], (req, res) => {
-  const confirmOrg = req.session.data['is-this-your-org'] === 'yes'
-  if (confirmOrg) {
-    res.redirect('/simple-eligibility')
-  } else {
-    res.redirect('/complex-eligibility')
-  }
-})
-
-router.get(['/registering-for-check'], (req, res) => {
-  const confirmOrg = req.session.data['is-this-your-org'] === 'yes'
-  if (confirmOrg) {
-    res.redirect('/who-can-we-contact')
-  } else {
-    res.redirect('/business-org-type')
+    res.redirect('/what-is-your-sic-code')
   }
 })
 
@@ -82,7 +64,7 @@ router.get(['/connection-check'], (req, res) => {
       if (req.session.data.path === 'heat-network') {
         res.redirect('/heat-network-serve-domestic-customer')
       } else {
-        res.redirect('/organisation-name')
+        res.redirect('/what-is-the-name-of-the-organisation')
       }
       break
   }
@@ -121,11 +103,23 @@ router.get(['/address-confirmation-check'], (req, res) => {
   }
 })
 
+router.get(['/direct-relationship-check'], (req, res) => {
+  switch (req.session.data['direct-relationship']) {
+    case 'no':
+      res.redirect('/why-do-you-not-have-access')
+      break
+    case 'yes':
+    default:
+      res.redirect('/how-do-you-want-to-enter-your-details')
+      break
+  }
+})
+
 router.get(['/access-check'], (req, res) => {
   switch (req.session.data['access-to-meters']) {
     case 'no':
     case 'some':
-      res.redirect('/share-certificate-via-landlord')
+      res.redirect('/you-need-to-provide-evidence')
       break
     case 'yes':
     default:
@@ -342,7 +336,7 @@ router.get(['/upload-check'], (req, res) => {
     if (req.session.data.path === 'heat-network') {
       res.redirect('/check-your-answers')
     } else {
-      res.redirect('/add-website-url')
+      res.redirect('/ni-protocol')
     }
   } else {
     if (req.query['upload-multiple'] !== undefined && req.query['evidence'].length !== 0) {

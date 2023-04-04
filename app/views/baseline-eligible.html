@@ -1,0 +1,28 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+You're not eligible for this discount scheme – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      You must have fall into an eligible sector to get ETII support
+    </h1>
+
+    <p>You may be eligible for the Energy Bill Discount Scheme baseline support.</p>
+
+    <p>Find out if you are already receiving discounts to your energy bills from the <a
+        href="https://www.gov.uk/guidance/energy-bills-discount-scheme">Energy Bills Discount Scheme</a>.</p>
+
+  </div>
+</div>
+
+{% endblock %}
