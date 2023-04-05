@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What type of energy are you registering to get a discount for? – {{ serviceName }}
+What type of energy are you applying to get a discount for? – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,13 +16,13 @@ What type of energy are you registering to get a discount for? – {{ serviceNam
       name: "gas-or-electricity",
       fieldset: {
       legend: {
-        text: "What type of energy are you registering to get a discount for?",
+        text: "What type of energy are you applying to get a discount for?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
         }
       },
       hint: {
-        text: 'You can only register for a discount for gas or electricity supplied by a licenced energy supplier.'
+        text: 'You can only apply for a discount for gas or electricity supplied by a licenced energy supplier.'
       },
       items: [
         {
