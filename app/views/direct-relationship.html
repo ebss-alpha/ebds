@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Do you have a direct relationship with your energy suppliers? – {{ serviceName }}
+Do you pay energy suppliers directly for the energy you use? – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -17,9 +17,20 @@ Do you have a direct relationship with your energy suppliers? – {{ serviceName
         <fieldset class="govuk-fieldset" aria-describedby="direct-relationship-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Do you have a direct relationship with your energy suppliers?
+              Do you pay energy suppliers directly for the energy you use?
             </h1>
           </legend>
+          <p class="govuk-hint">
+            This means that you get the energy bills directly from a supplier. You might have used a broker to set this up.
+          </p>
+          <p class="govuk-hint">
+            If you don't pay your supplier directly, you might pay through an intermediary such as:
+          </p>
+          <ul class="govuk-list govuk-list--bullet govuk-hint">
+            <li>a landlord</li>
+            <li>a a third party energy management company</li>
+            <li>the Crown Commercial Service</li>
+          </ul>
           <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="direct-relationship" name="direct-relationship" type="radio"

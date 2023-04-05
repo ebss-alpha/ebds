@@ -8,10 +8,6 @@ Does your organisation or business have another eligible SIC code? – {{ servic
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
-{% set hintText %}
-  <p class="govuk-hint">You should tell us if your organisation or business has another SIC code that corresponds to another ETII eligible activity occurs.</p>
-{% endset %}
-
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -26,9 +22,6 @@ Does your organisation or business have another eligible SIC code? – {{ servic
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
         }
-      },
-      hint: {
-        html: hintText
       },
       items: [
       {

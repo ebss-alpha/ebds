@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Enter a gas meter number for this supplier – {{ serviceName }} – GOV.UK Prototype Kit
+Enter a gas meter point number for this supplier – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,7 +16,7 @@ Enter a gas meter number for this supplier – {{ serviceName }} – GOV.UK Prot
         <div class="govuk-form-group">
           <div class="govuk-caption-l">{{ data['gas-supplier'] }} meter {{ data.gasSuppliers[data.gasSuppliers.length -1].meterNumbers.length + 1 }} of {{ data.gasSuppliers[data.gasSuppliers.length -1].meterNumbers.length + 1 }}</div>
           <h1 class="govuk-heading-l">
-            Enter a gas meter number for this supplier
+            Enter a gas meter point number for this supplier
           </h1>
           <div id="gas-meter-hint">
             {% if data.path == 'heat-network' %}

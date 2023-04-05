@@ -2,7 +2,7 @@
 
 {% set contextualQuestionText %}
 {% if data.sicCodes | length == 0 %}
-What is your organisation's primary SIC code?
+What is the primary ETII eligible SIC code for your organisation or business?
 {% else %}
 Enter another eligible SIC code for your organisation
 {% endif %}
@@ -28,11 +28,21 @@ Enter another eligible SIC code for your organisation
           </label>
         </h1>
         <p class="govuk-hint">
-          Find your organisation's SIC code below. You can up to four SIC codes later.
+          You can add up to three additional SIC codes later.
         </p>
         <p class="govuk-hint">
-          If you do not know your SIC codes, you can <a href="https://find-and-update.company-information.service.gov.uk/" class="govuv-link">find your codes on Companies House</a>.
+          If you are registered on Companies House you can <a href="https://find-and-update.company-information.service.gov.uk/" class="govuv-link">find the SIC codes you selected online</a>.
+        </p>        
+        <p class="govuk-hint">
+          You can select different SIC codes from the ones on Companies House if you are relying on different codes to be eligible as an ETII.
         </p>
+        <p class="govuk-hint">
+          If you are not registered on Companies House, choose the most relevant eligible SIC code.
+        </p>
+        <p>
+          <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1128033/230104_ETII_List_for_gov.uk.pdf" class="govuk-link">A list of eligible sectors is available on GOV.UK</a>
+        </p>
+
         <select name="sic-code" class="govuk-select" id="sic-code">
           <option value="" disabled selected>Select a SIC code</option>
           {% for sector in data.eligibleSICCodes %}
