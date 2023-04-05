@@ -396,13 +396,15 @@
               text: "Applicants found to be providing false information to gain support payments to which they are not entitled will face prosecution. Any funding issued will be recovered",
               iconFallBackText: 'Warning'
             }) }}
-            <p>By ticking the box below you confirm that the information provided is correct and that you have a director's approval to make this application.</p>
+            <p>By ticking the box below you confirm that the information provided is true and accurate, 
+              that you meet the scheme eligibility criteria and that you have a director’s approval to make this 
+              application</p>
             {{ govukCheckboxes({
             name: "declaration",
             items: [
             {
             value: "confirm",
-            text: "Accept the terms and conditions and continue"
+            text: "Confirm and continue"
             }
             ]
             }) }}
