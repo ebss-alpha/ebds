@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What is the phone number of the named contact for this registration? – {{ serviceName }} – GOV.UK Prototype Kit
+What is the phone number of the named contact for this application? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,9 +12,9 @@ What is the phone number of the named contact for this registration? – {{ serv
 
 {% set nextPage %}
 {% if data.path == 'heat-network' %}
-business-name-of-heat-supplier-registering
+business-name-of-heat-supplier-applying
 {% else %}
-are-you-registering-for-gas-or-electricity
+are-you-applying-for-gas-or-electricity
 {% endif %}
 {% endset %}
 
@@ -24,11 +24,11 @@ are-you-registering-for-gas-or-electricity
       <form action="{{nextPage}}">
         <h1 class="govuk-heading-l">
           <label class="govuk-label govuk-label--l" for="telephone-number">
-            What is the phone number of the named contact for this registration?
+            What is the phone number of the named contact for this application?
           </label>
         </h1>
         <div id="telephone-number-hint" class="govuk-hint">
-          Enter a UK phone number. Include an area code for landline numbers, such as 03004005251. We'll only use this to contact them about this registration.
+          Enter a UK phone number. Include an area code for landline numbers, such as 03004005251. We'll only use this to contact them about this application.
         </div>
         <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel"
           aria-describedby="telephone-number-hint" autocomplete="tel">
