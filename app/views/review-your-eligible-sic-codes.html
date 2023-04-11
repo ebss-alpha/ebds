@@ -44,9 +44,9 @@ complex-eligibility
         <tr class="govuk-table__row">
           <th class="govuk-table__cell">{{ sector.SIC }}</th>
           <td class="govuk-table__cell">{{ sector.description | replace('– ', '')}}</td>
-          <td class="govuk-table__cell"><a class="govuk-link" href="#"><span class="govuk-!-padding-right-3">Change
-                <span class="govuk-visually-hidden">{{ sector.SIC }}</span></span> <span>Remove <span
-                  class="govuk-visually-hidden">{{ sector.SIC }}</span></span></td>
+          <td class="govuk-table__cell"><a class="govuk-link" href="#">
+            <a class="govuk-link govuk-link--no-visited-state govuk-!-margin-right-3" href="what-is-your-sic-code?index={{ loop.index0 }}">Change <span class="govuk-visually-hidden">{{ sector.SIC }}</span></a>
+            <a class="govuk-link govuk-link--no-visited-state" href="remove-sic?sic={{ sector.SIC }}">Remove <span class="govuk-visually-hidden">{{ sector.SIC }}</span> </a></td>
         </tr>
         {% endfor %}
       </tbody>

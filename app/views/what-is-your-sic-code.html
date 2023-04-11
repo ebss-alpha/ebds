@@ -21,7 +21,13 @@ Enter another eligible SIC code for your organisation
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-form-group">
-        <div class="govuk-caption-l">SIC code {{ data.sicCodes | length + 1 }} of {{ data.sicCodes | length + 1 }}</div>
+        <div class="govuk-caption-l">
+          {% if req.query.index %}
+          SIC code {{ req.query.index | int + 1 }} of {{ data.sicCodes | length }}
+          {% else %}
+          SIC code {{ data.sicCodes | length + 1 }} of {{ data.sicCodes | length + 1 }}
+          {% endif %}
+        </div>
         <h1 class="govuk-label-wrapper">
           <label class="govuk-label govuk-label--l" for="sic-code">
             {{ contextualQuestionText }}
@@ -39,11 +45,11 @@ Enter another eligible SIC code for your organisation
         <p>
           <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1128033/230104_ETII_List_for_gov.uk.pdf" target="_blank" class="govuk-link">A list of eligible sectors is available on GOV.UK [opens in new window]</a>
         </p>
-
+        <input type="hidden" name="update-sic" value="{% if req.query.index %}{{ req.query.index }}{% else %}-1{% endif %}">
         <select name="sic-code" class="govuk-select" id="sic-code">
-          <option value="" disabled selected>Select a SIC code</option>
+          <option value="" disabled {% if not req.query.index %}selected{% endif %}>Select a SIC code</option>
           {% for sector in data.eligibleSICCodes %}
-          <option value="{{ sector.SIC }} – {{ sector.description }}">{{ sector.SIC }} – {{ sector.description }}</option>
+          <option value="{{ sector.SIC }} – {{ sector.description }}" {% if data.sicCodes[req.query.index | int].SIC == sector.SIC %}selected{% endif %}>{{ sector.SIC }} – {{ sector.description }}</option>
           {% endfor %}
         </select>
       </div>
