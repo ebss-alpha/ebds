@@ -10,6 +10,17 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
+{% set otherHTML %}
+{{ govukInput({
+id: "other-hs-category",
+name: "other-hs-category",
+spellcheck: false,
+label: {
+text: "Category"
+}
+}) }}
+{% endset -%}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
@@ -53,7 +64,10 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
       },
       {
       value: "other",
-      text: "Other"
+      text: "Other",
+      conditional: {
+      html: otherHTML
+      }
       }
       ]
       }) }}
