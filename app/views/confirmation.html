@@ -24,30 +24,23 @@ Application complete– {{ serviceName }}
     <h2 class="govuk-heading-m">What happens next</h2>
     <p>If there are any questions about your application or you need to provide additional evidence, we will contact
       you by email or by phone</p>
-    
+
+    <p>You can contact us about your application at <a href="mailto:support@ebds.beis.gov.uk" class="govuk-link">support@ebds.beis.gov.uk</a> or on <a href="tel:+443004005251" class="govuk-link">030 0400 5251</a>.</p>
+    {% if data.path == 'heat-network' %}
+    <p>You can submit separate applications for any additional eligible heat networks.</p>
+    {% endif %}
     <h2 class="govuk-heading-m">Important information</h2>
     {% if data.path == 'heat-network' %}
-    <p>The EBDS heat network support does not come into force until 26 April 2023. If you apply before this date,
-      notification of the outcome will happen on or after 26 April 2023.</p>
-    <p>When it is applied to your bills, the heat network discount will be backdated to 1 April 2023. Your energy
-      supplier must pass the discount on to you</p>
-    {{
-      govukWarningText({
-        text: 'You must continue to pay your bills as normal'
-      })
-    }}
-    <p><a class="govuk-link govuk-link--no-visited-state" href="/is-your-heat-network-powered-by-electricity-or-gas">Add
-        another heat network</a></p>
+    <p>When it is applied to your bills, the heat network discount will be backdated to 1 April 2023. Your energy supplier must pass the discount on to you.</p>
     {% else %}
-    <p>The EBDS ETII support does not come into force until 26 April 2023. If you apply before this date,
-      notification of the outcome will happen on or after 26 April 2023.</p>
-    <p>When it is applied to your bills, the ETII discount will be backdated to 1 April 2023. Your energy supplier must
-      pass the discount on to you</p>
+    <p>When it is applied to your bills, the ETII discount will be backdated to 1 April 2023. Your energy supplier must pass the discount on to you.</p>
+    {% endif %}
     {{ govukWarningText({
-      text: 'You must continue to pay your bills has normal.'
+    text: 'You must continue to pay your bills has normal.'
     })
     }}
-    {% endif %}
+    <h2 class="govuk-heading-m">Your application details</h2>
+    <p>Questions and answers follow here</p>
   </div>
 </div>
 
