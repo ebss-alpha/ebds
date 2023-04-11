@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="postcode-of-heat-hot-water-supplier" method="post">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+      name: "select-heat-supplier-category",
+      fieldset: {
+      legend: {
+      text: "Select the category that best describes the heat supplier",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+      }
+      },
+      items: [
+      {
+      value: "building-owner-landlord-residential-management-company",
+      text: "Building owner, landlord or residential management company"
+      },
+      {
+      value: "educational-institution",
+      text: "School, college or other educational institution"
+      },
+      {
+      value: "energy-company",
+      text: "Energy company"
+      },
+      {
+      value: "housing-association",
+      text: "Housing association"
+      },
+      {
+      value: "local-authority",
+      text: "Local authority"
+      },
+      {
+      value: "social-care-institution",
+      text: "Social or care institution"
+      },
+      {
+      value: "other",
+      text: "Other"
+      }
+      ]
+      }) }}
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
