@@ -238,13 +238,21 @@ router.get(['/add-electricity-meter'], (req, res) => {
   }
 })
 
+router.get('/what-is-your-sic-code', (req, res) => {
+  res.render('what-is-your-sic-code.html', { req: req })
+})
+
 router.get(['/add-sic-code'], (req, res) => {
   const sicCode = req.session.data['sic-code']
   if (req.session.data.sicCodes === undefined) req.session.data.sicCodes = []
   const regex = /^(\d+\.\d+)\s(.*)$/;
   const result = sicCode.match(regex);
   const codeAndDescription = { SIC: result[1], description: result[2] };
-  req.session.data.sicCodes.push(codeAndDescription)
+  if (req.session.data['update-sic'] >= 0) {
+    req.session.data.sicCodes[req.session.data['update-sic']] = codeAndDescription
+  } else {
+    req.session.data.sicCodes.push(codeAndDescription)
+  }
   if (req.session.data.sicCodes.length === 4) {
     res.redirect('/review-your-eligible-sic-codes')
   } else {
@@ -258,6 +266,16 @@ router.get(['/another-sic-code-check'], (req, res) => {
     res.redirect('/what-is-your-sic-code')
   } else {
     res.redirect('/review-your-eligible-sic-codes')
+  }
+})
+
+router.get(['/remove-sic'], (req, res) => {
+  const toRemove = req.query.sic
+  req.session.data.sicCodes = req.session.data.sicCodes.filter(sic => sic.SIC !== toRemove)
+  if (req.session.data.sicCodes.length !== 0) {
+    res.redirect('/review-your-eligible-sic-codes')
+  } else {
+    res.redirect('/what-is-your-sic-code')
   }
 })
 
