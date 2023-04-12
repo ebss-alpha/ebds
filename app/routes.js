@@ -155,9 +155,9 @@ router.get(['/energy-check'], (req, res) => {
     case 'gas':
     case 'both':
     default:
-      case 'electricity':
       res.redirect('/who-is-your-gas-supplier')
       break
+    case 'electricity':
       res.redirect('/who-is-your-electricity-supplier')
       break
     case 'other':
