@@ -127,7 +127,7 @@ href: "#evidence"
       {% else %}
 
         <!-- ETII INTRO CONTENT BEGINS HERE 👇 -->
-        {% if data.crn == '12345678' %}
+        {% if data.crn == '12345678' and data['is-this-your-org'] == 'yes' %}
 
           <!-- VALIDATED ETII CONTENT BEGINS HERE 👇 -->
           <h1 class="govuk-heading-l">
@@ -212,7 +212,7 @@ href: "#evidence"
           <p>We need proof that your organisation or business is eligible for this discount. If you’re
             supplying your meter numbers in the template, this is also where you should upload it.</p>
 
-          {% if data.crn == '12345678' %}
+          {% if data.crn == '12345678' and data['is-this-your-org'] == 'yes' %}
             
             <!-- VALIDATED ETII MAIN CONTENT BEGINS HERE 👇 -->
               <h2 class="govuk-heading-m">

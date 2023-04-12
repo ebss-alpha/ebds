@@ -9,7 +9,7 @@ Review your eligible SIC codes – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% set nextPage %}
-{% if data.crn == '12345678' %}
+{% if data.crn == '12345678' and data['is-this-your-org'] == 'yes' %}
 simple-eligibility
 {% else %}
 complex-eligibility
