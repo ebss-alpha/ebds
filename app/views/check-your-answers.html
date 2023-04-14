@@ -194,6 +194,19 @@ Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
           {% endif %}
         </dd>
       </div>
+      {% for sector in data.sicCodes %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Organisation SIC code
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ sector.SIC }}
+        </dd>
+        <dd class="govuk-summary-list__value">
+          {{ sector.description | replace('– ', '')}}
+        </dd>
+      </div>
+      {% endfor %}
     </dl>
     <h2 class="govuk-heading-m">Contact details</h2>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
