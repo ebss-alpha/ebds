@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Northern Ireland Protocol and state aid – {{ serviceName }} – GOV.UK Prototype Kit
+The Windsor Framework and state aid – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,67 +13,109 @@ Northern Ireland Protocol and state aid – {{ serviceName }} – GOV.UK Prototy
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="ni-check">
-      <h1 class="govuk-heading-m">Northern Ireland Protocol and state aid</h1>
+      <h1 class="govuk-heading-m">The Windsor Framework and state aid</h1>
+
+      <h2 class="govuk-heading-m">Beneficiaries based in Northern Ireland</h2>
+      <p>
+        If the beneficiary is incorporated and registered in Northern Ireland, European Union (EU) State aid rules will
+        apply. If you are based in Northern Ireland, select 'No' at the bottom of this page.
+      </p>
+
+      <h2 class="govuk-heading-m">Beneficiaries based in Great Britain</h2>
+      <p>
+        In exceptional circumstances, the discount for some Great Britain based beneficiaries could in principle be
+        subject to the Windsor Framework and EU State aid rules would therefore apply. However, this would only be the
+        case where there is a genuine and direct link to Northern Ireland and where the discount will have a foreseeable
+        and material effect on trade between Northern Ireland and the EU.
+      </p>
+
+      <p class="govuk-body">If this is the case, we will need to consider the Northern Ireland market impacts further
+        with you. This
+        includes:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          what ringfencing is already in place
+        </li>
+        <li>
+          whether any additional ringfencing measures are needed to ensure that the benefit of this support does not
+          pass through to Northern Ireland
+        </li>
+      </ul>
+      <p>
+        To help identify whether this requirement applies to you, answer the following questions.
+      </p>
+
+      <ol class="govuk-list govuk-list--number">
+        <li>
+          If you're a Small and Medium Enterprise (as defined in Section 382 Companies House Act 2006): Based on
+          your energy costs for financial year 2022 to 2023, do you expect your annual energy bill to exceed £14
+          million?
+        </li>
+
+        <li>
+          If you're a large company (as defined in section 465 Companies House Act 2006): Based on your energy
+          costs for financial year 2022 to 2023, do you expect your annual energy bill to exceed £47 million?
+        </li>
+      </ol>
 
       <p>
-        Article 10 of the Northern Ireland Protocol provides that EU State aid rules will continue to apply to the UK in respect
-        of measures which affect trade in goods and electricity between Northern Ireland and the European Union.
+        If you answered yes to questions 1 or 2, answer question 3. If you answered no to questions 1 and 2, the
+        Windsor Framework does not apply. Select 'No' at the bottom of this page.
+      </p>
+      <ol class="govuk-list govuk-list--number" start="3">
+        <li>
+          Does your business have more than 10% share of the market in Northern Ireland?
+        </li>
+      </ol>
+
+      <p>
+        If you answered yes to question 3, answer questions 4 and 5. If you answered no to question 3, the Windsor
+        Framework does not apply. Select 'No' at the bottom of this page.
+      </p>
+      <ol class="govuk-list govuk-list--number" start="4">
+        <li>
+          Does your business have locations in Northern Ireland, or are you part of a corporate group with locations in
+          Northern Ireland?
+        </li>
+        <li>
+          If your business is solely Great Britain based but you sell your goods or electricity into Northern
+          Ireland, are those goods sold below market price, or sold at different market conditions?
+        </li>
+      </ol>
+
+      <p>
+        If you answered yes or think the answer might be yes to question 4 or 5,
+        the Windsor Framework may apply. Select 'Yes' at the bottom of the page and we will contact you separately.
       </p>
 
       <p>
-        Subsidies granted in Great Britain could be in scope of Article 10 where there is a clear benefit from and a genuine,
-        direct link between the subsidy and companies in Northern Ireland that could have a real and foreseeable effect on trade
-        between Northern Ireland and the European Union.
+        If you answered no to questions 4 or 5, the Windsor Framework does not apply. Select 'No' at the bottom of the
+        page.
       </p>
-      
-      <p>
-        <a class="govuk-link" href="https://www.gov.uk/government/publications/complying-with-the-uks-international-obligations-on-subsidy-control-guidance-for-public-authorities/technical-guidance-on-the-uks-international-subsidy-control-commitments#section-6">The latest guidance on the UK's international subsidy control commitments provides more detail.</a>
-      </p>
-      
-      <p>
-        If Article 10 of the Northern Ireland Protocol is engaged, you will need to put in suitable measure to prevent any cross
-        subsidising into Northern Ireland.
-      </p>
-      
-      
-      <p>
-        To help determine whether Article 10 could apply please answer the following question.
-      </p>
-      
+
+
+
       {{ govukRadios({
       classes: "govuk-radios--inline",
       name: "ni-protocol",
       fieldset: {
-        legend: {
-          html: '<div>Does your business, including any subsidiaries, parent company or other business in the corporate group based in Northern Ireland:</div>
-          <div class="govuk-!-margin-top-3">a. engage in the manufacture or sale of goods in Northern Ireland?</div>
-          <div class="govuk-!-margin-top-3">b. participate in the NI wholesale electricity market, namely generation, transmission, distribution or supply of
-          wholesale electricity?</div>',
-          classes: "govuk-fieldset__legend--s"
-        }
+      legend: {
+
+      classes: "govuk-fieldset__legend--s"
+      }
       },
       items: [
-        {
-          value: "yes",
-          text: "Yes"
-        },
-        {
-          value: "no",
-          text: "No"
-          }
+      {
+      value: "yes",
+      text: "Yes"
+      },
+      {
+      value: "no",
+      text: "No"
+      }
       ]
       }) }}
-      
-      
-      
-      
-      
-      <p>Please answer yes if your business, including any subsidiaries, parent company or other business in the corporate group
-      based in NI, have plans to start manufacturing or selling such goods, or operating in the NI wholesale electricity
-      market in the next three years.</p>
-      
-      <p>Saying “yes” to this question will not stop your subsidy. However, we will engage with you separately to i) clarify
-      whether or not Article 10 of the NIP is engaged and ii) identify suitable measures to prevent cross subsidising.</p>
+
       <button class="govuk-button" data-module="govuk-button">Continue</button>
     </form>
 
