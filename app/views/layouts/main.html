@@ -7,17 +7,25 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% block footer %}
 {{ govukFooter({
-  meta: {
-    items: [
-      {
-        href: '/manage-prototype/clear-data',
-        text: 'Clear prototype data'
-      },
-      {
-        href: '/privacy',
-        text: 'Privacy notice'
-      }
-    ]
-  }
+meta: {
+items: [
+{
+href: '/manage-prototype/clear-data',
+text: 'Clear prototype data'
+},
+{
+href: '/privacy',
+text: 'Privacy notice'
+},
+{
+href: '/accessibility-statement',
+text: 'Accessibility statement'
+},
+{
+href: '/cookies',
+text: 'Cookies'
+}
+]
+}
 }) }}
 {% endblock %}
