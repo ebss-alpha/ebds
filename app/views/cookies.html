@@ -1,10 +1,42 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Cookies – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Cookies
+    </h1>
+    
+    <p>Cookies are small files saved on your phone, tablet or computer when you visit a website.</p>
+    <p>We use cookies to make the ‘Apply for the Energy Bills Discount Scheme' service work and collect information about how you use our service.</p>
+
+    <h2 class="govuk-heading-m">
+      Essential cookies
+    </h2>
+    <p>Essential cookies keep your information secure while you use Notify. We do not need to ask permission to use them.</p>
+    
+          <table class="govuk-table">
+            <caption class="govuk-visually-hidden">Essential cookies/caption>
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Name</th>
+                    <th scope="col" class="govuk-table__header">Purpose</th>
+                    <th scope="col" class="govuk-table__header">Expires</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr role="row" class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">sfdc-stream</th>
+                    <td class="govuk-table__cell">Used to properly route server requests within Salesforce infrastructure for sticky sessions.</td>
+                    <td class="govuk-table__cell">3 hours</td>
+                </tr>
+            </tbody>
+        </table>
+    
 
 {% endblock %}
