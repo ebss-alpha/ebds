@@ -104,7 +104,6 @@ href: "#evidence"
       <ul class="govuk-list govuk-list--bullet">
         <li>a signed director’s declaration letter</li>
         <li>evidence that you are a domestic heat network supplier</li>
-        <li>your energy suppliers and meter numbers if you are providing them using the template</li>
       </ul>
 
       <!--- HEAT NETWORK INTRO CONTENT ENDS HERE 👆 -->
@@ -121,7 +120,6 @@ href: "#evidence"
       <p>You should upload:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>a signed director’s declaration letter</li>
-        <li>your energy suppliers and meter numbers if you are providing them using the template</li>
       </ul>
       <!-- VALIDATED ETII CONTENT ENDS HERE 👆 -->
       {% else %}
@@ -130,12 +128,12 @@ href: "#evidence"
       <h1 class="govuk-heading-l">
         You need to provide evidence that you are eligible
       </h1>
-      <p>You should upload:</p>
+      <p>All applications must include:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>a signed director’s declaration letter</li>
-        <li>financial evidence</li>
-        <li>your energy suppliers and meter numbers if you are providing them using the template</li>
+        <li>a signed declaration letter</li>
+        <li>the mandatory financial evidence</li>
       </ul>
+      <p>You can also upload optional financial evidence.</p>
       <!-- NON-VALIDATED ETII CONTENT ENDS HERE 👆 -->
 
       {% endif %}
@@ -194,8 +192,7 @@ href: "#evidence"
       {% else %}
 
       <!-- ETII MAIN CONTENT BEGINS HERE 👇 -->
-      <p>We need proof that your organisation or business is eligible for this discount. If you’re
-        supplying your meter numbers in the template, this is also where you should upload it.</p>
+      <p>We need proof that your organisation or business is eligible for this discount.</p>
 
       {% if data.crn == '12345678' and data['is-this-your-org'] == 'yes' %}
 
@@ -222,9 +219,9 @@ href: "#evidence"
       </h2>
       {{ declarationLetterReqs | safe }}
       <h2 class="govuk-heading-m">
-        Financial evidence
+        Mandatory financial evidence
       </h2>
-      <p>You must upload:</p>
+      <p>Upload all of the following:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>your most recent full set of end-of-year accounts - if you do not have these, upload evidence of your most
           recent company accounts, covering a minimum period of the most recent 6 months </li>
@@ -232,13 +229,7 @@ href: "#evidence"
         <li>a sample of 20 sales and purchase invoices, no older than 12 months from the date of the signed declaration,
           which demonstrates activity that falls within an eligible sector  </li>
         <li>license or trade body membership details for regulated industries (if applicable)</li>
-        <li>any additional evidence you want to support your application</li>
       </ul>
-      {{ govukInsetText({
-      text: "To help with the processing of your application, you could also upload a letter signed by a chartered
-      auditor or accountant. This should confirm that you are in an eligible sector, and that 50% or more of your sales,
-      services or revenue are in an eligible sector."
-      }) }}
       <h3 class="govuk-heading-m">
         Sole traders
       </h3>
@@ -254,6 +245,15 @@ href: "#evidence"
         property, with accompanying measurements in square metres. This should show that 50% or more of your activities
         are in an eligible sector.
       </p>
+       <h2 class="govuk-heading-m">
+        Optional financial evidence
+      </h2>
+            {{ govukInsetText({
+      text: "To help with the processing of your application, you could also upload a letter signed by a chartered
+      auditor or accountant. This should confirm that you are in an eligible sector, and that 50% or more of your sales,
+      services or revenue are in an eligible sector."
+      }) }}
+      <p>You can also upload any additional evidence you want to support your application.</p>
 
       {{meterNumberTemplateReqs | safe}}
       {{ multipleDocumentsReqs | safe }}
