@@ -130,7 +130,7 @@ router.get(['/access-check'], (req, res) => {
 router.get(['/bulk-upload-check'], (req, res) => {
   switch (req.session.data['manual-or-upload']) {
     case 'upload':
-      res.redirect('/you-need-to-provide-evidence')
+      res.redirect('/upload-your-meter-number')
       break
     case 'manual':
     default:

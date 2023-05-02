@@ -67,9 +67,11 @@ href: "#evidence"
 
 {% set declarationLetterReqs %}
 <p>You must upload a completed declaration letter
-      <a href="https://www.gov.uk/government/publications/energy-bills-discount-scheme-ebds-scheme-documents" class="govuk-link">using the template provided</a> (opens in new window). 
-      This must be signed by a named director or equivalent of your organisation or 
-      business. </p>
+  <a href="https://www.gov.uk/government/publications/energy-bills-discount-scheme-ebds-scheme-documents"
+    class="govuk-link">using the template provided</a> (opens in new window).
+  This must be signed by a named director or equivalent of your organisation or
+  business.
+</p>
 <p>This should be in PDF format</p>
 <p><a
     href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1128033/230104_ETII_List_for_gov.uk.pdf"
@@ -87,18 +89,6 @@ href: "#evidence"
 </ul>
 {% endset %}
 
-{% set meterNumberTemplateReqs %}
-<h2 class="govuk-heading-m">
-  Energy suppliers and meter numbers
-</h2>
-<p>
-  You should upload your list of energy suppliers and meter numbers if you are providing them using the
-  template (opens in new window).
-</p>
-<p>
-  This must be in .xls, .xlsx or .csv format.
-</p>
-{% endset %}
 
 <form action="upload-check">
   <input type="hidden" name="evidence-provided" value="yes">
@@ -106,166 +96,173 @@ href: "#evidence"
     <div class="govuk-grid-column-two-thirds">
       {% if data.path == 'heat-network' %}
 
-        <!-- HEAT NETWORK INTRO CONTENT BEGINS HERE 👇 -->
-          <h1 class="govuk-heading-l">
-            You need to provide evidence that you are eligible
-          </h1>
-                  <p>You should upload:</p>
-      <ul class="govuk-list govuk-list--bullet">
-  <li>a signed director’s declaration letter</li>
-  <li>evidence that you are a domestic heat network supplier</li>
-  <li>your energy suppliers and meter numbers if you are providing them using the template</li>
-</ul>
-    
-        <!--- HEAT NETWORK INTRO CONTENT ENDS HERE 👆 -->
-
-      {% else %}
-
-        <!-- ETII INTRO CONTENT BEGINS HERE 👇 -->
-        {% if data.crn == '12345678' and data['is-this-your-org'] == 'yes' %}
-
-          <!-- VALIDATED ETII CONTENT BEGINS HERE 👇 -->
-          <h1 class="govuk-heading-l">
-            You need to provide evidence that you are eligible
-          </h1>
+      <!-- HEAT NETWORK INTRO CONTENT BEGINS HERE 👇 -->
+      <h1 class="govuk-heading-l">
+        You need to provide evidence that you are eligible
+      </h1>
       <p>You should upload:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>a signed director’s declaration letter</li>
-  <li>your energy suppliers and meter numbers if you are providing them using the template</li>
-</ul>
-          <!-- VALIDATED ETII CONTENT ENDS HERE 👆 -->
-        {% else %}
+        <li>evidence that you are a domestic heat network supplier</li>
+        <li>your energy suppliers and meter numbers if you are providing them using the template</li>
+      </ul>
 
-          <!-- NON-VALIDATED ETII CONTENT BEGINS HERE 👇 -->
-          <h1 class="govuk-heading-l">
-            You need to provide evidence that you are eligible
-          </h1>
-            <p>You should upload:</p>
+      <!--- HEAT NETWORK INTRO CONTENT ENDS HERE 👆 -->
+
+      {% else %}
+
+      <!-- ETII INTRO CONTENT BEGINS HERE 👇 -->
+      {% if data.crn == '12345678' and data['is-this-your-org'] == 'yes' %}
+
+      <!-- VALIDATED ETII CONTENT BEGINS HERE 👇 -->
+      <h1 class="govuk-heading-l">
+        You need to provide evidence that you are eligible
+      </h1>
+      <p>You should upload:</p>
       <ul class="govuk-list govuk-list--bullet">
-  <li>a signed director’s declaration letter</li>
-  <li>financial evidence</li>
-  <li>your energy suppliers and meter numbers if you are providing them using the template</li>
-</ul>
-          <!-- NON-VALIDATED ETII CONTENT ENDS HERE 👆 -->
+        <li>a signed director’s declaration letter</li>
+        <li>your energy suppliers and meter numbers if you are providing them using the template</li>
+      </ul>
+      <!-- VALIDATED ETII CONTENT ENDS HERE 👆 -->
+      {% else %}
 
-        {% endif %}
-        <!-- ETII INTRO CONTENT ENDS HERE 👆 -->
+      <!-- NON-VALIDATED ETII CONTENT BEGINS HERE 👇 -->
+      <h1 class="govuk-heading-l">
+        You need to provide evidence that you are eligible
+      </h1>
+      <p>You should upload:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>a signed director’s declaration letter</li>
+        <li>financial evidence</li>
+        <li>your energy suppliers and meter numbers if you are providing them using the template</li>
+      </ul>
+      <!-- NON-VALIDATED ETII CONTENT ENDS HERE 👆 -->
+
+      {% endif %}
+      <!-- ETII INTRO CONTENT ENDS HERE 👆 -->
 
       {% endif %}
 
       {% if data.path == 'heat-network' %}
 
-        <!-- HEAT NETWORK MAIN CONTENT BEGINS HERE 👇 -->
-        <h2 class="govuk-heading-m">
-          Signed declaration letter
-        </h2>
-        <p>You must upload a letter signed by a named director or equivalent of your organisation or
-          business that states that:
-        </p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>all the information in this application is accurate to the best of their knowledge</li>
-        </ul>
-        <p><a class="govuk-link" href="#">Use the PDF template provided</a></p>
-        <h2 class="govuk-heading-m">
-          Evidence that you are a domestic heat network supplier
-        </h2>
-        <p>You must also upload documents that prove a contractual relationship between the heat supplier
-          and its domestic customers. PDF format is preferred. </p>
-        <p>This might include:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>Domestic Heat Supply Contract</li>
-          <li>residential agreements with provision of heat or hot water</li>
-          <li>metering and billing agreements
-        </ul>
-        <p>You do not need to upload the whole document. Upload pages that show the name of the
-          heat network and that it provides heat or hot water to domestic customers.</p>
-        <p>If you are unable to provide documents which include the name of the heat network,
-          you should provide a diagram or explanation. This needs to show how the heat network
-          is related to the named entity along with evidence of this relationship. This may include,
-          but is not limited to, contracts and invoices.</p>
+      <!-- HEAT NETWORK MAIN CONTENT BEGINS HERE 👇 -->
+      <h2 class="govuk-heading-m">
+        Signed declaration letter
+      </h2>
+      <p>You must upload a letter signed by a named director or equivalent of your organisation or
+        business that states that:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>all the information in this application is accurate to the best of their knowledge</li>
+      </ul>
+      <p><a class="govuk-link" href="#">Use the PDF template provided</a></p>
+      <h2 class="govuk-heading-m">
+        Evidence that you are a domestic heat network supplier
+      </h2>
+      <p>You must also upload documents that prove a contractual relationship between the heat supplier
+        and its domestic customers. PDF format is preferred. </p>
+      <p>This might include:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Domestic Heat Supply Contract</li>
+        <li>residential agreements with provision of heat or hot water</li>
+        <li>metering and billing agreements
+      </ul>
+      <p>You do not need to upload the whole document. Upload pages that show the name of the
+        heat network and that it provides heat or hot water to domestic customers.</p>
+      <p>If you are unable to provide documents which include the name of the heat network,
+        you should provide a diagram or explanation. This needs to show how the heat network
+        is related to the named entity along with evidence of this relationship. This may include,
+        but is not limited to, contracts and invoices.</p>
 
-        <h2 class="govuk-heading-m">
-          Optional evidence
-        </h2>
-        <p>You can provide any other evidence to support your application, for example, energy bills
-          showing 5% VAT and the supply address.</p>
-        {{ meterNumberTemplateReqs | safe }}
-        <h2 class="govuk-heading-m">
-          Your documents
-        </h2>
+      <h2 class="govuk-heading-m">
+        Optional evidence
+      </h2>
+      <p>You can provide any other evidence to support your application, for example, energy bills
+        showing 5% VAT and the supply address.</p>
+      {{ meterNumberTemplateReqs | safe }}
+      <h2 class="govuk-heading-m">
+        Your documents
+      </h2>
 
-        <p>Your documents must be:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>no more than 10MB</li>
-          <li>in .pdf, .jpeg, .png, .doc, .docx, .xls, .xlsx or .csv format</li>
-        </ul>
-        <!--HEAT NETWORK MAIN CONTENT ENDS HERE 👆 -->
+      <p>Your documents must be:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>no more than 10MB</li>
+        <li>in .pdf, .jpeg, .png, .doc, .docx, .xls, .xlsx or .csv format</li>
+      </ul>
+      <!--HEAT NETWORK MAIN CONTENT ENDS HERE 👆 -->
 
       {% else %}
 
-        <!-- ETII MAIN CONTENT BEGINS HERE 👇 -->
-          <p>We need proof that your organisation or business is eligible for this discount. If you’re
-            supplying your meter numbers in the template, this is also where you should upload it.</p>
+      <!-- ETII MAIN CONTENT BEGINS HERE 👇 -->
+      <p>We need proof that your organisation or business is eligible for this discount. If you’re
+        supplying your meter numbers in the template, this is also where you should upload it.</p>
 
-          {% if data.crn == '12345678' and data['is-this-your-org'] == 'yes' %}
-            
-            <!-- VALIDATED ETII MAIN CONTENT BEGINS HERE 👇 -->
-              <h2 class="govuk-heading-m">
-                Upload a signed declaration letter
-              </h2>
-              {{ declarationLetterReqs | safe }}
-              {{meterNumberTemplateReqs | safe}}
-              <h2 class="govuk-heading-m">
-                Your documents
-              </h2>
-              <p>Your documents must be:</p>
-              <ul class="govuk-list govuk-list--bullet">
-                <li>no more than 10 MB</li>
-              </ul>
-              <!-- VALIDATED ETII MAIN CONTENT ENDS HERE 👆 -->
+      {% if data.crn == '12345678' and data['is-this-your-org'] == 'yes' %}
 
-          {% else %}
-            
-            <!-- NON-VALIDATED ETII MAIN CONTENT BEGINS HERE 👇 -->
-            <h2 class="govuk-heading-m">
-              Signed declaration letter
-            </h2>
-            {{ declarationLetterReqs | safe }}
-            <h2 class="govuk-heading-m">
-              Financial evidence
-            </h2>
-            <p>You must upload:</p>
-            <ul class="govuk-list govuk-list--bullet">
-              <li>your most recent full set of end-of-year accounts - if you do not have these, upload evidence of your most recent company accounts, covering a minimum period of the most recent 6 months </li>
-              <li>an Income Statement referring to the same time period as the end-of-year accounts</li>
-              <li>a sample of 20 sales and purchase invoices, no older than 12 months from the date of the signed declaration, which demonstrates activity that falls within an eligible sector  </li>
-              <li>license or trade body membership details for regulated industries (if applicable)</li>
-              <li>any additional evidence you want to support your application</li>
-            </ul>
-            {{ govukInsetText({
-            text: "To help with the processing of your application, you could also upload a letter signed by a chartered auditor or accountant. This should confirm that you are in an eligible sector, and that 50% or more of your sales, services or revenue are in an eligible sector."
-            }) }}
-            <h3 class="govuk-heading-m">
-              Sole traders
-            </h3>
-            <p>
-             Sole traders who cannot provide all the other financial evidence should upload a sample of 20 sales and purchase invoices for the eligible activities. 
-            </p>
-            <h3 class="govuk-heading-m">
-            Local authorities (including libraries) 
-            </h3>
-            <p>
-            Local authority applicants who cannot provide the financial evidence should upload floor plans of the relevant property, with accompanying measurements in square metres. This should show that 50% or more of your activities are in an eligible sector. 
-            </p>
-          
-            {{meterNumberTemplateReqs | safe}}
-            {{ multipleDocumentsReqs | safe }}
-            <!-- VALIDATED ETII MAIN CONTENT ENDS HERE 👆 -->
+      <!-- VALIDATED ETII MAIN CONTENT BEGINS HERE 👇 -->
+      <h2 class="govuk-heading-m">
+        Upload a signed declaration letter
+      </h2>
+      {{ declarationLetterReqs | safe }}
+      {{meterNumberTemplateReqs | safe}}
+      <h2 class="govuk-heading-m">
+        Your documents
+      </h2>
+      <p>Your documents must be:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>no more than 10 MB</li>
+      </ul>
+      <!-- VALIDATED ETII MAIN CONTENT ENDS HERE 👆 -->
 
-          {% endif %}
-          
-          <!-- ETII MAIN CONTENT ENDS HERE 👆 -->
-          
+      {% else %}
+
+      <!-- NON-VALIDATED ETII MAIN CONTENT BEGINS HERE 👇 -->
+      <h2 class="govuk-heading-m">
+        Signed declaration letter
+      </h2>
+      {{ declarationLetterReqs | safe }}
+      <h2 class="govuk-heading-m">
+        Financial evidence
+      </h2>
+      <p>You must upload:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your most recent full set of end-of-year accounts - if you do not have these, upload evidence of your most
+          recent company accounts, covering a minimum period of the most recent 6 months </li>
+        <li>an Income Statement referring to the same time period as the end-of-year accounts</li>
+        <li>a sample of 20 sales and purchase invoices, no older than 12 months from the date of the signed declaration,
+          which demonstrates activity that falls within an eligible sector  </li>
+        <li>license or trade body membership details for regulated industries (if applicable)</li>
+        <li>any additional evidence you want to support your application</li>
+      </ul>
+      {{ govukInsetText({
+      text: "To help with the processing of your application, you could also upload a letter signed by a chartered
+      auditor or accountant. This should confirm that you are in an eligible sector, and that 50% or more of your sales,
+      services or revenue are in an eligible sector."
+      }) }}
+      <h3 class="govuk-heading-m">
+        Sole traders
+      </h3>
+      <p>
+        Sole traders who cannot provide all the other financial evidence should upload a sample of 20 sales and purchase
+        invoices for the eligible activities.
+      </p>
+      <h3 class="govuk-heading-m">
+        Local authorities (including libraries)
+      </h3>
+      <p>
+        Local authority applicants who cannot provide the financial evidence should upload floor plans of the relevant
+        property, with accompanying measurements in square metres. This should show that 50% or more of your activities
+        are in an eligible sector.
+      </p>
+
+      {{meterNumberTemplateReqs | safe}}
+      {{ multipleDocumentsReqs | safe }}
+      <!-- VALIDATED ETII MAIN CONTENT ENDS HERE 👆 -->
+
+      {% endif %}
+
+      <!-- ETII MAIN CONTENT ENDS HERE 👆 -->
+
       {% endif %}
     </div>
   </div>
