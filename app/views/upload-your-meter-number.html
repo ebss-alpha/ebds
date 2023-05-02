@@ -10,11 +10,9 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="you-need-to-provide-evidence">
-
-
+<form class="form" action="you-need-to-provide-evidence">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">
         Energy suppliers and meter numbers
       </h1>
@@ -36,7 +34,9 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         </h2>
         <input class="govuk-file-upload" id="evidence" name="evidence" type="file" multiple>
       </div>
-      <input type="submit" class="govuk-button govuk-button--secondary" name="upload-multiple" value="Upload">
+      <button class="govuk-button govuk-button--secondary">
+        Upload
+      </button>
       {% if data['evidences'] | length > 0 %}
       <h3 class="govuk-heading-s">Uploaded files</h3>
       <ul class="govuk-list">
@@ -46,12 +46,15 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
         {% endfor %}
       </ul>
       {% endif %}
-
-
-
-    </form>
-
+    </div>
   </div>
-</div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <input class="govuk-button" type="submit" value="Continue" name="continue">
+    </div>
+  </div>
+</form>
+
+
 
 {% endblock %}
