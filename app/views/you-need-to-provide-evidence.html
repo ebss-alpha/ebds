@@ -11,6 +11,8 @@ You need to provide evidence of eligibility
 
 {% endblock %}
 
+{% set validatedETII = data.crn == '12345678' and data['is-this-your-org'] == 'yes' %}
+
 {% block content %}
 {% if not data.error %}
 {% if data['evidence'] | length > 0 %}
@@ -73,9 +75,6 @@ href: "#evidence"
   business.
 </p>
 <p>This should be in PDF format</p>
-<p><a
-    href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1128033/230104_ETII_List_for_gov.uk.pdf"
-    class="govuk-link">A list of eligible sectors and SIC codes is available on GOV.UK</a></p>
 {% endset %}
 
 {% set multipleDocumentsReqs %}
@@ -111,16 +110,12 @@ href: "#evidence"
       {% else %}
 
       <!-- ETII INTRO CONTENT BEGINS HERE 👇 -->
-      {% if data.crn == '12345678' and data['is-this-your-org'] == 'yes' %}
+      {% if validatedETII %}
 
       <!-- VALIDATED ETII CONTENT BEGINS HERE 👇 -->
       <h1 class="govuk-heading-l">
         You need to provide evidence that you are eligible
       </h1>
-      <p>You should upload:</p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>a signed director’s declaration letter</li>
-      </ul>
       <!-- VALIDATED ETII CONTENT ENDS HERE 👆 -->
       {% else %}
 
@@ -192,20 +187,15 @@ href: "#evidence"
       {% else %}
 
       <!-- ETII MAIN CONTENT BEGINS HERE 👇 -->
-      <p>We need proof that your organisation or business is eligible for this discount.</p>
-
-      {% if data.crn == '12345678' and data['is-this-your-org'] == 'yes' %}
+      {% if validatedETII %}
 
       <!-- VALIDATED ETII MAIN CONTENT BEGINS HERE 👇 -->
-      <h2 class="govuk-heading-m">
-        Upload a signed declaration letter
-      </h2>
       {{ declarationLetterReqs | safe }}
       {{meterNumberTemplateReqs | safe}}
       <h2 class="govuk-heading-m">
-        Your documents
+        Your document{% if not validatedETII %}s{% endif %}
       </h2>
-      <p>Your documents must be:</p>
+      <p>Your document{% if not validatedETII %}s{% endif %} must be:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>no more than 10 MB</li>
       </ul>
@@ -217,7 +207,11 @@ href: "#evidence"
       <h2 class="govuk-heading-m">
         Signed declaration letter
       </h2>
+      <p>We need proof that your organisation or business is eligible for this discount.</p>
       {{ declarationLetterReqs | safe }}
+      <p><a
+          href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1128033/230104_ETII_List_for_gov.uk.pdf"
+          class="govuk-link">A list of eligible sectors and SIC codes is available on GOV.UK</a></p>
       <h2 class="govuk-heading-m">
         Mandatory financial evidence
       </h2>
