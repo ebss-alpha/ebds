@@ -16,24 +16,30 @@ Enter a gas meter point number for this supplier – {{ serviceName }} – GOV.U
         <div class="govuk-form-group">
           <div class="govuk-caption-l">{{ data['gas-supplier'] }} meter {{ data.gasSuppliers[data.gasSuppliers.length -1].meterNumbers.length + 1 }} of {{ data.gasSuppliers[data.gasSuppliers.length -1].meterNumbers.length + 1 }}</div>
           <h1 class="govuk-heading-l">
-            Enter a gas meter point number for this supplier
+            Enter a gas meter point number (MPRN or SMP) for this supplier
           </h1>
           <div id="gas-meter-hint">
             {% if data.path == 'heat-network' %}
             <p class="govuk-hint">
-              This should be the meter number providing the energy centre only.
+              This should be meter numbers providing the energy centre only.
             </p>
             {% endif %}
             <p class="govuk-hint">
-              You can add more meter numbers later.
+              Enter the Meter Point Reference Number (MPRN) if you’re in Great Britain. Enter the Supply Meter Point (SMP) number in Northern Ireland. 
             </p>
             <p class="govuk-hint">
-              You can find your gas meter number (MPRN or MPAN) on the bill from your energy 
-              supplier. This is not the same as your meter reading or meter serial number.
+              You can find your MPRN or SMP on the bill from your energy supplier. It is a number between 6 and 10 digits long.  
             </p>
+            <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    Do not enter a meter reading or meter serial number. Your supplier will not be able to apply the discount.
+  </strong>
+</div>
           </div>
           <label class="govuk-label" for="meter-number">
-            What is the MPRN or MPAN of the gas meter?
+            What is the MPRN or SMP of the gas meter?
           </label>
           <input class="govuk-input govuk-input--width-10" id="meter-number" aria-describedby="gas-meter-hint" name="meter-number" type="text">
           <input type="hidden" name="currently-entering" value="gas">
