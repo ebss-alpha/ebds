@@ -83,7 +83,7 @@ router.get(['/domestic-check'], (req, res) => {
 })
 
 router.get(['/address-lookup'], (req, res) => {
-  const hasNumber = req.session.data['address-housenumber']
+  const hasNumber = req.session.data['address-house-number']
   if (hasNumber) {
     res.redirect('/is-this-your-address')
   } else {
@@ -181,7 +181,13 @@ router.get(['/add-gas-supplier'], (req, res) => {
     const supplierName = req.session.data['gas-supplier']
     if (req.session.data.gasSuppliers === undefined) req.session.data.gasSuppliers = []
     req.session.data.gasSuppliers.find(entry => entry.supplier === supplierName) ?? req.session.data.gasSuppliers.push({ supplier: supplierName, meterNumbers: [], chp: [], supply: [], egc: [], besides: [] })
-    res.redirect('/what-is-the-company-name-as-it-appears-on-your-gas-bill')
+    const supplierData = req.session.data.suppliers.find(supplier => supplier.supplierName === supplierName) ?? {}
+    if (supplierData.licenceExempt) {
+      req.session.data['require-meters'] = '0'
+      res.redirect('/do-you-have-meter-numbers-for-known-gas-nsc')
+    } else {
+      res.redirect('/what-is-the-company-name-as-it-appears-on-your-gas-bill')
+    }
   }
 })
 
@@ -198,7 +204,13 @@ router.get(['/add-electricity-supplier'], (req, res) => {
     const supplierName = req.session.data['electricity-supplier']
     if (req.session.data.electricitySuppliers === undefined) req.session.data.electricitySuppliers = []
     req.session.data.electricitySuppliers.find(entry => entry.supplier === supplierName) ?? req.session.data.electricitySuppliers.push({ supplier: supplierName, meterNumbers: [], chp: [], supply: [], egc: [], besides: [] })
-    res.redirect('/what-is-the-company-name-as-it-appears-on-your-electricity-bill')
+    const supplierData = req.session.data.suppliers.find(supplier => supplier.supplierName === supplierName) ?? {}
+    if (supplierData.licenceExempt) {
+      req.session.data['require-meters'] = '0'
+      res.redirect('/do-you-have-meter-numbers-for-known-electricity-nsc')
+    } else {
+      res.redirect('/what-is-the-company-name-as-it-appears-on-your-electricity-bill')
+    }
   }
 })
 
@@ -215,9 +227,9 @@ router.get(['/add-gas-bill-name'], (req, res) => {
   supplier.address = supplierAddress
   supplier.phoneNumber = req.session.data['supplier-telephone-number']
   supplier.emailAddress = req.session.data['supplier-email']
-  const newSupplier = req.session.data['new-supplier'] === '1'
+  const requireMeters = req.session.data['require-meters'] === '1'
   const hasMeterNumbers = req.session.data['new-gas-supplier-meters'] === 'yes'
-  if (!newSupplier || hasMeterNumbers) {
+  if (requireMeters || hasMeterNumbers) {
     res.redirect('/what-is-your-gas-meter-number')
   } else {
     res.redirect('/gas-supplier-summary')
@@ -237,9 +249,9 @@ router.get(['/add-electricity-bill-name'], (req, res) => {
   supplier.address = supplierAddress
   supplier.phoneNumber = req.session.data['supplier-telephone-number']
   supplier.emailAddress = req.session.data['supplier-email']
-  const newSupplier = req.session.data['new-supplier'] === '1'
+  const requireMeters = req.session.data['require-meters'] === '1'
   const hasMeterNumbers = req.session.data['new-electricity-supplier-meters'] === 'yes'
-  if (!newSupplier || hasMeterNumbers) {
+  if (requireMeters || hasMeterNumbers) {
     res.redirect('/what-is-your-electricity-meter-number')
   } else {
     res.redirect('/electricity-supplier-summary')

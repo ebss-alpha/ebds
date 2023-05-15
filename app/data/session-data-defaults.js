@@ -1,91 +1,120 @@
 module.exports = {
   "suppliers": [
     {
-      "supplierName": "BlueFlame Energy"
+      "supplierName": "BlueFlame Energy",
+      "licenceExempt": false
     },
     {
-      "supplierName": "BlueSky Power"
+      "supplierName": "BlueSky Power",
+      "licenceExempt": false
     },
     {
-      "supplierName": "BrightSpark Energy"
+      "supplierName": "BrightSpark Energy",
+      "licenceExempt": false
     },
     {
-      "supplierName": "CleanCurrents UK"
+      "supplierName": "CleanCurrents UK",
+      "licenceExempt": false
     },
     {
-      "supplierName": "CleanGenius UK"
+      "supplierName": "CleanGenius UK",
+      "licenceExempt": false
     },
     {
-      "supplierName": "ClimateWise Energy"
+      "supplierName": "ClimateWise Energy",
+      "licenceExempt": false
     },
     {
-      "supplierName": "EcoEnergi UK"
+      "supplierName": "EcoEnergi UK",
+      "licenceExempt": false
     },
     {
-      "supplierName": "EcoWave Energy"
+      "supplierName": "EcoWave Energy",
+      "licenceExempt": false
     },
     {
-      "supplierName": "EverGreen Energy"
+      "supplierName": "EverGreen Energy",
+      "licenceExempt": false
     },
     {
-      "supplierName": "GreenGen UK"
+      "supplierName": "GreenGen UK",
+      "licenceExempt": true
     },
     {
-      "supplierName": "GreenGlow Energy"
+      "supplierName": "GreenGlow Energy",
+      "licenceExempt": true
     },
     {
-      "supplierName": "GreenLife Energy"
+      "supplierName": "GreenLife Energy",
+      "licenceExempt": true
     },
     {
-      "supplierName": "NaturePower UK"
+      "supplierName": "NaturePower UK",
+      "licenceExempt": false
     },
     {
-      "supplierName": "OceanBreeze Energy"
+      "supplierName": "OceanBreeze Energy",
+      "licenceExempt": false
     },
     {
-      "supplierName": "PowerPlus UK"
+      "supplierName": "PowerPlus UK",
+      "licenceExempt": false
     },
     {
-      "supplierName": "PureEnergy Solutions"
+      "supplierName": "PureEnergy Solutions",
+      "licenceExempt": false
     },
     {
-      "supplierName": "PureWatt Energy"
+      "supplierName": "PureWatt Energy",
+      "licenceExempt": false
     },
     {
-      "supplierName": "RedSky Energy"
+      "supplierName": "RedSky Energy",
+      "licenceExempt": false
     },
     {
-      "supplierName": "RenewGreen UK"
+      "supplierName": "RenewGreen UK",
+      "licenceExempt": false
     },
     {
-      "supplierName": "Skyline Power"
+      "supplierName": "Skyline Power",
+      "licenceExempt": false
     },
     {
-      "supplierName": "SolarCoast Energy"
+      "supplierName": "SolarCoast Energy",
+      "licenceExempt": false
     },
     {
-      "supplierName": "Solaris Energy"
+      "supplierName": "Solaris Energy",
+      "licenceExempt": false
     },
     {
-      "supplierName": "SunScape Energy"
+      "supplierName": "SunScape Energy",
+      "licenceExempt": false
     },
     {
-      "supplierName": "SunStream Energy"
+      "supplierName": "SunStream Energy",
+      "licenceExempt": false
     },
     {
-      "supplierName": "Sustainable Power Co."
+      "supplierName": "Sustainable Power Co.",
+      "licenceExempt": false
     },
     {
-      "supplierName": "TerraWatt Energy"
+      "supplierName": "TerraWatt Energy",
+      "licenceExempt": false
     },
     {
-      "supplierName": "Windward Energy"
+      "supplierName": "Windward Energy",
+      "licenceExempt": false
     },
     {
-      "supplierName": "WindWise Energy"
+      "supplierName": "WindWise Energy",
+      "licenceExempt": false
     },
     {
-      "supplierName": "WiseWatt Energy"
+      "supplierName": "WiseWatt Energy",
+      "licenceExempt": false
     }
   ]
   ,
