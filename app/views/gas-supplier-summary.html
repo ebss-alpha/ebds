@@ -8,6 +8,8 @@
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
+{% set hasMeterNumbers = data.gasSuppliers[data.gasSuppliers.length - 1].meterNumbers.length != 0 %}
+
 {% block content %}
 <form action="supplier-check">
   <div class="govuk-grid-row">
@@ -37,12 +39,63 @@
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">
-              Change name
+              Change <span class="govuk-visually-hidden">name</span>
             </a>
         </div>
+        {% if data['new-supplier'] === '1' %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Supplier name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['gas-supplier'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change <span class="govuk-visually-hidden">supplier name</span>
+            </a>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Supplier address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data.gasSuppliers[data.gasSuppliers | length - 1].address | safe}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change <span class="govuk-visually-hidden">supplier address</span>
+            </a>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Supplier contact telephone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data.gasSuppliers[data.gasSuppliers | length - 1].phoneNumber}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change <span class="govuk-visually-hidden">supplier phone number</span>
+            </a>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Supplier contact email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data.gasSuppliers[data.gasSuppliers | length - 1].emailAddress}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change <span class="govuk-visually-hidden">supplier email address</span>
+            </a>
+        </div>
+        {% endif %}
       </dl>
     </div>
   </div>
+  {% if hasMeterNumbers %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <h2 class="govuk-heading-m">Meter details</h2>
@@ -109,6 +162,7 @@
         }) }}
       </div>
       <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-6">
+      {% endif %}
       <div class="govuk-button-group">
         {{ govukButton({
           name: "action",
