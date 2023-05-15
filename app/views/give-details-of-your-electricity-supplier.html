@@ -1,0 +1,110 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Give details of your electricity supplier – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="do-you-have-meter-numbers-for-this-electricity-supplier">
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+    {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+    {% call govukFieldset({
+    legend: {
+    text: "Give details of your electricity supplier",
+    classes: "govuk-fieldset__legend--l",
+    isPageHeading: true
+    }
+    }) %}
+    {{ govukInput({
+    label: {
+    text: 'Supplier name'
+    },
+    id: "electricity-supplier",
+    name: "electricity-supplier"
+    }) }}
+
+    {{ govukInput({
+    label: {
+    text: 'Supplier address line 1'
+    },
+    id: "supplier-address-line-1",
+    name: "supplier-address-line-1",
+    autocomplete: "address-line1"
+    }) }}
+
+    {{ govukInput({
+    label: {
+    text: 'Supplier address line 2 (optional)'
+    },
+    id: "supplier-address-line-2",
+    name: "supplier-address-line-2",
+    autocomplete: "address-line2"
+    }) }}
+
+    {{ govukInput({
+    label: {
+    text: "Town or city"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "supplier-address-town",
+    name: "supplier-address-town",
+    autocomplete: "address-level2"
+    }) }}
+
+    {{ govukInput({
+    label: {
+    text: "County (optional)"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "supplier-address-county",
+    name: "supplier-address-county"
+    }) }}
+
+    {{ govukInput({
+    label: {
+    text: "Postcode"
+    },
+    classes: "govuk-input--width-10",
+    id: "supplier-address-postcode",
+    name: "supplier-address-postcode",
+    autocomplete: "postal-code"
+    }) }}
+
+    {{ govukInput({
+    label: {
+    text: "Contact telephone number"
+    },
+    id: "supplier-telephone-number",
+    name: "supplier-telephone-number",
+    type: "tel",
+    autocomplete: "tel",
+    classes: "govuk-input--width-20"
+    }) }}
+    
+    {{ govukInput({
+    label: {
+    text: "Contact email address"
+    },
+    id: "supplier-email",
+    name: "supplier-email",
+    type: "email"
+    }) }}
+
+    {% endcall %}
+    <input type="hidden" name="new-supplier" value="1">
+    <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
