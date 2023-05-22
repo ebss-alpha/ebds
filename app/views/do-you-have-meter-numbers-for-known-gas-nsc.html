@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Do you have meter numbers for {{ data['gas-supplier'] }}? – {{ serviceName }}
+Do you have unique identifying gas meter point numbers for {{ data['gas-supplier'] }}? – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -17,20 +17,29 @@ Do you have meter numbers for {{ data['gas-supplier'] }}? – {{ serviceName }}
         <fieldset class="govuk-fieldset" aria-describedby="new-gas-supplier-meters">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Do you have meter numbers for {{ data['gas-supplier'] }}?
+              Do you have unique identifying gas meter point numbers for {{ data['gas-supplier'] }}?
             </h1>
           </legend>
+          <div id="dyh-hint">
+            <p class="govuk-hint">
+              For example, a Meter Point Reference Number (MPRN) or a Balancing Mechanism Unit number.
+            </p>
+            {{ govukWarningText({
+            text: "This is not a meter reading or meter serial number. Your supplier will not be able to apply the discount",
+            iconFallbackText: "Warning"
+            }) }}
+          </div>
           <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="new-gas-supplier-meters" name="new-gas-supplier-meters" type="radio"
-                value="yes">
+                value="yes" aria-describedby="dyh-hint">
               <label class="govuk-label govuk-radios__label" for="new-gas-supplier-meters">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="new-gas-supplier-meters-2" name="new-gas-supplier-meters" type="radio"
-                value="no">
+                value="no" aria-describedby="dyh-hint">
               <label class="govuk-label govuk-radios__label" for="new-gas-supplier-meters-2">
                 No
               </label>
