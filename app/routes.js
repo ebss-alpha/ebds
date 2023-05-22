@@ -165,6 +165,18 @@ router.get(['/energy-check'], (req, res) => {
   }
 })
 
+router.get(['/what-is-your-gas-meter-number'], (req, res) => {
+  const gasSupplier = req.session.data.suppliers.find(supplier =>  supplier.supplierName === req.session.data['gas-supplier']) ?? {}
+  const nsc = gasSupplier.licenceExempt !== false
+  res.render('what-is-your-gas-meter-number', { nsc : nsc })
+})
+
+router.get(['/what-is-your-electricity-meter-number'], (req, res) => {
+  const electricitySupplier = req.session.data.suppliers.find(supplier =>  supplier.supplierName === req.session.data['electricity-supplier']) ?? {}
+  const nsc = electricitySupplier.licenceExempt !== false
+  res.render('what-is-your-electricity-meter-number', { nsc : nsc })
+})
+
 router.get(['/add-gas-supplier'], (req, res) => {
   const skip = req.session.data.action === 'skip'
   if (skip) {
