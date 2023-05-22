@@ -22,11 +22,12 @@ Enter a electricity meter point number for this supplier
           {% if nsc %}
             <!-- NSC-specific content starts here 👇 -->
             <h1 class="govuk-heading-l">
-              NSC-specific electricity meter question here
+              Enter an electricity meter point number for this supplier
             </h1>
             <div id="electricity-meter-hint">
               <p class="govuk-hint">
-                You can find your MPAN or MPRN on the bill from your energy supplier:
+                Most electricity meters have a Meter Point Administration Number (MPAN) in Great Britain or a Meter Point Reference Number (MPRN) in Northern Ireland.</p>  
+              <p class="govuk-hint">You can find your MPAN or MPRN on the bill from your energy supplier:
               </p>
               <ul class="govuk-list govuk-list--bullet govuk-hint">
                 <li>MPANs start with 'S' and are 21 digits long - only enter the final 13 digits</li>
@@ -45,7 +46,7 @@ Enter a electricity meter point number for this supplier
               }) }}
             </div>
             <label class="govuk-label" for="meter-number">
-              What your weird meter number?
+              What is your meter number?
             </label>
             <!-- NSC-specific content ends here 👆 -->
             {% else %}
