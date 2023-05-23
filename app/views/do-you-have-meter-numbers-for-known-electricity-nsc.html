@@ -17,15 +17,15 @@ Do you have unique identifying electricity meter point numbers for {{ data['elec
         <fieldset class="govuk-fieldset" aria-describedby="new-electricity-supplier-meters">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Do you have unique identifying electricity meter point numbers for {{ data['electricity-supplier'] }}?
+              Do you have unique identifying electricity meter numbers for {{ data['electricity-supplier'] }}?
             </h1>
           </legend>
           <div id="dyh-hint">
             <p class="govuk-hint">
-              For example, a Meter Point Administration Number (MPAN) or Balancing Mechanism Unit number?
+              For example, a Meter Point Administration Number (MPAN) or Balancing Mechanism Unit number.
             </p>
             {{ govukWarningText({
-            text: "These are not a meter readings or meter serial numbers. Your supplier will not be able to use these to apply the discount",
+            text: "These are not meter readings or meter serial numbers. Your supplier will not be able to use these to apply the discount",
             iconFallbackText: "Warning"
             }) }}
           </div>

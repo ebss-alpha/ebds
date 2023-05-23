@@ -18,29 +18,27 @@ Enter a gas meter point number for this supplier – {{ serviceName }} – GOV.U
           {% if nsc %}
           <!-- NSC-specific content starts here 👇 -->
             <h1 class="govuk-heading-l">
-              Enter a gas meter point number for this supplier
+              Enter a gas meter number for this supplier
             </h1>
             <div id="gas-meter-hint">
               <p class="govuk-hint">
-                Most gas meters have a Meter Point Reference Number (MPRN) in Great Britain or a Supply Meter Point (SMP) number in Northern Ireland.
-              </p>
-              <p class="govuk-hint">
-                You can find your MPRN or SMP on the bill from your energy supplier. It is a number between 6 and 10 digits long.
-              </p>
-              <p class="govuk-hint">
-                You might also have a:
+                This is a unique identifying number which could be:
               </p>
               <ul class="govuk-hint govuk-list govuk-list--bullet">
-                <li>Balancing Mechanism Unit number</li>
-                <li>something else</li>
+                <li>a Meter Point Reference Number (in Great Britain)</li>
+                <li>a Supply Meter Point number in Northern Ireland</li>
+                <li>another number for a non-standard meter</li>
               </ul>
+              <p class="govuk-hint">
+                You should find this number on the bill from your energy supplier.
+              </p>
               {{ govukWarningText({
               text: "Do not enter a meter reading or meter serial number. Your supplier will not be able to apply the discount",
               iconFallbackText: "Warning"
               }) }}
             </div>
           <label class="govuk-label" for="meter-number">
-            What is your meter number?
+            What is your unique identifying meter number?
           </label>
           <!-- NSC-specific content ends here 👆 -->
           {% else %}

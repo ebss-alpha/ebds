@@ -22,31 +22,27 @@ Enter a electricity meter point number for this supplier
           {% if nsc %}
             <!-- NSC-specific content starts here 👇 -->
             <h1 class="govuk-heading-l">
-              Enter an electricity meter point number for this supplier
+              Enter an electricity meter number for this supplier
             </h1>
             <div id="electricity-meter-hint">
               <p class="govuk-hint">
-                Most electricity meters have a Meter Point Administration Number (MPAN) in Great Britain or a Meter Point Reference Number (MPRN) in Northern Ireland.</p>  
-              <p class="govuk-hint">You can find your MPAN or MPRN on the bill from your energy supplier:
-              </p>
-              <ul class="govuk-list govuk-list--bullet govuk-hint">
-                <li>MPANs start with 'S' and are 21 digits long - only enter the final 13 digits</li>
-                <li>MPRNs are 11 digit numbers starting with 81</li>
+                This is a unique identifying number which could be:</p>
+                              <ul class="govuk-list govuk-list--bullet govuk-hint">
+                <li>a Meter Point Administration Number (in Great Britain)</li>
+                <li>a Meter Point Reference Number (in Northern Ireland)</li>
+                <li>a Balancing Mechanism Unit number</li>
+                <li>another number for a non-standard meter</li>
               </ul>
               <p class="govuk-hint">
-                You might also have a:
+                You should find this number on the bill from your energy supplier.
               </p>
-              <ul class="govuk-hint govuk-list govuk-list--bullet">
-                <li>Balancing Mechanism Unit number</li>
-                <li>Something else</li>
-              </ul>
               {{ govukWarningText({
               text: "Do not enter a meter reading or meter serial number. Your supplier will not be able to apply the discount",
               iconFallbackText: "Warning"
               }) }}
             </div>
             <label class="govuk-label" for="meter-number">
-              What is your meter number?
+              What is your unique identifying meter number?
             </label>
             <!-- NSC-specific content ends here 👆 -->
             {% else %}
