@@ -6,6 +6,9 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
+govukPrototypeKit.requests.serveDirectory('/accessible-autocomplete', './node_modules/accessible-autocomplete/dist')
+govukPrototypeKit.requests.serveDirectory('/govuk-country-and-territory-autocomplete', './node_modules/govuk-country-and-territory-autocomplete/dist')
+
 router.get(['/start'], (req, res) => {
   req.session.data = {
     cookies: req.session.data.cookies

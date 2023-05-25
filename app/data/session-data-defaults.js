@@ -1,4 +1,10 @@
+const fs = require('fs')
+
+const countries = JSON.parse(fs.readFileSync('./node_modules/govuk-country-and-territory-autocomplete/dist/location-autocomplete-canonical-list.json', 'utf8'))
+
+
 module.exports = {
+  "countries": countries,
   "suppliers": [
     {
       "supplierName": "BlueFlame Energy",
