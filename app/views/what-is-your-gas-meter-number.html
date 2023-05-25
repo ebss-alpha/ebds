@@ -22,18 +22,18 @@ Enter a gas meter point number for this supplier – {{ serviceName }} – GOV.U
             </h1>
             <div id="gas-meter-hint">
               <p class="govuk-hint">
-                This is a unique identifying number which could be:
+                This is a unique identifying number that helps your supplier identify where to apply the discount. Examples include:
               </p>
               <ul class="govuk-hint govuk-list govuk-list--bullet">
                 <li>a Meter Point Reference Number (in Great Britain)</li>
                 <li>a Supply Meter Point number in Northern Ireland</li>
-                <li>another number for a non-standard meter</li>
+                <li>a customer reference number</li>
               </ul>
               <p class="govuk-hint">
                 You should find this number on the bill from your energy supplier.
               </p>
               {{ govukWarningText({
-              text: "Do not enter a meter reading or meter serial number. Your supplier will not be able to apply the discount",
+              text: "Do not enter a meter reading or meter serial number",
               iconFallbackText: "Warning"
               }) }}
             </div>
