@@ -5,6 +5,16 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
 
+{% block head %}
+{% block meta %}{% endblock %}
+{% block stylesheets %}
+{% include "govuk-prototype-kit/includes/stylesheets.html" %}
+<link href="/accessible-autocomplete/accessible-autocomplete.min.css" rel="stylesheet"  type="text/css">
+<link href="/govuk-country-and-territory-autocomplete/location-autocomplete.min.css" rel="stylesheet"  type="text/css">
+{% endblock %}
+{% endblock %}
+
+
 {% block footer %}
 {{ govukFooter({
 meta: {
