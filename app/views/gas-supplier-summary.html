@@ -69,6 +69,18 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
+            Supplier's company registration number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data.electricitySuppliers[data.electricitySuppliers | length - 1].crn}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change <span class="govuk-visually-hidden">supplier address</span>
+            </a>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
             Supplier contact telephone number
           </dt>
           <dd class="govuk-summary-list__value">

@@ -79,15 +79,33 @@ Details of your gas supplier – {{ serviceName }}
     }) }}
 
     <div class="govuk-form-group">
-      <label class="govuk-label" for="supplier-country">
+      <label class="govuk-label" for="supplier-address-country">
         Country
       </label>
-      <select id="supplier-country" name="supplier-country" class="govuk-select">
+      <select id="supplier-address-country" name="supplier-address-country" class="govuk-select">
         {% for country in data.countries %}
         <option value="{{ country[1] }}" {% if country[0]=='United Kingdom' %}selected{% endif %}>{{ country[0] }}</option>
         {% endfor %}
       </select>
     </div>
+
+    {{ govukInput({
+    label: {
+    text: "Supplier's company registration number (optional)"
+    },
+    id: "supplier-crn",
+    name: "supplier-crn",
+    classes: "govuk-input--width-10"
+    }) }}
+    
+    {{ govukInput({
+    label: {
+    text: "Supplier's overseas registration number (optional)"
+    },
+    id: "supplier-overseas-reg",
+    name: "supplier-overseas-reg",
+    classes: "govuk-input--width-10"
+    }) }}
 
     {{ govukInput({
     label: {
@@ -120,7 +138,7 @@ Details of your gas supplier – {{ serviceName }}
 <script type="text/javascript">
   openregisterLocationPicker({
     defaultValue: '',
-    selectElement: document.getElementById('supplier-country'),
+    selectElement: document.getElementById('supplier-address-country'),
   })
 </script>
 
