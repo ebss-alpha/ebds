@@ -237,11 +237,13 @@ router.get(['/add-gas-bill-name'], (req, res) => {
   const addressTown = req.session.data['supplier-address-town']
   const addressCounty = req.session.data['supplier-address-county']
   const addressPostcode = req.session.data['supplier-address-postcode']
-  const supplierAddress = `${addressLine1 ? addressLine1 + '<br>' : ''}${addressLine2 ? addressLine2 + '<br>' : ''}${addressTown ? addressTown + '<br>' : ''}${addressCounty ? addressCounty + '<br>' : ''}${addressPostcode ? addressPostcode + '<br>' : ''}`
+  const addressCountry = req.session.data['supplier-address-country']
+  const supplierAddress = `${addressLine1 ? addressLine1 + '<br>' : ''}${addressLine2 ? addressLine2 + '<br>' : ''}${addressTown ? addressTown + '<br>' : ''}${addressCounty ? addressCounty + '<br>' : ''}${addressPostcode ? addressPostcode + '<br>' : ''}${addressCountry ? addressCountry + '<br>' : ''}`
   supplier.companyName = req.session.data['company-name']
   supplier.address = supplierAddress
   supplier.phoneNumber = req.session.data['supplier-telephone-number']
   supplier.emailAddress = req.session.data['supplier-email']
+  supplier.crn = req.session.data['supplier-crn'] ?? req.session.data['supplier-overseas-reg']
   const requireMeters = req.session.data['require-meters'] === '1'
   const hasMeterNumbers = req.session.data['new-gas-supplier-meters'] === 'yes'
   if (requireMeters || hasMeterNumbers) {
@@ -259,11 +261,13 @@ router.get(['/add-electricity-bill-name'], (req, res) => {
   const addressTown = req.session.data['supplier-address-town']
   const addressCounty = req.session.data['supplier-address-county']
   const addressPostcode = req.session.data['supplier-address-postcode']
-  const supplierAddress = `${addressLine1 ? addressLine1 + '<br>' : ''}${addressLine2 ? addressLine2 + '<br>' : ''}${addressTown ? addressTown + '<br>' : ''}${addressCounty ? addressCounty + '<br>' : ''}${addressPostcode ? addressPostcode + '<br>' : ''}`
+  const addressCountry = req.session.data['supplier-address-country']
+  const supplierAddress = `${addressLine1 ? addressLine1 + '<br>' : ''}${addressLine2 ? addressLine2 + '<br>' : ''}${addressTown ? addressTown + '<br>' : ''}${addressCounty ? addressCounty + '<br>' : ''}${addressPostcode ? addressPostcode + '<br>' : ''}${addressCountry ? addressCountry + '<br>' : ''}`
   supplier.companyName = req.session.data['company-name']
   supplier.address = supplierAddress
   supplier.phoneNumber = req.session.data['supplier-telephone-number']
   supplier.emailAddress = req.session.data['supplier-email']
+  supplier.crn = req.session.data['supplier-crn'] ?? req.session.data['supplier-overseas-reg']
   const requireMeters = req.session.data['require-meters'] === '1'
   const hasMeterNumbers = req.session.data['new-electricity-supplier-meters'] === 'yes'
   if (requireMeters || hasMeterNumbers) {
