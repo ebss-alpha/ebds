@@ -78,6 +78,17 @@ Details of your electricity supplier – {{ serviceName }}
     autocomplete: "postal-code"
     }) }}
 
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="supplier-country">
+        Country
+      </label>
+      <select id="supplier-country" name="supplier-country" class="govuk-select">
+        {% for country in data.countries %}
+        <option value="{{ country[1] }}" {% if country[0]=='United Kingdom' %}selected{% endif %}>{{ country[0] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
     {{ govukInput({
     label: {
     text: "Contact telephone number"
@@ -102,10 +113,16 @@ Details of your electricity supplier – {{ serviceName }}
     <input type="hidden" name="new-supplier" value="1">
     <input type="hidden" name="require-meters" value="0">
     <button class="govuk-button" data-module="govuk-button">Continue</button>
-
     </form>
-
   </div>
 </div>
+
+<script src="govuk-country-and-territory-autocomplete/location-autocomplete.min.js"></script>
+<script type="text/javascript">
+  openregisterLocationPicker({
+    defaultValue: '',
+    selectElement: document.getElementById('supplier-country'),
+  })
+</script>
 
 {% endblock %}
